@@ -15,6 +15,8 @@ namespace Artemisapp_UX
     public partial class PruebaHistoriaClinica : Form
     {
         HistoriaClinicaBLL bll = new HistoriaClinicaBLL();
+        // historia clinica : DNI, ID historia, fecha de consulta,
+        // estudios realizados, internaciones previas, observaciones médicas
 
         public PruebaHistoriaClinica()
         {

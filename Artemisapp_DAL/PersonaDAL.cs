@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using Artemisapp_BE.Personas;
 
@@ -14,7 +15,13 @@ namespace Artemisapp_DAL
 
         private string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DATOS", "Personas.xml");
 
-        // GUARDAR una persona nueva en el XML
+        public List<XElement> ObtenerTodasCrudas()
+        {
+            XDocument doc = XDocument.Load(ruta);
+            return doc.Root.Elements("Persona").ToList();
+        }
+
+
         public bool GuardarPersona(Persona persona)
         {
             try

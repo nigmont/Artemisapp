@@ -34,6 +34,32 @@ namespace Artemisapp_MPP
             return lista;
         }
 
+        public Persona BuscarPorDNI(string dni)
+        {
+            PersonaDAL dal = new PersonaDAL();
+            XElement elemento = dal.BuscarPorDNICrudo(dni);
+
+            if (elemento == null)
+                return null;
+
+            return ToEntity(elemento);
+        }
+
+        public bool Guardar(Persona persona)
+        {
+            PersonaDAL dal = new PersonaDAL();
+            XElement nuevaPersona = ToXml(persona);
+            return dal.GuardarCrudo(nuevaPersona);
+        }
+
+        public bool Eliminar(string dni)
+        {
+            PersonaDAL dal = new PersonaDAL();
+            return dal.EliminarCrudo(dni);
+        }
+
+
+
         // De entidad de negocio → dato crudo (XML)
         public XElement ToXml(Persona persona)
         {

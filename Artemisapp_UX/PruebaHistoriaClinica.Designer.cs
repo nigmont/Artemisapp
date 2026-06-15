@@ -47,6 +47,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblResultado = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,9 +95,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(215, 57);
+            this.btnGuardar.Location = new System.Drawing.Point(15, 274);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(97, 45);
+            this.btnGuardar.Size = new System.Drawing.Size(181, 59);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(215, 113);
+            this.btnBuscar.Location = new System.Drawing.Point(215, 188);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(97, 45);
             this.btnBuscar.TabIndex = 7;
@@ -114,7 +115,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(215, 172);
+            this.btnActualizar.Location = new System.Drawing.Point(215, 129);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(97, 45);
             this.btnActualizar.TabIndex = 8;
@@ -126,7 +127,7 @@
             // 
             this.btnDarAltaMedica.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDarAltaMedica.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnDarAltaMedica.Location = new System.Drawing.Point(215, 223);
+            this.btnDarAltaMedica.Location = new System.Drawing.Point(215, 70);
             this.btnDarAltaMedica.Name = "btnDarAltaMedica";
             this.btnDarAltaMedica.Size = new System.Drawing.Size(97, 45);
             this.btnDarAltaMedica.TabIndex = 9;
@@ -217,11 +218,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Historia Clinica";
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLimpiar.Location = new System.Drawing.Point(15, 339);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(181, 28);
+            this.btnLimpiar.TabIndex = 19;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // PruebaHistoriaClinica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 450);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -270,5 +283,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

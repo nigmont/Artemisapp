@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.7.11903.348 stable
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemisapp_BE", "Artemisapp_BE\Artemisapp_BE.csproj", "{AE77D77C-820C-4F99-801E-554DA13676C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE", "Artemisapp_BE\BE.csproj", "{AE77D77C-820C-4F99-801E-554DA13676C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemisapp_BLL", "Artemisapp_BLL\Artemisapp_BLL.csproj", "{1700D039-AD41-4E77-B589-F2419867A32D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "Artemisapp_BLL\BLL.csproj", "{1700D039-AD41-4E77-B589-F2419867A32D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemisapp_DAL", "Artemisapp_DAL\Artemisapp_DAL.csproj", "{27B60338-2661-45FC-881A-BF09AAF4C074}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "Artemisapp_DAL\DAL.csproj", "{27B60338-2661-45FC-881A-BF09AAF4C074}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemisapp_UX", "Artemisapp_UX\Artemisapp_UX.csproj", "{C0A9331B-1E26-4544-B97E-1FE7DE514817}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UX", "Artemisapp_UX\UX.csproj", "{C0A9331B-1E26-4544-B97E-1FE7DE514817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemisapp_MPP", "Artemisapp_MPP\Artemisapp_MPP.csproj", "{DA4395CB-3024-4610-A1AD-CEBE43BD1848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPP", "Artemisapp_MPP\MPP.csproj", "{DA4395CB-3024-4610-A1AD-CEBE43BD1848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,17 +1,19 @@
 ﻿using Artemisapp_BE.Personas;
 using Artemisapp_DAL;
+using Artemisapp_MPP;
 using System.Collections.Generic;
 
 namespace Artemisapp_BLL
 {
     public class PersonaBLL
     {
-        // Creamos una instancia de la DAL
-        PersonaDAL dal = new PersonaDAL();
+        
+        PersonaDAL dal = new PersonaDAL(); // DAL para acceder a los datos de las personas
+        PersonaMapper mapper = new PersonaMapper(); // Mapper para convertir entre XML y entidad de negocio
 
         public bool RegistrarUsuario(Persona persona)
         {
-            return dal.GuardarPersona(persona);
+            return mapper.Guardar(persona);
         }
 
         public bool ModificarUsuario(Persona persona)
@@ -21,17 +23,17 @@ namespace Artemisapp_BLL
 
         public bool EliminarUsuario(string dni)
         {
-            return dal.EliminarPersona(dni);
+            return mapper.Eliminar(dni);
         }
 
         public Persona BuscarUsuarioPorDNI(string dni)
         {
-            return dal.BuscarPorDNI(dni);
+            return mapper.BuscarPorDNI(dni);
         }
 
         public List<Persona> ObtenerTodosLosUsuarios()
         {
-            return dal.ObtenerTodas();
+            return mapper.ObtenerTodas();
         }
     }
 }

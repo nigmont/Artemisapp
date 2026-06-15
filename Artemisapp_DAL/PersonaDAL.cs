@@ -15,27 +15,34 @@ namespace Artemisapp_DAL
 
         private string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DATOS", "Personas.xml");
 
-        public List<XElement> ObtenerTodasCrudas()
+
+        public List<XElement> ObtenerTodasCrudas() // Método que devuelve una lista de elementos XML crudos
+                                                   // (sin mapear a entidades de negocio)
         {
             XDocument doc = XDocument.Load(ruta);
             return doc.Root.Elements("Persona").ToList();
         }
 
+        public XElement BuscarPorDNICrudo(string dni)
+        {
+            XDocument doc = XDocument.Load(ruta);
 
-        public bool GuardarPersona(Persona persona)
+            foreach (XElement elemento in doc.Root.Elements("Persona"))
+            {
+                if ((string)elemento.Element("DNI") == dni)
+                {
+                    return elemento;
+                }
+            }
+
+            return null;
+        }
+
+        public bool GuardarCrudo(XElement nuevaPersona)
         {
             try
             {
                 XDocument doc = XDocument.Load(ruta);
-
-                XElement nuevaPersona = new XElement("Persona",
-                    new XElement("DNI", persona.DNI),
-                    new XElement("Nombre", persona.Nombre),
-                    new XElement("Apellido", persona.Apellido),
-                    new XElement("Telefono", persona.Telefono),
-                    new XElement("Correo", persona.Correo)
-                );
-
                 doc.Root.Add(nuevaPersona);
                 doc.Save(ruta);
                 return true;
@@ -46,54 +53,7 @@ namespace Artemisapp_DAL
             }
         }
 
-        // OBTENER TODAS las personas del XML
-        public List<Persona> ObtenerTodas()
-        {
-            List<Persona> lista = new List<Persona>();
-
-            XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elemento in doc.Root.Elements("Persona"))
-            {
-                Persona p = new Persona(
-                    (string)elemento.Element("Nombre"),
-                    (string)elemento.Element("Apellido"),
-                    (string)elemento.Element("DNI"),
-                    (string)elemento.Element("Telefono"),
-                    (string)elemento.Element("Correo")
-                );
-
-                lista.Add(p);
-            }
-
-            return lista;
-        }
-
-        // BUSCAR una persona por DNI
-        public Persona BuscarPorDNI(string dni)
-        {
-            XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elemento in doc.Root.Elements("Persona"))
-            {
-                if ((string)elemento.Element("DNI") == dni)
-                {
-                    Persona p = new Persona(
-                        (string)elemento.Element("Nombre"),
-                        (string)elemento.Element("Apellido"),
-                        (string)elemento.Element("DNI"),
-                        (string)elemento.Element("Telefono"),
-                        (string)elemento.Element("Correo")
-                    );
-                    return p;
-                }
-            }
-
-            return null;
-        }
-
-        // ELIMINAR una persona por DNI
-        public bool EliminarPersona(string dni)
+        public bool EliminarCrudo(string dni)
         {
             try
             {
@@ -116,5 +76,7 @@ namespace Artemisapp_DAL
                 return false;
             }
         }
+       
+
     }
 }

@@ -88,13 +88,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Artemisapp_BE\Artemisapp_BE.csproj">
+    <ProjectReference Include="..\Artemisapp_BE\BE.csproj">
       <Project>{ae77d77c-820c-4f99-801e-554da13676c3}</Project>
-      <Name>Artemisapp_BE</Name>
+      <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Artemisapp_BLL\Artemisapp_BLL.csproj">
+    <ProjectReference Include="..\Artemisapp_BLL\BLL.csproj">
       <Project>{1700d039-ad41-4e77-b589-f2419867a32d}</Project>
-      <Name>Artemisapp_BLL</Name>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -39,13 +39,13 @@ namespace Artemisapp_UX
                 bool resultado = bll.RegistrarConsulta(h);
 
                 if (resultado)
-                    lblResultado.Text = "✅ Historia clínica registrada correctamente.";
+                    lblResultado.Text = "Historia clínica registrada correctamente.";
                 else
-                    lblResultado.Text = "❌ No se pudo registrar.";
+                    lblResultado.Text = "No se pudo registrar.";
             }
             catch (Exception ex)
             {
-                lblResultado.Text = "❌ Error: " + ex.Message;
+                lblResultado.Text = "Error: " + ex.Message;
             }
         }
 
@@ -114,14 +114,27 @@ namespace Artemisapp_UX
                 bool resultado = bll.DarAltaMedica(txtIdHistoria.Text);
 
                 if (resultado)
-                    lblResultado.Text = "✅ Alta médica otorgada correctamente.";
+                    lblResultado.Text = "Alta médica otorgada correctamente.";
                 else
-                    lblResultado.Text = "❌ No se encontró la historia clínica con ese ID.";
+                    lblResultado.Text = "No se encontró la historia clínica con ese ID.";
             }
             catch (Exception ex)
             {
-                lblResultado.Text = "❌ Error: " + ex.Message;
+                lblResultado.Text = "Error: " + ex.Message;
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtDni.Clear();
+            txtIdHistoria.Clear();
+            txtEstudios.Clear();
+            txtInternaciones.Clear();
+            txtObservaciones.Clear();
+
+            dtpFecha.Value = DateTime.Now;   // el DateTimePicker no tiene Clear()
+
+            lblResultado.Text = "";
         }
     }
 }

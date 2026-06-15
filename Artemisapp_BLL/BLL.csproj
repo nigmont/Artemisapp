@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA4395CB-3024-4610-A1AD-CEBE43BD1848}</ProjectGuid>
+    <ProjectGuid>{1700D039-AD41-4E77-B589-F2419867A32D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Artemisapp_MPP</RootNamespace>
-    <AssemblyName>Artemisapp_MPP</AssemblyName>
+    <RootNamespace>Artemisapp_BLL</RootNamespace>
+    <AssemblyName>Artemisapp_BLL</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonaMapper.cs" />
+    <Compile Include="AnimalBLL.cs" />
+    <Compile Include="ClienteBLL.cs" />
+    <Compile Include="HistorialClinicaBLL.cs" />
+    <Compile Include="PersonaBLL.cs" />
+    <Compile Include="ProductoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TurnosBLL.cs" />
+    <Compile Include="VentasBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Artemisapp_BE\Artemisapp_BE.csproj">
+    <ProjectReference Include="..\Artemisapp_BE\BE.csproj">
       <Project>{ae77d77c-820c-4f99-801e-554da13676c3}</Project>
-      <Name>Artemisapp_BE</Name>
+      <Name>BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Artemisapp_DAL\Artemisapp_DAL.csproj">
+    <ProjectReference Include="..\Artemisapp_DAL\DAL.csproj">
       <Project>{27b60338-2661-45fc-881a-bf09aaf4c074}</Project>
-      <Name>Artemisapp_DAL</Name>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artemisapp_MPP\MPP.csproj">
+      <Project>{da4395cb-3024-4610-a1ad-cebe43bd1848}</Project>
+      <Name>MPP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

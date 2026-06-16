@@ -1,8 +1,9 @@
-﻿using Artemisapp_BE.Animales;
-using Artemisapp_BE;
+﻿using Artemisapp_BE;
+using Artemisapp_BE.Animales;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace Artemisapp_DAL
@@ -25,61 +26,16 @@ namespace Artemisapp_DAL
             }
         }
 
-        // GUARDAR un cliente nuevo en el XML
-        public bool GuardarCliente(Cliente cliente)
-        {
-            try
-            {
-                InicializarXML();
-                XDocument doc = XDocument.Load(ruta);
-
-                XElement nuevoCliente = new XElement("Cliente",
-                    new XElement("Dni", cliente.Dni),
-                    new XElement("NroCte", cliente.NroCte),
-                    new XElement("Nombre", cliente.Nombre),
-                    new XElement("Apellido", cliente.Apellido),
-                    new XElement("Direccion", cliente.Direccion),
-                    new XElement("Telefono", cliente.Telefono),
-                    new XElement("Email", cliente.Email)
-                );
-
-                doc.Root.Add(nuevoCliente);
-                doc.Save(ruta);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        // OBTENER TODOS los clientes del XML
-        public List<Cliente> ObtenerTodos()
+        // CRUDO: devuelve todos los nodos <Cliente> sin mapear
+        public List<XElement> ObtenerTodosCrudos()
         {
             InicializarXML();
-            List<Cliente> lista = new List<Cliente>();
             XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elemento in doc.Root.Elements("Cliente"))
-            {
-                Cliente c = new Cliente(
-                    (string)elemento.Element("Dni"),
-                    (string)elemento.Element("NroCte"),
-                    (string)elemento.Element("Nombre"),
-                    (string)elemento.Element("Apellido"),
-                    (string)elemento.Element("Direccion"),
-                    (string)elemento.Element("Telefono"),
-                    (string)elemento.Element("Email"),
-                    new List<Animal>() // la lista de mascotas se carga aparte
-                );
-                lista.Add(c);
-            }
-
-            return lista;
+            return doc.Root.Elements("Cliente").ToList();
         }
 
-        // BUSCAR un cliente por DNI
-        public Cliente BuscarPorDNI(string dni)
+        // CRUDO: devuelve el nodo de un cliente por DNI
+        public XElement BuscarPorDNICrudo(string dni)
         {
             InicializarXML();
             XDocument doc = XDocument.Load(ruta);
@@ -87,57 +43,56 @@ namespace Artemisapp_DAL
             foreach (XElement elemento in doc.Root.Elements("Cliente"))
             {
                 if ((string)elemento.Element("Dni") == dni)
-                {
-                    return new Cliente(
-                        (string)elemento.Element("Dni"),
-                        (string)elemento.Element("NroCte"),
-                        (string)elemento.Element("Nombre"),
-                        (string)elemento.Element("Apellido"),
-                        (string)elemento.Element("Direccion"),
-                        (string)elemento.Element("Telefono"),
-                        (string)elemento.Element("Email"),
-                        new List<Animal>()
-                    );
-                }
+                    return elemento;
             }
-
             return null;
         }
 
-        // ACTUALIZAR datos de un cliente
-        public bool ActualizarCliente(Cliente cliente)
+        // CRUDO: recibe un nodo ya armado y lo guarda
+        public bool GuardarCrudo(XElement nuevoCliente)
         {
             try
             {
                 InicializarXML();
                 XDocument doc = XDocument.Load(ruta);
+                doc.Root.Add(nuevoCliente);
+                doc.Save(ruta);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // CRUDO: reemplaza el nodo existente (busca por DNI) por el nuevo
+        public bool ActualizarCrudo(XElement clienteActualizado)
+        {
+            try
+            {
+                InicializarXML();
+                XDocument doc = XDocument.Load(ruta);
+                string dni = (string)clienteActualizado.Element("Dni");
 
                 foreach (XElement elemento in doc.Root.Elements("Cliente"))
                 {
-                    if ((string)elemento.Element("Dni") == cliente.Dni)
+                    if ((string)elemento.Element("Dni") == dni)
                     {
-                        elemento.Element("NroCte").Value = cliente.NroCte;
-                        elemento.Element("Nombre").Value = cliente.Nombre;
-                        elemento.Element("Apellido").Value = cliente.Apellido;
-                        elemento.Element("Direccion").Value = cliente.Direccion;
-                        elemento.Element("Telefono").Value = cliente.Telefono;
-                        elemento.Element("Email").Value = cliente.Email;
-
+                        elemento.ReplaceWith(clienteActualizado);
                         doc.Save(ruta);
                         return true;
                     }
                 }
-
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
 
-        // ELIMINAR un cliente por DNI
-        public bool EliminarCliente(string dni)
+        // CRUDO: elimina el nodo de un cliente por DNI
+        public bool EliminarCrudo(string dni)
         {
             try
             {
@@ -153,13 +108,14 @@ namespace Artemisapp_DAL
                         return true;
                     }
                 }
-
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
+
+       
     }
 }

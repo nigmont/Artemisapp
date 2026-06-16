@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimalMPP.cs" />
+    <Compile Include="ClienteMapper.cs" />
     <Compile Include="PersonaMapper.cs" />
+    <Compile Include="ProductoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TurnoMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Artemisapp_BE\BE.csproj">

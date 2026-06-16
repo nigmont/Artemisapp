@@ -24,123 +24,75 @@ namespace Artemisapp_DAL
             }
         }
 
-        // GUARDAR un producto nuevo en el XML
+        // CRUDO: devuelve todos los nodos <Producto> sin mapear
+        public List<XElement> ObtenerTodosCrudos()
+        {
+            inicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+            return doc.Root.Elements("Producto").ToList();
+        }
 
-        public bool guardarProducto(Producto producto)
+        // CRUDO: devuelve el nodo de un producto por ID
+        public XElement BuscarPorIDCrudo(string id)
+        {
+            inicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+            return doc.Root.Elements("Producto")
+                      .FirstOrDefault(x => (string)x.Element("ID-Producto") == id);
+        }
+
+        // CRUDO: recibe un nodo ya armado y lo guarda
+        public bool GuardarCrudo(XElement nuevoProducto)
         {
             try
             {
                 inicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement nuevoProducto = new XElement("Producto",
-                    new XElement("ID-Producto", producto.IdProducto),
-                    new XElement("Nombre", producto.Nombre),
-                    new XElement("Descripcion", producto.Descripcion),
-                    new XElement("Categoria", producto.Categoria),
-                    new XElement("Vencimiento", producto.FechaDeVencimiento),
-                    new XElement("Precio", producto.Precio),
-                    new XElement("Proveedor", producto.Proveedor),
-                    new XElement("Stock", producto.Stock)
-                );
                 doc.Root.Add(nuevoProducto);
                 doc.Save(ruta);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
-        /*
-         * private string _idProducto;
-        private string _nombre;
-        private string _descripcion;
-        private string _categoria;
-        private DateTime _fechaDeVencimiento;
-        private Double _precio;
-        private string _proveedor;
-        private int _stock;
-        */
 
-        public List<Producto> obtenerTodos()
-        {
-            inicializarXML();
-            List<Producto> lista = new List<Producto>();
-            XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elem in doc.Root.Elements("Producto"))
-            {
-                Producto prod = new Producto(
-                    (string)elem.Element("ID-Producto"),
-                    (string)elem.Element("Nombre"),
-                    (string)elem.Element("Descripcion"),
-                    (string)elem.Element("Categoria"),
-                    (DateTime)elem.Element("Vencimiento"),
-                    (double)elem.Element("Precio"),
-                    (string)elem.Element("Proveedor"),
-                    (int)(elem.Element("Stock"))
-                );
-                lista.Add(prod);
-            }
-            return lista;
-
-        }
-
-        public Producto buscarPorID(string id)
-        {
-            inicializarXML();
-            XDocument doc = XDocument.Load(ruta);
-            XElement elem = doc.Root.Elements("Producto").FirstOrDefault(x => (string)x.Element("ID-Producto") == id);
-            if (elem != null)
-            {
-                return new Producto(
-                    (string)elem.Element("ID-Producto"),
-                    (string)elem.Element("Nombre"),
-                    (string)elem.Element("Descripcion"),
-                    (string)elem.Element("Categoria"),
-                    (DateTime)elem.Element("Vencimiento"),
-                    (double)elem.Element("Precio"),
-                    (string)elem.Element("Proveedor"),
-                    (int)(elem.Element("Stock"))
-                );
-            }
-            return null;
-
-        }
-
-        public bool actualizarProducto(Producto producto)
+        // CRUDO: reemplaza el nodo existente (busca por ID) por el nuevo
+        public bool ActualizarCrudo(XElement productoActualizado)
         {
             try
             {
                 inicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement elem = doc.Root.Elements("Producto").FirstOrDefault(x => (string)x.Element("ID-Producto") == producto.IdProducto);
+                string id = (string)productoActualizado.Element("ID-Producto");
+
+                XElement elem = doc.Root.Elements("Producto")
+                                  .FirstOrDefault(x => (string)x.Element("ID-Producto") == id);
                 if (elem != null)
                 {
-                    elem.Element("Nombre").Value = producto.Nombre;
-                    elem.Element("Descripcion").Value = producto.Descripcion;
-                    elem.Element("Categoria").Value = producto.Categoria;
-                    elem.Element("Precio").Value = producto.Precio.ToString(System.Globalization.CultureInfo.InvariantCulture);
-                    elem.Element("Vencimiento").Value = producto.FechaDeVencimiento.ToString("yyyy-MM-dd");
-                    elem.Element("Proveedor").Value = producto.Proveedor;
-                    elem.Element("Stock").Value = producto.Stock.ToString();
+                    elem.ReplaceWith(productoActualizado);
                     doc.Save(ruta);
                     return true;
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
-        public bool eliminarProducto(string id)
+
+        // CRUDO: elimina el nodo de un producto por ID
+        public bool EliminarCrudo(string id)
         {
             try
             {
                 inicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement elem = doc.Root.Elements("Producto").FirstOrDefault(x => (string)x.Element("ID-Producto") == id);
+
+                XElement elem = doc.Root.Elements("Producto")
+                                  .FirstOrDefault(x => (string)x.Element("ID-Producto") == id);
                 if (elem != null)
                 {
                     elem.Remove();
@@ -149,11 +101,13 @@ namespace Artemisapp_DAL
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
+
+
 
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
+using System.Linq;
 
 public class AnimalDAL
 {
@@ -25,104 +26,69 @@ public class AnimalDAL
         }
     }
 
-    // GUARDAR un animal nuevo en el XML
-    public bool GuardarAnimal(Animal animal)
+    // CRUDO: devuelve todos los nodos <Animal> sin mapear
+    public List<XElement> ObtenerTodosCrudos()
     {
-        try
-        {
-            InicializarXML(); // agregá esta línea al inicio
-            XDocument doc = XDocument.Load(ruta);
-
-            XElement nuevoAnimal = new XElement("Animal",
-                new XElement("Nombre", animal.Nombre),
-                new XElement("Edad", animal.Edad),
-                new XElement("Peso", animal.Peso),
-                new XElement("Raza", animal.Raza),
-                new XElement("NroCte", animal.NroCte)
-            );
-
-            doc.Root.Add(nuevoAnimal);
-            doc.Save(ruta);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
+        InicializarXML();
+        XDocument doc = XDocument.Load(ruta);
+        return doc.Root.Elements("Animal").ToList();
     }
 
-    // OBTENER TODOS los animales del XML
-    public List<Animal> ObtenerTodos()
+    // CRUDO: devuelve los nodos de los animales de un propietario (NroCte)
+    public List<XElement> BuscarPorPropietarioCrudo(string nroCte)
     {
-        InicializarXML(); // agregá esta línea al inicio
-        List<Animal> lista = new List<Animal>();
+        InicializarXML();
+        List<XElement> lista = new List<XElement>();
         XDocument doc = XDocument.Load(ruta);
-        foreach (XElement elemento in doc.Root.Elements("Animal"))
-        {
-            Animal a = new Animal(
-                (string)elemento.Element("Nombre"),
-                (int)elemento.Element("Edad"),
-                (double)elemento.Element("Peso"),
-                (string)elemento.Element("Raza"),
-                (string)elemento.Element("NroCte")
-            );
-            lista.Add(a);
-        }
-        return lista;
-    }
 
-    // BUSCAR animales por NroCte
-    public List<Animal> BuscarPorPropietario(string nroCte)
-    {
-        InicializarXML(); // agregá esta línea al inicio
-        List<Animal> lista = new List<Animal>();
-        XDocument doc = XDocument.Load(ruta);
         foreach (XElement elemento in doc.Root.Elements("Animal"))
         {
             if ((string)elemento.Element("NroCte") == nroCte)
-            {
-                Animal a = new Animal(
-                    (string)elemento.Element("Nombre"),
-                    (int)elemento.Element("Edad"),
-                    (double)elemento.Element("Peso"),
-                    (string)elemento.Element("Raza"),
-                    (string)elemento.Element("NroCte")
-                );
-                lista.Add(a);
-            }
+                lista.Add(elemento);
         }
         return lista;
     }
 
-    // BUSCAR un animal por nombre y propietario
-    public Animal BuscarPorNombreYPropietario(string nombre, string nroCte)
+    // CRUDO: devuelve el nodo de un animal por nombre + propietario
+    public XElement BuscarPorNombreYPropietarioCrudo(string nombre, string nroCte)
     {
-        InicializarXML(); // agregá esta línea al inicio
+        InicializarXML();
         XDocument doc = XDocument.Load(ruta);
+
         foreach (XElement elemento in doc.Root.Elements("Animal"))
         {
             if ((string)elemento.Element("Nombre") == nombre &&
                 (string)elemento.Element("NroCte") == nroCte)
-            {
-                return new Animal(
-                    (string)elemento.Element("Nombre"),
-                    (int)elemento.Element("Edad"),
-                    (double)elemento.Element("Peso"),
-                    (string)elemento.Element("Raza"),
-                    (string)elemento.Element("NroCte")
-                );
-            }
+                return elemento;
         }
         return null;
     }
 
-    // ELIMINAR un animal por nombre y propietario
-    public bool EliminarAnimal(string nombre, string nroCte)
+    // CRUDO: recibe un nodo ya armado y lo guarda
+    public bool GuardarCrudo(XElement nuevoAnimal)
     {
         try
         {
-            InicializarXML(); // agregá esta línea al inicio
+            InicializarXML();
             XDocument doc = XDocument.Load(ruta);
+            doc.Root.Add(nuevoAnimal);
+            doc.Save(ruta);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    // CRUDO: elimina el nodo de un animal por nombre + propietario
+    public bool EliminarCrudo(string nombre, string nroCte)
+    {
+        try
+        {
+            InicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+
             foreach (XElement elemento in doc.Root.Elements("Animal"))
             {
                 if ((string)elemento.Element("Nombre") == nombre &&
@@ -135,9 +101,11 @@ public class AnimalDAL
             }
             return false;
         }
-        catch (Exception ex)
+        catch
         {
-            throw ex;
+            return false;
         }
     }
+
+
 }

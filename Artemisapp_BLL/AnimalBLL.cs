@@ -1,5 +1,6 @@
 ﻿using Artemisapp_BE.Animales;
 using Artemisapp_DAL;
+using Artemisapp_MPP;
 using System.Collections.Generic;
 
 namespace Artemisapp_BLL
@@ -7,10 +8,11 @@ namespace Artemisapp_BLL
     public class AnimalBLL
     {
         AnimalDAL dal = new AnimalDAL();
+        AnimalMapper mapper = new AnimalMapper();
 
         public bool RegistrarAnimal(Animal animal)
         {
-            return dal.GuardarAnimal(animal);
+            return mapper.Guardar(animal);
         }
 
         public bool ActualizarAnimal(Animal animal)
@@ -20,17 +22,17 @@ namespace Artemisapp_BLL
 
         public bool EliminarAnimal(string nombre, string nroCte)
         {
-            return dal.EliminarAnimal(nombre, nroCte);
+            return mapper.Eliminar(nombre, nroCte);
         }
 
         public Animal BuscarAnimal(string nombre, string nroCte)
         {
-            return dal.BuscarPorNombreYPropietario(nombre, nroCte);
+            return mapper.BuscarPorNombreYPropietario(nombre, nroCte);
         }
 
         public List<Animal> ObtenerAnimalesPorDNI(string dni)
         {
-            return dal.BuscarPorPropietario(dni);
+            return mapper.BuscarPorPropietario(dni);
         }
     }
 }

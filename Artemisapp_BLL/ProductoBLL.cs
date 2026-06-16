@@ -1,6 +1,7 @@
 ﻿using Artemisapp_BE;
 using System;
 using Artemisapp_DAL;
+using Artemisapp_MPP;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -10,29 +11,32 @@ namespace Artemisapp_BLL
     {
         ProductoDAL dal = new ProductoDAL();
 
+        ProductoMapper mapper = new ProductoMapper();// Mapper para convertir entre Producto
+                                                     // (entidad de negocio) y XElement (dato crudo)
+
         public bool RegistrarProducto(Producto producto)
         {
-            return dal.guardarProducto(producto);
+            return mapper.Guardar(producto);
         }
 
         public bool ActualizarProducto(Producto producto)
         {
-            return dal.actualizarProducto(producto);
+            return mapper.Actualizar(producto);
         }
 
         public bool EliminarProducto(string id)
         {
-            return dal.eliminarProducto(id);
+            return mapper.Eliminar(id);
         }
 
         public Producto BuscarProductoPorId(string id)
         {
-            return dal.buscarPorID(id);
+            return mapper.BuscarPorID(id);
         }
 
         public List<Producto> ObtenerTodos()
         {
-            return dal.obtenerTodos();
+            return mapper.ObtenerTodos();
         }
     }
 }

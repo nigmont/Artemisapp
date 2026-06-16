@@ -24,116 +24,82 @@ namespace Artemisapp_DAL
             }
         }
 
-        // GUARDAR un turno nuevo
-        public bool GuardarTurno(Turno turno)
-        {
-            try
-            {
-                InicializarXML();
-                XDocument doc = XDocument.Load(ruta);
 
-                XElement nuevoTurno = new XElement("Turno",
-                    new XElement("IdTurno", turno.IdTurno),
-                    new XElement("Dni", turno.Dni),
-                    new XElement("Estado", turno.Estado),
-                    new XElement("Fecha", turno.Fecha.ToString("yyyy-MM-dd")),
-                    new XElement("Horario", turno.Horario),
-                    new XElement("Motivo", turno.Motivo)
-                );
-
-                doc.Root.Add(nuevoTurno);
-                doc.Save(ruta);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        // OBTENER TODOS los turnos
-        public List<Turno> ObtenerTodos()
+        // CRUDO: devuelve todos los nodos <Turno> sin mapear
+        public List<XElement> ObtenerTodosCrudos()
         {
             InicializarXML();
-            List<Turno> lista = new List<Turno>();
             XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elem in doc.Root.Elements("Turno"))
-            {
-                Turno t = new Turno(
-                    (string)elem.Element("IdTurno"),
-                    (string)elem.Element("Dni"),
-                    (string)elem.Element("Estado"),
-                    DateTime.Parse((string)elem.Element("Fecha"), CultureInfo.InvariantCulture),
-                    (string)elem.Element("Horario"),
-                    (string)elem.Element("Motivo")
-                );
-                lista.Add(t);
-            }
-            return lista;
+            return doc.Root.Elements("Turno").ToList();
         }
 
-        // BUSCAR turnos por DNI
-        public List<Turno> BuscarPorDNI(string dni)
+        // CRUDO: devuelve los nodos de los turnos de un DNI
+        public List<XElement> BuscarPorDNICrudo(string dni)
         {
             InicializarXML();
-            List<Turno> lista = new List<Turno>();
+            List<XElement> lista = new List<XElement>();
             XDocument doc = XDocument.Load(ruta);
 
             foreach (XElement elem in doc.Root.Elements("Turno"))
             {
                 if ((string)elem.Element("Dni") == dni)
-                {
-                    Turno t = new Turno(
-                        (string)elem.Element("IdTurno"),
-                        (string)elem.Element("Dni"),
-                        (string)elem.Element("Estado"),
-                        DateTime.Parse((string)elem.Element("Fecha"), CultureInfo.InvariantCulture),
-                        (string)elem.Element("Horario"),
-                        (string)elem.Element("Motivo")
-                    );
-                    lista.Add(t);
-                }
+                    lista.Add(elem);
             }
             return lista;
         }
 
-        // MODIFICAR un turno existente
-        public bool ModificarTurno(Turno turno)
+        // CRUDO: recibe un nodo ya armado y lo guarda
+        public bool GuardarCrudo(XElement nuevoTurno)
         {
             try
             {
                 InicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement elem = doc.Root.Elements("Turno").FirstOrDefault(x => (string)x.Element("IdTurno") == turno.IdTurno);
+                doc.Root.Add(nuevoTurno);
+                doc.Save(ruta);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
+        // CRUDO: reemplaza el nodo existente (busca por IdTurno) por el nuevo
+        public bool ActualizarCrudo(XElement turnoActualizado)
+        {
+            try
+            {
+                InicializarXML();
+                XDocument doc = XDocument.Load(ruta);
+                string id = (string)turnoActualizado.Element("IdTurno");
+
+                XElement elem = doc.Root.Elements("Turno")
+                                  .FirstOrDefault(x => (string)x.Element("IdTurno") == id);
                 if (elem != null)
                 {
-                    elem.Element("Dni").Value = turno.Dni;
-                    elem.Element("Estado").Value = turno.Estado;
-                    elem.Element("Fecha").Value = turno.Fecha.ToString("yyyy-MM-dd");
-                    elem.Element("Horario").Value = turno.Horario;
-                    elem.Element("Motivo").Value = turno.Motivo;
+                    elem.ReplaceWith(turnoActualizado);
                     doc.Save(ruta);
                     return true;
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
 
-        // CANCELAR un turno por ID
-        public bool CancelarTurno(string idTurno)
+        // CRUDO: cancela un turno por ID (solo cambia el Estado)
+        public bool CancelarCrudo(string idTurno)
         {
             try
             {
                 InicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement elem = doc.Root.Elements("Turno").FirstOrDefault(x => (string)x.Element("IdTurno") == idTurno);
 
+                XElement elem = doc.Root.Elements("Turno")
+                                  .FirstOrDefault(x => (string)x.Element("IdTurno") == idTurno);
                 if (elem != null)
                 {
                     elem.Element("Estado").Value = "Cancelado";
@@ -142,11 +108,13 @@ namespace Artemisapp_DAL
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
+
+
 
         // VERIFICAR disponibilidad por fecha y horario
         public bool VerificarDisponibilidad(string dni, DateTime fecha, string horario)

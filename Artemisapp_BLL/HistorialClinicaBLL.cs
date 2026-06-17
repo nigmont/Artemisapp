@@ -1,6 +1,7 @@
 ﻿using Artemisapp_BE;
 using Artemisapp_DAL;
 using System.Collections.Generic;
+using Artemisapp_MPP;
 
 namespace Artemisapp_BLL
 {
@@ -8,34 +9,36 @@ namespace Artemisapp_BLL
     {
         HistoriaClinicaDAL dal = new HistoriaClinicaDAL();
 
+        HistoriaClinicaMapper mapper = new HistoriaClinicaMapper();
+
         public bool RegistrarConsulta(HistoriaClinica historia)
         {
-            return dal.GuardarHistoria(historia);
+            return mapper.Guardar(historia);
         }
 
         public bool ActualizarHistoriaClinica(HistoriaClinica historia)
         {
-            return dal.ActualizarHistoria(historia);
+            return mapper.Actualizar(historia);
         }
 
         public bool RegistrarHospitalizacion(HistoriaClinica historia)
         {
-            return dal.GuardarHistoria(historia);
+            return mapper.Guardar(historia);
         }
 
         public bool DarAltaMedica(string idHistoria)
         {
-            return dal.DarAltaMedica(idHistoria);
+            return mapper.DarAltaMedica(idHistoria);
         }
 
         public HistoriaClinica BuscarHistoriaPorDNI(string dni)
         {
-            return dal.BuscarPorDNI(dni);
+            return mapper.BuscarPorDNI(dni);
         }
 
         public List<HistoriaClinica> ObtenerTodas()
         {
-            return dal.ObtenerTodas();
+            return mapper.ObtenerTodas();
         }
     }
 }

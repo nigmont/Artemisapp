@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AnimalMPP.cs" />
     <Compile Include="ClienteMapper.cs" />
+    <Compile Include="HistoriaClinicaMapper.cs" />
     <Compile Include="PersonaMapper.cs" />
     <Compile Include="ProductoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -24,101 +24,66 @@ namespace Artemisapp_DAL
             }
         }
 
-        // GUARDAR una historia clínica nueva
-        public bool GuardarHistoria(HistoriaClinica historia)
+        // CRUDO: devuelve todos los nodos <HistoriaClinica> sin mapear
+        public List<XElement> ObtenerTodasCrudas()
+        {
+            InicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+            return doc.Root.Elements("HistoriaClinica").ToList();
+        }
+
+        // CRUDO: devuelve el nodo de una historia por DNI
+        public XElement BuscarPorDNICrudo(string dni)
+        {
+            InicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+            return doc.Root.Elements("HistoriaClinica")
+                      .FirstOrDefault(x => (string)x.Element("Dni") == dni);
+        }
+
+        // CRUDO: recibe un nodo ya armado y lo guarda
+        public bool GuardarCrudo(XElement nuevaHistoria)
         {
             try
             {
                 InicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-
-                XElement nuevaHistoria = new XElement("HistoriaClinica",
-                    new XElement("Dni", historia.Dni),
-                    new XElement("IdHistoria", historia.IdHistoria),
-                    new XElement("FechaDeConsulta", historia.FechaDeConsulta.ToString("yyyy-MM-dd")),
-                    new XElement("Estudios", historia.Estudios),
-                    new XElement("Internaciones", historia.Internaciones),
-                    new XElement("Observaciones", historia.Observaciones)
-                );
-
                 doc.Root.Add(nuevaHistoria);
                 doc.Save(ruta);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
 
-        // OBTENER TODAS las historias
-        public List<HistoriaClinica> ObtenerTodas()
-        {
-            InicializarXML();
-            List<HistoriaClinica> lista = new List<HistoriaClinica>();
-            XDocument doc = XDocument.Load(ruta);
-
-            foreach (XElement elem in doc.Root.Elements("HistoriaClinica"))
-            {
-                HistoriaClinica h = new HistoriaClinica(
-                    (string)elem.Element("Dni"),
-                    (string)elem.Element("IdHistoria"),
-                    DateTime.Parse((string)elem.Element("FechaDeConsulta"), CultureInfo.InvariantCulture),
-                    (string)elem.Element("Estudios"),
-                    (string)elem.Element("Internaciones"),
-                    (string)elem.Element("Observaciones")
-                );
-                lista.Add(h);
-            }
-            return lista;
-        }
-
-        // BUSCAR historia por DNI
-        public HistoriaClinica BuscarPorDNI(string dni)
-        {
-            InicializarXML();
-            XDocument doc = XDocument.Load(ruta);
-            XElement elem = doc.Root.Elements("HistoriaClinica").FirstOrDefault(x => (string)x.Element("Dni") == dni);
-
-            if (elem != null)
-            {
-                return new HistoriaClinica(
-                    (string)elem.Element("Dni"),
-                    (string)elem.Element("IdHistoria"),
-                    DateTime.Parse((string)elem.Element("FechaDeConsulta"), CultureInfo.InvariantCulture),
-                    (string)elem.Element("Estudios"),
-                    (string)elem.Element("Internaciones"),
-                    (string)elem.Element("Observaciones")
-                );
-            }
-            return null;
-        }
-
-        // ACTUALIZAR historia clínica
-        public bool ActualizarHistoria(HistoriaClinica historia)
+        // CRUDO: reemplaza el nodo existente (busca por IdHistoria) por el nuevo
+        public bool ActualizarCrudo(XElement historiaActualizada)
         {
             try
             {
                 InicializarXML();
                 XDocument doc = XDocument.Load(ruta);
-                XElement elem = doc.Root.Elements("HistoriaClinica").FirstOrDefault(x => (string)x.Element("IdHistoria") == historia.IdHistoria);
+                string id = (string)historiaActualizada.Element("IdHistoria");
 
+                XElement elem = doc.Root.Elements("HistoriaClinica")
+                                  .FirstOrDefault(x => (string)x.Element("IdHistoria") == id);
                 if (elem != null)
                 {
-                    elem.Element("FechaDeConsulta").Value = historia.FechaDeConsulta.ToString("yyyy-MM-dd");
-                    elem.Element("Estudios").Value = historia.Estudios;
-                    elem.Element("Internaciones").Value = historia.Internaciones;
-                    elem.Element("Observaciones").Value = historia.Observaciones;
+                    elem.ReplaceWith(historiaActualizada);
                     doc.Save(ruta);
                     return true;
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return false;
             }
         }
+
+
 
         // DAR ALTA MEDICA — cambia internaciones a "Alta"
         public bool DarAltaMedica(string idHistoria)

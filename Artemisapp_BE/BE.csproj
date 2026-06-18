@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="1_Personas\Veterinario.cs" />
     <Compile Include="Turno.cs" />
+    <Compile Include="UsuarioClaves.cs" />
     <Compile Include="Ventas.cs" />
   </ItemGroup>
   <ItemGroup />

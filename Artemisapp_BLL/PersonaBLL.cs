@@ -9,6 +9,7 @@ namespace Artemisapp_BLL
     {
         
         PersonaDAL dal = new PersonaDAL(); // DAL para acceder a los datos de las personas
+        
         PersonaMapper mapper = new PersonaMapper(); // Mapper para convertir entre XML y entidad de negocio
 
         public bool RegistrarUsuario(Persona persona)
@@ -18,7 +19,7 @@ namespace Artemisapp_BLL
 
         public bool ModificarUsuario(Persona persona)
         {
-            return false; // lo implementamos después
+            return false; // pensar como implementarlo
         }
 
         public bool EliminarUsuario(string dni)

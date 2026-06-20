@@ -50,7 +50,7 @@ namespace Artemisapp_UX
             {
                 UsuarioClaves prueba = new UsuarioClaves(
                     "U001",       // Id
-                    "admin",      // Usuario (con esto te logueás)
+                    "admin",      // Usuario (con esto me logueo)
                     "1234",       // Password
                     "12345678",   // Dni
                     true,         // Activo

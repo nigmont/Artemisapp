@@ -10,7 +10,7 @@ namespace Artemisapp_UX
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin()); //desde que formularo va inicializar 
+            Application.Run(new PruebaComposite()); //desde que formularo va inicializar 
         }
     }
 }

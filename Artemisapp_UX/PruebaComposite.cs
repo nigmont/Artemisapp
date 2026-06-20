@@ -1,4 +1,5 @@
 ﻿using Artemisapp_BE.Composite;
+using Artemisapp_BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,24 +21,28 @@ namespace Artemisapp_UX
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Permisos simples (hojas)
+            // ── PARTE 1: Guardar permisos y un rol que los contiene ──
+            PermisoBLL permisoBLL = new PermisoBLL();
+            RolBLL rolBLL = new RolBLL();
+
+            // Creamos dos permisos y los guardamos
             BEPermiso p1 = new BEPermiso(1, "ABM Usuario");
             BEPermiso p2 = new BEPermiso(2, "ABM Producto");
-            BEPermiso p3 = new BEPermiso(3, "Cobranza");
+            permisoBLL.RegistrarPermiso(p1);
+            permisoBLL.RegistrarPermiso(p2);
 
-            // Rol básico que agrupa dos permisos simples
-            BERol rolCajero = new BERol(100, "Cajero");
-            rolCajero.Agregar(p3);
-
-            // Rol más grande que contiene permisos simples Y al rol Cajero adentro
-            BERol rolGerente = new BERol(200, "Gerente");
+            // Creamos un rol, le metemos los permisos, y lo guardamos
+            BERol rolGerente = new BERol(100, "Gerente");
             rolGerente.Agregar(p1);
             rolGerente.Agregar(p2);
-            rolGerente.Agregar(rolCajero);   // ← un rol dentro de otro rol
+            rolBLL.RegistrarRol(rolGerente);
 
-            // Listamos lo que contiene el Gerente
-            string txt = "Contenido del rol " + rolGerente.Nombre + ":\n";
-            foreach (BEComposite hijo in rolGerente.ObtenerHijos())
+            // ── PARTE 2: Leer el rol DESDE el XML y mostrar sus permisos ──
+            BERol rolLeido = rolBLL.BuscarPorId(100);
+
+            string txt = "Rol leído del XML: " + rolLeido.Nombre + "\n";
+            txt += "Permisos que contiene:\n";
+            foreach (BEComposite hijo in rolLeido.ObtenerHijos())
             {
                 txt += " - " + hijo.Nombre + "\n";
             }

@@ -44,9 +44,11 @@
     <Compile Include="AnimalBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="HistorialClinicaBLL.cs" />
+    <Compile Include="PermisoBLL.cs" />
     <Compile Include="PersonaBLL.cs" />
     <Compile Include="ProductoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolBLL.cs" />
     <Compile Include="TurnosBLL.cs" />
     <Compile Include="UsuarioClaveBLL.cs" />
     <Compile Include="VentasBLL.cs" />

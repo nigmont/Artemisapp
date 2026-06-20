@@ -89,5 +89,14 @@ namespace Artemisapp_UX
                 lblResultado.Text = "Error: " + ex.Message;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtNombre.Clear();
+            txtEdad.Clear();
+            txtPeso.Clear();
+            txtRaza.Clear();
+            txtNroCte.Clear();
+        }
     }
 }

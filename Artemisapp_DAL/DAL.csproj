@@ -44,9 +44,11 @@
     <Compile Include="AnimalDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
     <Compile Include="HistoriaClinicaDAL.cs" />
+    <Compile Include="PermisoDAL.cs" />
     <Compile Include="PersonaDAL.cs" />
     <Compile Include="ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolDAL.cs" />
     <Compile Include="TurnoDAL.cs" />
     <Compile Include="UsuarioClavesDAL.cs" />
   </ItemGroup>

@@ -31,9 +31,18 @@ namespace Artemisapp_UX
                 bool ingreso = bll.IniciarSesion(usuario, password);
 
                 if (ingreso)
-                    lblResultado.Text = "Bienvenido, ingreso correcto.";
+                {
+                    // Traemos el usuario completo (con sus roles cargados)
+                    UsuarioClaves usuarioLogueado = bll.ObtenerPorNombreUsuario(usuario);
+
+                    // Abrimos el formulario que muestra sus roles y permisos
+                    FormPermisoUsuario form = new FormPermisoUsuario(usuarioLogueado);
+                    form.Show();
+                }
                 else
+                {
                     lblResultado.Text = "Usuario o contraseña incorrectos.";
+                }
             }
             catch (Exception ex)
             {
@@ -43,22 +52,7 @@ namespace Artemisapp_UX
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            UsuarioClaveBLL bll = new UsuarioClaveBLL();
-
-            // Si no hay ningún usuario cargado, creamos uno de prueba
-            if (bll.ObtenerTodos().Count == 0)
-            {
-                UsuarioClaves prueba = new UsuarioClaves(
-                    "U001",       // Id
-                    "admin",      // Usuario (con esto me logueo)
-                    "1234",       // Password
-                    "12345678",   // Dni
-                    true,         // Activo
-                    false         // Bloqueado
-                );
-
-                bll.RegistrarUsuario(prueba);
-            }
+            
         }
     }
 }

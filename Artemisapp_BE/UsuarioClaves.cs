@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Artemisapp_BE.Composite;
 
 namespace Artemisapp_BE
 {
@@ -14,6 +15,7 @@ namespace Artemisapp_BE
         private string _dni;
         private bool _activo;
         private bool _bloqueado;
+        private List<BERol> _roles;
 
         public string Id { get => _id; set => _id = value; }
         public string Usuario { get => _usuario; set => _usuario = value; }
@@ -21,6 +23,8 @@ namespace Artemisapp_BE
         public string Dni { get => _dni; set => _dni = value; }
         public bool Activo { get => _activo; set => _activo = value; }
         public bool Bloqueado { get => _bloqueado; set => _bloqueado = value; }
+
+        public List<BERol> Roles { get => _roles; set => _roles = value; }
 
         public UsuarioClaves(string id, string usuario, string password, string dni, bool activo, bool bloqueado)
         {
@@ -30,6 +34,7 @@ namespace Artemisapp_BE
             _dni = dni;
             _activo = activo;
             _bloqueado = bloqueado;
+            _roles = new List<BERol>();
         }
     }
 }

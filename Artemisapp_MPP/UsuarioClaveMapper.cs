@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Linq;
 using Artemisapp_BE;
+using Artemisapp_BE.Composite;
 using Artemisapp_DAL;
 
 namespace Artemisapp_MPP
@@ -11,7 +12,7 @@ namespace Artemisapp_MPP
         // De dato crudo (XML) → entidad de negocio
         public UsuarioClaves ToEntity(XElement elem)
         {
-            return new UsuarioClaves(
+            UsuarioClaves usuario = new UsuarioClaves(
                 (string)elem.Element("Id"),
                 (string)elem.Element("Usuario"),
                 (string)elem.Element("Password"),
@@ -19,18 +20,42 @@ namespace Artemisapp_MPP
                 (bool)elem.Element("Activo"),
                 (bool)elem.Element("Bloqueado")
             );
+
+            // Reconstruir la lista de roles a partir de los IdRol guardados
+            XElement roles = elem.Element("Roles");
+            if (roles != null)
+            {
+                RolMapper rolMapper = new RolMapper();
+                foreach (XElement idElem in roles.Elements("IdRol"))
+                {
+                    long idRol = (long)idElem;
+                    BERol rol = rolMapper.BuscarPorId(idRol);
+                    if (rol != null)
+                        usuario.Roles.Add(rol);
+                }
+            }
+
+            return usuario;
         }
 
         // De entidad de negocio → dato crudo (XML)
         public XElement ToXml(UsuarioClaves usuario)
         {
+            // Armamos el nodo <Roles> con los Id de cada rol del usuario
+            XElement roles = new XElement("Roles");
+            foreach (BERol rol in usuario.Roles)
+            {
+                roles.Add(new XElement("IdRol", rol.Id));
+            }
+
             return new XElement("UsuarioClaves",
                 new XElement("Id", usuario.Id),
                 new XElement("Usuario", usuario.Usuario),
                 new XElement("Password", usuario.Password),
                 new XElement("Dni", usuario.Dni),
                 new XElement("Activo", usuario.Activo),
-                new XElement("Bloqueado", usuario.Bloqueado)
+                new XElement("Bloqueado", usuario.Bloqueado),
+                roles
             );
         }
 
@@ -63,11 +88,6 @@ namespace Artemisapp_MPP
             }
 
             return lista;
-        }
-
-        public UsuarioClaves BuscarPorUsuario(string usuario)
-        {
-            throw new NotImplementedException();
         }
     }
 }

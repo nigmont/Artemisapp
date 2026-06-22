@@ -42,5 +42,10 @@ namespace Artemisapp_BLL
             // Si pasó todo, el login es válido
             return true;
         }
+
+        public UsuarioClaves ObtenerPorNombreUsuario(string usuario)
+        {
+            return mapper.BuscarPorNombreUsuario(usuario);
+        }
     }
 }

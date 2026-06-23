@@ -47,5 +47,10 @@ namespace Artemisapp_BLL
         {
             return mapper.BuscarPorNombreUsuario(usuario);
         }
+
+        public bool ActualizarUsuario(UsuarioClaves usuario)
+        {
+            return mapper.Actualizar(usuario);
+        }
     }
 }

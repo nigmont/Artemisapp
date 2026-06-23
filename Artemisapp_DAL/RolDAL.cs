@@ -52,5 +52,30 @@ namespace Artemisapp_DAL
                 return false;
             }
         }
+
+        // CRUDO: reemplaza el rol existente (busca por Id) por el nuevo
+        public bool ActualizarCrudo(XElement rolActualizado)
+        {
+            try
+            {
+                InicializarXML();
+                XDocument doc = XDocument.Load(ruta);
+                long id = (long)rolActualizado.Element("Id");
+
+                XElement elem = doc.Root.Elements("Rol")
+                                  .FirstOrDefault(x => (long)x.Element("Id") == id);
+                if (elem != null)
+                {
+                    elem.ReplaceWith(rolActualizado);
+                    doc.Save(ruta);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

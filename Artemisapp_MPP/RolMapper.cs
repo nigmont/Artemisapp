@@ -76,6 +76,13 @@ namespace Artemisapp_MPP
             XElement nuevoRol = ToXml(rol);
             return dal.GuardarCrudo(nuevoRol);
         }
+
+        public bool Actualizar(BERol rol)
+        {
+            RolDAL dal = new RolDAL();
+            XElement rolActualizado = ToXml(rol);
+            return dal.ActualizarCrudo(rolActualizado);
+        }
     }
 }
 

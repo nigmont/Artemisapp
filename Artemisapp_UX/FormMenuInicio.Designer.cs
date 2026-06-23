@@ -67,42 +67,50 @@
             // 
             this.menuUsuarios.Name = "menuUsuarios";
             this.menuUsuarios.Size = new System.Drawing.Size(64, 20);
+            this.menuUsuarios.Tag = "Gestionar Usuarios";
             this.menuUsuarios.Text = "Usuarios";
+            this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
             // 
             // menuProductos
             // 
             this.menuProductos.Name = "menuProductos";
             this.menuProductos.Size = new System.Drawing.Size(73, 20);
+            this.menuProductos.Tag = "gestionar Productos";
             this.menuProductos.Text = "Productos";
             // 
             // menuClientes
             // 
             this.menuClientes.Name = "menuClientes";
             this.menuClientes.Size = new System.Drawing.Size(61, 20);
+            this.menuClientes.Tag = "Gestionar Clientes";
             this.menuClientes.Text = "Clientes";
             // 
             // menuTurnos
             // 
             this.menuTurnos.Name = "menuTurnos";
             this.menuTurnos.Size = new System.Drawing.Size(55, 20);
+            this.menuTurnos.Tag = "Gestionar Turnos";
             this.menuTurnos.Text = "Turnos";
             // 
             // menuHistoriaClinica
             // 
             this.menuHistoriaClinica.Name = "menuHistoriaClinica";
             this.menuHistoriaClinica.Size = new System.Drawing.Size(99, 20);
+            this.menuHistoriaClinica.Tag = "Gestionar Historia Clinica";
             this.menuHistoriaClinica.Text = "Historia Clinica";
             // 
             // menuCobrarConsulta
             // 
             this.menuCobrarConsulta.Name = "menuCobrarConsulta";
             this.menuCobrarConsulta.Size = new System.Drawing.Size(105, 20);
+            this.menuCobrarConsulta.Tag = "Cobrar Consulta";
             this.menuCobrarConsulta.Text = "Cobrar Consulta";
             // 
             // menuBaseDatos
             // 
             this.menuBaseDatos.Name = "menuBaseDatos";
             this.menuBaseDatos.Size = new System.Drawing.Size(92, 20);
+            this.menuBaseDatos.Tag = "Gestionar Roles y Permisos";
             this.menuBaseDatos.Text = "Gestión BBDD";
             // 
             // FormMenuInicio

@@ -42,5 +42,10 @@ namespace Artemisapp_BLL
 
             RegistrarRol(admin);
         }
+
+        public bool ActualizarRol(BERol rol)
+        {
+            return mapper.Actualizar(rol);
+        }
     }
 }

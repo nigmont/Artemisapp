@@ -89,5 +89,12 @@ namespace Artemisapp_MPP
 
             return lista;
         }
+
+        public bool Actualizar(UsuarioClaves usuario)
+        {
+            UsuarioClavesDAL dal = new UsuarioClavesDAL();
+            XElement usuarioActualizado = ToXml(usuario);
+            return dal.ActualizarCrudo(usuarioActualizado);
+        }
     }
 }

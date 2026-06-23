@@ -63,5 +63,30 @@ namespace Artemisapp_DAL
                 return false;
             }
         }
+
+        // CRUDO: reemplaza el usuario existente (busca por Usuario) por el nuevo
+        public bool ActualizarCrudo(XElement usuarioActualizado)
+        {
+            try
+            {
+                InicializarXML();
+                XDocument doc = XDocument.Load(ruta);
+                string nombreUsuario = (string)usuarioActualizado.Element("Usuario");
+
+                XElement elem = doc.Root.Elements("UsuarioClaves")
+                                  .FirstOrDefault(x => (string)x.Element("Usuario") == nombreUsuario);
+                if (elem != null)
+                {
+                    elem.ReplaceWith(usuarioActualizado);
+                    doc.Save(ruta);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

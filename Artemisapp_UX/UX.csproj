@@ -52,6 +52,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMenuInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuInicio.Designer.cs">
+      <DependentUpon>FormMenuInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPermisoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuInicio.resx">
+      <DependentUpon>FormMenuInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPermisoUsuario.resx">
       <DependentUpon>FormPermisoUsuario.cs</DependentUpon>

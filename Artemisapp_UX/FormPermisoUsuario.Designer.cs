@@ -33,7 +33,7 @@
             // 
             // txtPermisos
             // 
-            this.txtPermisos.Location = new System.Drawing.Point(80, 63);
+            this.txtPermisos.Location = new System.Drawing.Point(41, 59);
             this.txtPermisos.Multiline = true;
             this.txtPermisos.Name = "txtPermisos";
             this.txtPermisos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -44,7 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(321, 450);
             this.Controls.Add(this.txtPermisos);
             this.Name = "FormPermisoUsuario";
             this.Text = "FormPermisoUsuario";

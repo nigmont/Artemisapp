@@ -35,9 +35,13 @@ namespace Artemisapp_UX
                     // Traemos el usuario completo (con sus roles cargados)
                     UsuarioClaves usuarioLogueado = bll.ObtenerPorNombreUsuario(usuario);
 
-                    // Abrimos el formulario que muestra sus roles y permisos
-                    FormPermisoUsuario form = new FormPermisoUsuario(usuarioLogueado);
-                    form.Show();
+
+                    // Abrimos el menú principal pasándole el usuario logueado
+                    FormMenuInicio menu = new FormMenuInicio(usuarioLogueado);
+                    menu.Show();
+
+                    // Ocultamos el login (no lo cerramos, para no cerrar toda la app)
+                    this.Hide();
                 }
                 else
                 {

@@ -37,6 +37,8 @@
             this.menuHistoriaClinica = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCobrarConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaseDatos = new System.Windows.Forms.ToolStripMenuItem();
+            this.manuCambiarUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +61,9 @@
             // 
             // menuInicio
             // 
+            this.menuInicio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manuCambiarUsuario,
+            this.menuSalir});
             this.menuInicio.Name = "menuInicio";
             this.menuInicio.Size = new System.Drawing.Size(48, 20);
             this.menuInicio.Text = "Inicio";
@@ -113,6 +118,20 @@
             this.menuBaseDatos.Tag = "Gestionar Roles y Permisos";
             this.menuBaseDatos.Text = "Gestión BBDD";
             // 
+            // manuCambiarUsuario
+            // 
+            this.manuCambiarUsuario.Name = "manuCambiarUsuario";
+            this.manuCambiarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.manuCambiarUsuario.Text = "Cambiar Usuario";
+            this.manuCambiarUsuario.Click += new System.EventHandler(this.manuCambiarUsuario_Click);
+            // 
+            // menuSalir
+            // 
+            this.menuSalir.Name = "menuSalir";
+            this.menuSalir.Size = new System.Drawing.Size(180, 22);
+            this.menuSalir.Text = "Salir →";
+            this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
+            // 
             // FormMenuInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,5 +160,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuHistoriaClinica;
         private System.Windows.Forms.ToolStripMenuItem menuCobrarConsulta;
         private System.Windows.Forms.ToolStripMenuItem menuBaseDatos;
+        private System.Windows.Forms.ToolStripMenuItem manuCambiarUsuario;
+        private System.Windows.Forms.ToolStripMenuItem menuSalir;
     }
 }

@@ -57,5 +57,15 @@ namespace Artemisapp_UX
             FormGestionAccesos form = new FormGestionAccesos(); // Crear una instancia del formulario
             form.Show(); // Mostrar el formulario
         }
+
+        private void menuSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); // Cierra la aplicación
+        }
+
+        private void manuCambiarUsuario_Click(object sender, EventArgs e)
+        {
+            Application.Restart(); // Reinicia la aplicación para volver a la pantalla de login
+        }
     }
 }

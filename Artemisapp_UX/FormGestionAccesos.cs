@@ -276,17 +276,9 @@ namespace Artemisapp_UX
                     return;
                 }
 
-                // Verificamos que el usuario no tenga ya ese rol
-                foreach (BERol r in usuario.Roles)
-                {
-                    if (r.Id == rol.Id)
-                    {
-                        MessageBox.Show("El usuario ya tiene ese rol.");
-                        return;
-                    }
-                }
+                // Si el usuario ya tiene ese rol, lo quitamos para reemplazarlo por la versión actualizada
+                usuario.Roles.RemoveAll(r => r.Id == rol.Id);
 
-                // Le agregamos el rol al usuario y lo guardamos
                 usuario.Roles.Add(rol);
                 usuarioBLL.ActualizarUsuario(usuario);
 

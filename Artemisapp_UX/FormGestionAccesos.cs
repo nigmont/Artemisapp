@@ -289,5 +289,10 @@ namespace Artemisapp_UX
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void lstPermisos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

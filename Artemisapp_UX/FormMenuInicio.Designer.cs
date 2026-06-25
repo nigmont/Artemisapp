@@ -30,6 +30,8 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuInicio = new System.Windows.Forms.ToolStripMenuItem();
+            this.manuCambiarUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuClientes = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,8 +39,6 @@
             this.menuHistoriaClinica = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCobrarConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaseDatos = new System.Windows.Forms.ToolStripMenuItem();
-            this.manuCambiarUsuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,72 +65,72 @@
             this.manuCambiarUsuario,
             this.menuSalir});
             this.menuInicio.Name = "menuInicio";
-            this.menuInicio.Size = new System.Drawing.Size(48, 20);
-            this.menuInicio.Text = "Inicio";
-            // 
-            // menuUsuarios
-            // 
-            this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(64, 20);
-            this.menuUsuarios.Tag = "Gestionar Usuarios";
-            this.menuUsuarios.Text = "Usuarios";
-            this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
-            // 
-            // menuProductos
-            // 
-            this.menuProductos.Name = "menuProductos";
-            this.menuProductos.Size = new System.Drawing.Size(73, 20);
-            this.menuProductos.Tag = "gestionar Productos";
-            this.menuProductos.Text = "Productos";
-            // 
-            // menuClientes
-            // 
-            this.menuClientes.Name = "menuClientes";
-            this.menuClientes.Size = new System.Drawing.Size(61, 20);
-            this.menuClientes.Tag = "Gestionar Clientes";
-            this.menuClientes.Text = "Clientes";
-            // 
-            // menuTurnos
-            // 
-            this.menuTurnos.Name = "menuTurnos";
-            this.menuTurnos.Size = new System.Drawing.Size(55, 20);
-            this.menuTurnos.Tag = "Gestionar Turnos";
-            this.menuTurnos.Text = "Turnos";
-            // 
-            // menuHistoriaClinica
-            // 
-            this.menuHistoriaClinica.Name = "menuHistoriaClinica";
-            this.menuHistoriaClinica.Size = new System.Drawing.Size(99, 20);
-            this.menuHistoriaClinica.Tag = "Gestionar Historia Clinica";
-            this.menuHistoriaClinica.Text = "Historia Clinica";
-            // 
-            // menuCobrarConsulta
-            // 
-            this.menuCobrarConsulta.Name = "menuCobrarConsulta";
-            this.menuCobrarConsulta.Size = new System.Drawing.Size(105, 20);
-            this.menuCobrarConsulta.Tag = "Cobrar Consulta";
-            this.menuCobrarConsulta.Text = "Cobrar Consulta";
-            // 
-            // menuBaseDatos
-            // 
-            this.menuBaseDatos.Name = "menuBaseDatos";
-            this.menuBaseDatos.Size = new System.Drawing.Size(92, 20);
-            this.menuBaseDatos.Tag = "Gestionar Roles y Permisos";
-            this.menuBaseDatos.Text = "Gestión BBDD";
+            this.menuInicio.Size = new System.Drawing.Size(62, 20);
+            this.menuInicio.Text = "🏠 Inicio";
             // 
             // manuCambiarUsuario
             // 
             this.manuCambiarUsuario.Name = "manuCambiarUsuario";
-            this.manuCambiarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.manuCambiarUsuario.Size = new System.Drawing.Size(162, 22);
             this.manuCambiarUsuario.Text = "Cambiar Usuario";
             this.manuCambiarUsuario.Click += new System.EventHandler(this.manuCambiarUsuario_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(180, 22);
+            this.menuSalir.Size = new System.Drawing.Size(162, 22);
             this.menuSalir.Text = "Salir →";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
+            // 
+            // menuUsuarios
+            // 
+            this.menuUsuarios.Name = "menuUsuarios";
+            this.menuUsuarios.Size = new System.Drawing.Size(79, 20);
+            this.menuUsuarios.Tag = "Gestionar Usuarios";
+            this.menuUsuarios.Text = "👨 Usuarios";
+            this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
+            // 
+            // menuProductos
+            // 
+            this.menuProductos.Name = "menuProductos";
+            this.menuProductos.Size = new System.Drawing.Size(88, 20);
+            this.menuProductos.Tag = "gestionar Productos";
+            this.menuProductos.Text = "🛒 Productos";
+            // 
+            // menuClientes
+            // 
+            this.menuClientes.Name = "menuClientes";
+            this.menuClientes.Size = new System.Drawing.Size(76, 20);
+            this.menuClientes.Tag = "Gestionar Clientes";
+            this.menuClientes.Text = "🐱 Clientes";
+            // 
+            // menuTurnos
+            // 
+            this.menuTurnos.Name = "menuTurnos";
+            this.menuTurnos.Size = new System.Drawing.Size(70, 20);
+            this.menuTurnos.Tag = "Gestionar Turnos";
+            this.menuTurnos.Text = "📆 Turnos";
+            // 
+            // menuHistoriaClinica
+            // 
+            this.menuHistoriaClinica.Name = "menuHistoriaClinica";
+            this.menuHistoriaClinica.Size = new System.Drawing.Size(112, 20);
+            this.menuHistoriaClinica.Tag = "Gestionar Historia Clínica";
+            this.menuHistoriaClinica.Text = "📋 Historia Clinica";
+            // 
+            // menuCobrarConsulta
+            // 
+            this.menuCobrarConsulta.Name = "menuCobrarConsulta";
+            this.menuCobrarConsulta.Size = new System.Drawing.Size(115, 20);
+            this.menuCobrarConsulta.Tag = "Cobrar Consulta";
+            this.menuCobrarConsulta.Text = "💲 Cobrar Consulta";
+            // 
+            // menuBaseDatos
+            // 
+            this.menuBaseDatos.Name = "menuBaseDatos";
+            this.menuBaseDatos.Size = new System.Drawing.Size(105, 20);
+            this.menuBaseDatos.Tag = "Gestionar Roles y Permisos";
+            this.menuBaseDatos.Text = "📔 Gestión BBDD";
             // 
             // FormMenuInicio
             // 

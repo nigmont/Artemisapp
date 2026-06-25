@@ -175,5 +175,17 @@
   <ItemGroup>
     <None Include="Resources\No hay Turnos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20231011_115130.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo patitas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloque imagen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login Image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

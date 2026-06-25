@@ -42,13 +42,13 @@
             this.btnCrearPermiso = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtNuevoUsuario = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNuevaPassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtNuevoDni = new System.Windows.Forms.TextBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
+            this.txtNuevoDni = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNuevaPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNuevoUsuario = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnAsignarPermisoRol = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAsignarRolUsuario = new System.Windows.Forms.Button();
@@ -80,6 +80,7 @@
             this.lstPermisos.Name = "lstPermisos";
             this.lstPermisos.Size = new System.Drawing.Size(147, 316);
             this.lstPermisos.TabIndex = 2;
+            this.lstPermisos.SelectedIndexChanged += new System.EventHandler(this.lstPermisos_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -191,38 +192,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Alta Usuarios";
             // 
-            // label6
+            // btnCrearUsuario
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Usuario:";
+            this.btnCrearUsuario.Location = new System.Drawing.Point(182, 67);
+            this.btnCrearUsuario.Name = "btnCrearUsuario";
+            this.btnCrearUsuario.Size = new System.Drawing.Size(75, 48);
+            this.btnCrearUsuario.TabIndex = 6;
+            this.btnCrearUsuario.Text = "Crear Usuario";
+            this.btnCrearUsuario.UseVisualStyleBackColor = true;
+            this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
             // 
-            // txtNuevoUsuario
+            // txtNuevoDni
             // 
-            this.txtNuevoUsuario.Location = new System.Drawing.Point(74, 41);
-            this.txtNuevoUsuario.Name = "txtNuevoUsuario";
-            this.txtNuevoUsuario.Size = new System.Drawing.Size(102, 20);
-            this.txtNuevoUsuario.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 74);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Contraseña:";
-            // 
-            // txtNuevaPassword
-            // 
-            this.txtNuevaPassword.Location = new System.Drawing.Point(76, 67);
-            this.txtNuevaPassword.Name = "txtNuevaPassword";
-            this.txtNuevaPassword.PasswordChar = '*';
-            this.txtNuevaPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtNuevaPassword.TabIndex = 3;
+            this.txtNuevoDni.Location = new System.Drawing.Point(76, 93);
+            this.txtNuevoDni.Name = "txtNuevoDni";
+            this.txtNuevoDni.Size = new System.Drawing.Size(100, 20);
+            this.txtNuevoDni.TabIndex = 5;
             // 
             // label8
             // 
@@ -233,22 +218,38 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "DNI:";
             // 
-            // txtNuevoDni
+            // txtNuevaPassword
             // 
-            this.txtNuevoDni.Location = new System.Drawing.Point(76, 93);
-            this.txtNuevoDni.Name = "txtNuevoDni";
-            this.txtNuevoDni.Size = new System.Drawing.Size(100, 20);
-            this.txtNuevoDni.TabIndex = 5;
+            this.txtNuevaPassword.Location = new System.Drawing.Point(76, 67);
+            this.txtNuevaPassword.Name = "txtNuevaPassword";
+            this.txtNuevaPassword.PasswordChar = '*';
+            this.txtNuevaPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtNuevaPassword.TabIndex = 3;
             // 
-            // btnCrearUsuario
+            // label7
             // 
-            this.btnCrearUsuario.Location = new System.Drawing.Point(182, 67);
-            this.btnCrearUsuario.Name = "btnCrearUsuario";
-            this.btnCrearUsuario.Size = new System.Drawing.Size(75, 48);
-            this.btnCrearUsuario.TabIndex = 6;
-            this.btnCrearUsuario.Text = "Crear Usuario";
-            this.btnCrearUsuario.UseVisualStyleBackColor = true;
-            this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Contraseña:";
+            // 
+            // txtNuevoUsuario
+            // 
+            this.txtNuevoUsuario.Location = new System.Drawing.Point(74, 41);
+            this.txtNuevoUsuario.Name = "txtNuevoUsuario";
+            this.txtNuevoUsuario.Size = new System.Drawing.Size(102, 20);
+            this.txtNuevoUsuario.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Usuario:";
             // 
             // btnAsignarPermisoRol
             // 

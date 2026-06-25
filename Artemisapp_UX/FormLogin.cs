@@ -50,7 +50,7 @@ namespace Artemisapp_UX
             }
             catch (Exception ex)
             {
-                lblResultado.Text = "Error: " + ex.Message;
+                //lblResultado.Text = "Error: " + ex.Message;
             }
         }
 

@@ -58,6 +58,12 @@
     <Compile Include="05Turnos.Designer.cs">
       <DependentUpon>05Turnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="07CobrarConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="07CobrarConsulta.Designer.cs">
+      <DependentUpon>07CobrarConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionAccesos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="05Turnos.resx">
       <DependentUpon>05Turnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="07CobrarConsulta.resx">
+      <DependentUpon>07CobrarConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGestionAccesos.resx">
       <DependentUpon>FormGestionAccesos.cs</DependentUpon>

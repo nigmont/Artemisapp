@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MPP", "Artemisapp_MPP\MPP.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEGURIDAD", "SEGURIDAD\SEGURIDAD.csproj", "{F1566B5A-4185-4B8A-AA24-47F42AE42EC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BACKUP", "BACKUP\BACKUP.csproj", "{1A7A4883-0104-49D5-92C6-72577F8DA168}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F1566B5A-4185-4B8A-AA24-47F42AE42EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1566B5A-4185-4B8A-AA24-47F42AE42EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1566B5A-4185-4B8A-AA24-47F42AE42EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A7A4883-0104-49D5-92C6-72577F8DA168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A7A4883-0104-49D5-92C6-72577F8DA168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A7A4883-0104-49D5-92C6-72577F8DA168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A7A4883-0104-49D5-92C6-72577F8DA168}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

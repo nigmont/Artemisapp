@@ -1,6 +1,6 @@
 ﻿using Artemisapp_BE;
 using Artemisapp_MPP;
-using SEGURIDAD;
+using SEGURIDAD; // referencia a la clase Encriptacion
 using System.Collections.Generic;
 
 namespace Artemisapp_BLL

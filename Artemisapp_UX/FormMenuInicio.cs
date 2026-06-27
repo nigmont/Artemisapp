@@ -91,5 +91,25 @@ namespace Artemisapp_UX
             _07CobrarConsulta form = new _07CobrarConsulta(); // Crear una instancia del formulario
             form.Show(); // Mostrar el formulario
         }
+
+        // -- GESTIÓN DE REPORTES ---
+        // BACKUP, RESTORE, BITACORA
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _08aBackup form = new _08aBackup(_usuario);
+            form.Show();
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _08bRestore form = new _08bRestore();
+            form.Show();
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _08cBitacora form = new _08cBitacora();
+            form.Show();
+        }
     }
 }

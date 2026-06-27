@@ -83,6 +83,16 @@ namespace Artemisapp_UX.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap esquina {
+            get {
+                object obj = ResourceManager.GetObject("esquina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fondo_patitas {
             get {
                 object obj = ResourceManager.GetObject("Fondo patitas", resourceCulture);

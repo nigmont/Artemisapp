@@ -39,6 +39,9 @@
             this.menuHistoriaClinica = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCobrarConsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBaseDatos = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,14 +74,14 @@
             // manuCambiarUsuario
             // 
             this.manuCambiarUsuario.Name = "manuCambiarUsuario";
-            this.manuCambiarUsuario.Size = new System.Drawing.Size(180, 22);
+            this.manuCambiarUsuario.Size = new System.Drawing.Size(162, 22);
             this.manuCambiarUsuario.Text = "Cambiar Usuario";
             this.manuCambiarUsuario.Click += new System.EventHandler(this.manuCambiarUsuario_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(180, 22);
+            this.menuSalir.Size = new System.Drawing.Size(162, 22);
             this.menuSalir.Text = "Salir →";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -130,10 +133,35 @@
             // 
             // menuBaseDatos
             // 
+            this.menuBaseDatos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backupToolStripMenuItem,
+            this.restoreToolStripMenuItem,
+            this.bitacoraToolStripMenuItem});
             this.menuBaseDatos.Name = "menuBaseDatos";
             this.menuBaseDatos.Size = new System.Drawing.Size(105, 20);
             this.menuBaseDatos.Tag = "Gestionar Roles y Permisos";
             this.menuBaseDatos.Text = "📔 Gestión BBDD";
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Text = "Backup";
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            // 
+            // restoreToolStripMenuItem
+            // 
+            this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restoreToolStripMenuItem.Text = "Restore";
+            this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+            // 
+            // bitacoraToolStripMenuItem
+            // 
+            this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bitacoraToolStripMenuItem.Text = "Bitacora";
+            this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
             // FormMenuInicio
             // 
@@ -165,5 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuBaseDatos;
         private System.Windows.Forms.ToolStripMenuItem manuCambiarUsuario;
         private System.Windows.Forms.ToolStripMenuItem menuSalir;
+        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
     }
 }

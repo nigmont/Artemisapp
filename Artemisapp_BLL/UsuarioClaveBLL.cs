@@ -1,5 +1,6 @@
 ﻿using Artemisapp_BE;
 using Artemisapp_MPP;
+using SEGURIDAD;
 using System.Collections.Generic;
 
 namespace Artemisapp_BLL
@@ -12,6 +13,9 @@ namespace Artemisapp_BLL
         // Registrar un usuario nuevo
         public bool RegistrarUsuario(UsuarioClaves usuario)
         {
+            // Ciframos la contraseña antes de guardarla
+            usuario.Password = Encriptacion.EncriptarPassword(usuario.Password);
+            
             return mapper.Guardar(usuario);
         }
 
@@ -31,8 +35,9 @@ namespace Artemisapp_BLL
             if (encontrado == null)
                 return false;
 
-            // 2. ¿La contraseña coincide?
-            if (encontrado.Password != password)
+            // 2. ¿La contraseña coincide? (ciframos lo escrito y comparamos contra lo guardado, que está cifrado)
+            string passwordCifrada = Encriptacion.EncriptarPassword(password);
+            if (encontrado.Password != passwordCifrada)
                 return false;
 
             // 3. ¿La cuenta está activa y no bloqueada?

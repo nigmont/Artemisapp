@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="03Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="03Productos.Designer.cs">
+      <DependentUpon>03Productos.cs</DependentUpon>
+    </Compile>
     <Compile Include="04Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +64,23 @@
     <Compile Include="05Turnos.Designer.cs">
       <DependentUpon>05Turnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="06HistoriaClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="06HistoriaClinica.Designer.cs">
+      <DependentUpon>06HistoriaClinica.cs</DependentUpon>
+    </Compile>
     <Compile Include="07CobrarConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="07CobrarConsulta.Designer.cs">
       <DependentUpon>07CobrarConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="08GestionBBDD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="08GestionBBDD.Designer.cs">
+      <DependentUpon>08GestionBBDD.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGestionAccesos.cs">
       <SubType>Form</SubType>
@@ -70,11 +88,11 @@
     <Compile Include="FormGestionAccesos.Designer.cs">
       <DependentUpon>FormGestionAccesos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="00Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include="00Login.Designer.cs">
+      <DependentUpon>00Login.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenuInicio.cs">
       <SubType>Form</SubType>
@@ -143,6 +161,10 @@
       <Project>{1700d039-ad41-4e77-b589-f2419867a32d}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SEGURIDAD\SEGURIDAD.csproj">
+      <Project>{f1566b5a-4185-4b8a-aa24-47f42ae42ec3}</Project>
+      <Name>SEGURIDAD</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="04Clientes.resx">
@@ -157,8 +179,8 @@
     <EmbeddedResource Include="FormGestionAccesos.resx">
       <DependentUpon>FormGestionAccesos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="00Login.resx">
+      <DependentUpon>00Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenuInicio.resx">
       <DependentUpon>FormMenuInicio.cs</DependentUpon>

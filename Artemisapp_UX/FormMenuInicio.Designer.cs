@@ -71,14 +71,14 @@
             // manuCambiarUsuario
             // 
             this.manuCambiarUsuario.Name = "manuCambiarUsuario";
-            this.manuCambiarUsuario.Size = new System.Drawing.Size(162, 22);
+            this.manuCambiarUsuario.Size = new System.Drawing.Size(180, 22);
             this.manuCambiarUsuario.Text = "Cambiar Usuario";
             this.manuCambiarUsuario.Click += new System.EventHandler(this.manuCambiarUsuario_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(162, 22);
+            this.menuSalir.Size = new System.Drawing.Size(180, 22);
             this.menuSalir.Text = "Salir →";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -103,6 +103,7 @@
             this.menuClientes.Size = new System.Drawing.Size(76, 20);
             this.menuClientes.Tag = "Gestionar Clientes";
             this.menuClientes.Text = "🐱 Clientes";
+            this.menuClientes.Click += new System.EventHandler(this.menuClientes_Click);
             // 
             // menuTurnos
             // 
@@ -110,6 +111,7 @@
             this.menuTurnos.Size = new System.Drawing.Size(70, 20);
             this.menuTurnos.Tag = "Gestionar Turnos";
             this.menuTurnos.Text = "📆 Turnos";
+            this.menuTurnos.Click += new System.EventHandler(this.menuTurnos_Click);
             // 
             // menuHistoriaClinica
             // 
@@ -124,6 +126,7 @@
             this.menuCobrarConsulta.Size = new System.Drawing.Size(115, 20);
             this.menuCobrarConsulta.Tag = "Cobrar Consulta";
             this.menuCobrarConsulta.Text = "💲 Cobrar Consulta";
+            this.menuCobrarConsulta.Click += new System.EventHandler(this.menuCobrarConsulta_Click);
             // 
             // menuBaseDatos
             // 

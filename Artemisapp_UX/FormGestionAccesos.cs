@@ -1,6 +1,7 @@
 ﻿using Artemisapp_BE;
 using Artemisapp_BE.Composite;
 using Artemisapp_BLL;
+using SEGURIDAD; // para poder usar la clase Encriptacion
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -293,6 +294,23 @@ namespace Artemisapp_UX
         private void lstPermisos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        // encriptacion de password
+        private void btnCifrar_Click(object sender, EventArgs e)
+        {
+            string textoCifrado = SEGURIDAD.Encriptacion.EncriptarPassword(txtPruebaCifrado.Text);
+            // textoCifrado lo que hace es encriptar el texto que se encuentra en
+            // txtPruebaCifrado y lo guarda en la variable textoCifrado
+            
+            txtPruebaCifrado.Text = textoCifrado;
+            // luego lo que hace es mostrar el texto encriptado en el mismo textbox
+        }
+
+        private void btnDescifrar_Click(object sender, EventArgs e)
+        {
+            string textoDescifrado = txtPruebaCifrado.Text.DesencriptarPassword();
+            txtPruebaCifrado.Text = textoDescifrado;
         }
     }
 }

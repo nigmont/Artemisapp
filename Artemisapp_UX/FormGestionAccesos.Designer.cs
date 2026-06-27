@@ -52,6 +52,10 @@
             this.btnAsignarPermisoRol = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAsignarRolUsuario = new System.Windows.Forms.Button();
+            this.txtPruebaCifrado = new System.Windows.Forms.TextBox();
+            this.btnCifrar = new System.Windows.Forms.Button();
+            this.btnDescifrar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -285,11 +289,51 @@
             this.btnAsignarRolUsuario.UseVisualStyleBackColor = true;
             this.btnAsignarRolUsuario.Click += new System.EventHandler(this.btnAsignarRolUsuario_Click);
             // 
+            // txtPruebaCifrado
+            // 
+            this.txtPruebaCifrado.Location = new System.Drawing.Point(573, 40);
+            this.txtPruebaCifrado.Name = "txtPruebaCifrado";
+            this.txtPruebaCifrado.Size = new System.Drawing.Size(165, 20);
+            this.txtPruebaCifrado.TabIndex = 17;
+            // 
+            // btnCifrar
+            // 
+            this.btnCifrar.Location = new System.Drawing.Point(573, 76);
+            this.btnCifrar.Name = "btnCifrar";
+            this.btnCifrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCifrar.TabIndex = 18;
+            this.btnCifrar.Text = "Cifrar";
+            this.btnCifrar.UseVisualStyleBackColor = true;
+            this.btnCifrar.Click += new System.EventHandler(this.btnCifrar_Click);
+            // 
+            // btnDescifrar
+            // 
+            this.btnDescifrar.Location = new System.Drawing.Point(663, 76);
+            this.btnDescifrar.Name = "btnDescifrar";
+            this.btnDescifrar.Size = new System.Drawing.Size(75, 23);
+            this.btnDescifrar.TabIndex = 19;
+            this.btnDescifrar.Text = "Desifrar";
+            this.btnDescifrar.UseVisualStyleBackColor = true;
+            this.btnDescifrar.Click += new System.EventHandler(this.btnDescifrar_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(572, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Prueba Encriptacion";
+            // 
             // FormGestionAccesos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 547);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btnDescifrar);
+            this.Controls.Add(this.btnCifrar);
+            this.Controls.Add(this.txtPruebaCifrado);
             this.Controls.Add(this.btnAsignarRolUsuario);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -336,5 +380,9 @@
         private System.Windows.Forms.Button btnAsignarPermisoRol;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnAsignarRolUsuario;
+        private System.Windows.Forms.TextBox txtPruebaCifrado;
+        private System.Windows.Forms.Button btnCifrar;
+        private System.Windows.Forms.Button btnDescifrar;
+        private System.Windows.Forms.Label label9;
     }
 }

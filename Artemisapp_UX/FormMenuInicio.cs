@@ -52,11 +52,7 @@ namespace Artemisapp_UX
             }
         }
 
-        private void menuUsuarios_Click(object sender, EventArgs e)
-        {
-            FormGestionAccesos form = new FormGestionAccesos(); // Crear una instancia del formulario
-            form.Show(); // Mostrar el formulario
-        }
+        // --- INICIO ---
 
         private void menuSalir_Click(object sender, EventArgs e)
         {
@@ -66,6 +62,34 @@ namespace Artemisapp_UX
         private void manuCambiarUsuario_Click(object sender, EventArgs e)
         {
             Application.Restart(); // Reinicia la aplicación para volver a la pantalla de login
+        }
+
+        // --- GESTIÓN DE USUARIOS ---
+        private void menuUsuarios_Click(object sender, EventArgs e)
+        {
+            FormGestionAccesos form = new FormGestionAccesos(); // Crear una instancia del formulario
+            form.Show(); // Mostrar el formulario
+        }
+
+        // --- GESTIÓN DE CLIENTES ---
+        private void menuClientes_Click(object sender, EventArgs e)
+        {
+            _04Clientes form = new _04Clientes(); // Crear una instancia del formulario
+            form.Show(); // Mostrar el formulario
+        }
+
+        // --- GESTIÓN DE TURNOS ---
+        private void menuTurnos_Click(object sender, EventArgs e)
+        {
+            _05Turnos form = new _05Turnos(); // Crear una instancia del formulario
+            form.Show(); // Mostrar el formulario
+        }
+
+        //  --- GESTIÓN DE COBROS ---
+        private void menuCobrarConsulta_Click(object sender, EventArgs e)
+        {
+            _07CobrarConsulta form = new _07CobrarConsulta(); // Crear una instancia del formulario
+            form.Show(); // Mostrar el formulario
         }
     }
 }

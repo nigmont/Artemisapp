@@ -52,6 +52,7 @@
     <Compile Include="TurnosBLL.cs" />
     <Compile Include="UsuarioClaveBLL.cs" />
     <Compile Include="VentasBLL.cs" />
+    <Compile Include="VeterinarioBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Artemisapp_BE\BE.csproj">

@@ -61,7 +61,7 @@ namespace BACKUP
                 EventoBitacora ev = new EventoBitacora(
                     fecha,
                     (string)elem.Element("Usuario"),
-                    (string)elem.Element("Evento")
+                    (string)elem.Element("Evento")  
                 );
 
                 lista.Add(ev);

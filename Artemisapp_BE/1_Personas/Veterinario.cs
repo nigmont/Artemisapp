@@ -10,6 +10,10 @@ namespace Artemisapp_BE.Personas
     {
         private string _nroLicencia;
         private string _especialidad;
+        public string NombreCompletoConEspecialidad
+        {
+            get { return Nombre + " " + Apellido + " - " + Especialidad; }
+        }
 
         public string NroLicencia { get { return _nroLicencia; } set { _nroLicencia = value; } }
         public string Especialidad { get { return _especialidad; } set { _especialidad = value; } }

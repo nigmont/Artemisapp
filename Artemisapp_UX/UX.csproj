@@ -201,6 +201,9 @@
     <EmbeddedResource Include="08aBackup.resx">
       <DependentUpon>08aBackup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="08bRestore.resx">
+      <DependentUpon>08bRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="08cBitacora.resx">
       <DependentUpon>08cBitacora.cs</DependentUpon>
     </EmbeddedResource>

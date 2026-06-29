@@ -102,7 +102,7 @@ namespace Artemisapp_UX
 
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _08bRestore form = new _08bRestore();
+            _08bRestore form = new _08bRestore(_usuario);
             form.Show();
         }
 

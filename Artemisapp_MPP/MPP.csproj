@@ -51,6 +51,7 @@
     <Compile Include="RolMapper.cs" />
     <Compile Include="TurnoMapper.cs" />
     <Compile Include="UsuarioClaveMapper.cs" />
+    <Compile Include="VeterinarioMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Artemisapp_BE\BE.csproj">

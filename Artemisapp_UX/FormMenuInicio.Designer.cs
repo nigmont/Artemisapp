@@ -42,6 +42,7 @@
             this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dashBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,10 +56,11 @@
             this.menuTurnos,
             this.menuHistoriaClinica,
             this.menuCobrarConsulta,
-            this.menuBaseDatos});
+            this.menuBaseDatos,
+            this.dashBoardToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(863, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,14 +76,14 @@
             // manuCambiarUsuario
             // 
             this.manuCambiarUsuario.Name = "manuCambiarUsuario";
-            this.manuCambiarUsuario.Size = new System.Drawing.Size(162, 22);
+            this.manuCambiarUsuario.Size = new System.Drawing.Size(180, 22);
             this.manuCambiarUsuario.Text = "Cambiar Usuario";
             this.manuCambiarUsuario.Click += new System.EventHandler(this.manuCambiarUsuario_Click);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(162, 22);
+            this.menuSalir.Size = new System.Drawing.Size(180, 22);
             this.menuSalir.Text = "Salir →";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
@@ -163,11 +165,17 @@
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
+            // dashBoardToolStripMenuItem
+            // 
+            this.dashBoardToolStripMenuItem.Name = "dashBoardToolStripMenuItem";
+            this.dashBoardToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.dashBoardToolStripMenuItem.Text = "DashBoard";
+            // 
             // FormMenuInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(863, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMenuInicio";
@@ -196,5 +204,6 @@
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bitacoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dashBoardToolStripMenuItem;
     }
 }

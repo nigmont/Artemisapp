@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtDniTurno = new System.Windows.Forms.TextBox();
+            this.btnBuscarClienteTurno = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtClienteTurno = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLimpiarBusquedaTurno = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbProfesional = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDatosTurno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -66,15 +66,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.button7 = new System.Windows.Forms.Button();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -99,21 +99,22 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "DNI";
             // 
-            // textBox1
+            // txtDniTurno
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 21);
-            this.textBox1.TabIndex = 2;
+            this.txtDniTurno.Location = new System.Drawing.Point(8, 44);
+            this.txtDniTurno.Name = "txtDniTurno";
+            this.txtDniTurno.Size = new System.Drawing.Size(260, 21);
+            this.txtDniTurno.TabIndex = 2;
             // 
-            // button1
+            // btnBuscarClienteTurno
             // 
-            this.button1.Location = new System.Drawing.Point(274, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "🔎";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarClienteTurno.Location = new System.Drawing.Point(274, 44);
+            this.btnBuscarClienteTurno.Name = "btnBuscarClienteTurno";
+            this.btnBuscarClienteTurno.Size = new System.Drawing.Size(31, 23);
+            this.btnBuscarClienteTurno.TabIndex = 3;
+            this.btnBuscarClienteTurno.Text = "🔎";
+            this.btnBuscarClienteTurno.UseVisualStyleBackColor = true;
+            this.btnBuscarClienteTurno.Click += new System.EventHandler(this.btnBuscarClienteTurno_Click);
             // 
             // label3
             // 
@@ -125,21 +126,21 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Cliente";
             // 
-            // textBox2
+            // txtClienteTurno
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(297, 21);
-            this.textBox2.TabIndex = 5;
+            this.txtClienteTurno.Location = new System.Drawing.Point(8, 84);
+            this.txtClienteTurno.Name = "txtClienteTurno";
+            this.txtClienteTurno.ReadOnly = true;
+            this.txtClienteTurno.Size = new System.Drawing.Size(297, 21);
+            this.txtClienteTurno.TabIndex = 5;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.btnLimpiarBusquedaTurno);
+            this.groupBox1.Controls.Add(this.txtClienteTurno);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btnBuscarClienteTurno);
+            this.groupBox1.Controls.Add(this.txtDniTurno);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(9, 38);
@@ -149,15 +150,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1. Buscar Cliente";
             // 
-            // button2
+            // btnLimpiarBusquedaTurno
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(215, 111);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "🧽 Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusquedaTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarBusquedaTurno.Location = new System.Drawing.Point(215, 111);
+            this.btnLimpiarBusquedaTurno.Name = "btnLimpiarBusquedaTurno";
+            this.btnLimpiarBusquedaTurno.Size = new System.Drawing.Size(90, 23);
+            this.btnLimpiarBusquedaTurno.TabIndex = 6;
+            this.btnLimpiarBusquedaTurno.Text = "🧽 Limpiar";
+            this.btnLimpiarBusquedaTurno.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusquedaTurno.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
@@ -229,7 +231,7 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.comboBox2);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.cbProfesional);
             this.groupBox4.Controls.Add(this.dateTimePicker1);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
@@ -237,7 +239,7 @@
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.textBox4);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.txtDatosTurno);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox4.Location = new System.Drawing.Point(329, 8);
@@ -285,15 +287,15 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "Horario";
             // 
-            // comboBox1
+            // cbProfesional
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 135);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 23);
-            this.comboBox1.TabIndex = 17;
+            this.cbProfesional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProfesional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbProfesional.FormattingEnabled = true;
+            this.cbProfesional.Location = new System.Drawing.Point(10, 135);
+            this.cbProfesional.Name = "cbProfesional";
+            this.cbProfesional.Size = new System.Drawing.Size(208, 23);
+            this.cbProfesional.TabIndex = 17;
             // 
             // dateTimePicker1
             // 
@@ -356,12 +358,12 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "DNI";
             // 
-            // textBox3
+            // txtDatosTurno
             // 
-            this.textBox3.Location = new System.Drawing.Point(9, 44);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 21);
-            this.textBox3.TabIndex = 8;
+            this.txtDatosTurno.Location = new System.Drawing.Point(9, 44);
+            this.txtDatosTurno.Name = "txtDatosTurno";
+            this.txtDatosTurno.Size = new System.Drawing.Size(209, 21);
+            this.txtDatosTurno.TabIndex = 8;
             // 
             // label4
             // 
@@ -486,65 +488,14 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Filtros";
             // 
-            // label13
+            // button7
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(6, 23);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 16);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "👨‍⚕️ Profesional";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(9, 45);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(246, 23);
-            this.comboBox3.TabIndex = 21;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(6, 77);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 16);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "Estado";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(7, 97);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(246, 23);
-            this.comboBox4.TabIndex = 22;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(7, 133);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(78, 16);
-            this.label15.TabIndex = 21;
-            this.label15.Text = "Fecha Desde";
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(10, 157);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(127, 21);
-            this.dateTimePicker3.TabIndex = 21;
+            this.button7.Location = new System.Drawing.Point(12, 184);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(241, 23);
+            this.button7.TabIndex = 25;
+            this.button7.Text = "⏳ Aplicar Filtros";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker4
             // 
@@ -564,14 +515,65 @@
             this.label16.TabIndex = 24;
             this.label16.Text = "Fecha Hasta";
             // 
-            // button7
+            // dateTimePicker3
             // 
-            this.button7.Location = new System.Drawing.Point(12, 184);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(241, 23);
-            this.button7.TabIndex = 25;
-            this.button7.Text = "⏳ Aplicar Filtros";
-            this.button7.UseVisualStyleBackColor = true;
+            this.dateTimePicker3.Location = new System.Drawing.Point(10, 157);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(127, 21);
+            this.dateTimePicker3.TabIndex = 21;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label15.Location = new System.Drawing.Point(7, 133);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(78, 16);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Fecha Desde";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(7, 97);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(246, 23);
+            this.comboBox4.TabIndex = 22;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(6, 77);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 16);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Estado";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(9, 45);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(246, 23);
+            this.comboBox3.TabIndex = 21;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(6, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(80, 16);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "👨‍⚕️ Profesional";
             // 
             // groupBox8
             // 
@@ -612,6 +614,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "_05Turnos";
             this.Text = "_05Turnos";
+            this.Load += new System.EventHandler(this._05Turnos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -633,12 +636,12 @@
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtDniTurno;
+        private System.Windows.Forms.Button btnBuscarClienteTurno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtClienteTurno;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLimpiarBusquedaTurno;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
@@ -651,11 +654,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDatosTurno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbProfesional;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox comboBox2;

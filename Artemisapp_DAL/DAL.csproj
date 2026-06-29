@@ -51,6 +51,7 @@
     <Compile Include="RolDAL.cs" />
     <Compile Include="TurnoDAL.cs" />
     <Compile Include="UsuarioClavesDAL.cs" />
+    <Compile Include="VeterinarioDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Artemisapp_BE\BE.csproj">

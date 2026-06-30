@@ -42,27 +42,27 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cbMotivoCita = new System.Windows.Forms.ComboBox();
+            this.txtClienteTurnoCita = new System.Windows.Forms.TextBox();
+            this.txtTurnoCita = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbHorarioCita = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbProfesional = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaCita = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDniCita = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDatosTurno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnCancelarCita = new System.Windows.Forms.Button();
+            this.btnModificarCita = new System.Windows.Forms.Button();
+            this.btnConfirmarCita = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -133,6 +133,7 @@
             this.txtClienteTurno.ReadOnly = true;
             this.txtClienteTurno.Size = new System.Drawing.Size(297, 21);
             this.txtClienteTurno.TabIndex = 5;
+            this.txtClienteTurno.TextChanged += new System.EventHandler(this.txtClienteTurno_TextChanged);
             // 
             // groupBox1
             // 
@@ -227,19 +228,19 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.cbMotivoCita);
+            this.groupBox4.Controls.Add(this.txtClienteTurnoCita);
+            this.groupBox4.Controls.Add(this.txtTurnoCita);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.comboBox2);
+            this.groupBox4.Controls.Add(this.cbHorarioCita);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.cbProfesional);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.dtpFechaCita);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.textBox5);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.textBox4);
+            this.groupBox4.Controls.Add(this.txtDniCita);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.txtDatosTurno);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox4.Location = new System.Drawing.Point(329, 8);
@@ -249,39 +250,55 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "3. Datos del Turno";
             // 
-            // textBox6
+            // cbMotivoCita
             // 
-            this.textBox6.Location = new System.Drawing.Point(118, 180);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(239, 21);
-            this.textBox6.TabIndex = 7;
+            this.cbMotivoCita.FormattingEnabled = true;
+            this.cbMotivoCita.Location = new System.Drawing.Point(11, 86);
+            this.cbMotivoCita.Name = "cbMotivoCita";
+            this.cbMotivoCita.Size = new System.Drawing.Size(153, 23);
+            this.cbMotivoCita.TabIndex = 21;
+            // 
+            // txtClienteTurnoCita
+            // 
+            this.txtClienteTurnoCita.Location = new System.Drawing.Point(10, 43);
+            this.txtClienteTurnoCita.Name = "txtClienteTurnoCita";
+            this.txtClienteTurnoCita.ReadOnly = true;
+            this.txtClienteTurnoCita.Size = new System.Drawing.Size(208, 21);
+            this.txtClienteTurnoCita.TabIndex = 7;
+            // 
+            // txtTurnoCita
+            // 
+            this.txtTurnoCita.Location = new System.Drawing.Point(11, 180);
+            this.txtTurnoCita.Name = "txtTurnoCita";
+            this.txtTurnoCita.ReadOnly = true;
+            this.txtTurnoCita.Size = new System.Drawing.Size(239, 21);
+            this.txtTurnoCita.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(115, 162);
+            this.label10.Location = new System.Drawing.Point(13, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 15);
             this.label10.TabIndex = 20;
             this.label10.Text = "Turno N° ";
             // 
-            // comboBox2
+            // cbHorarioCita
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(11, 180);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(97, 23);
-            this.comboBox2.TabIndex = 19;
+            this.cbHorarioCita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHorarioCita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbHorarioCita.FormattingEnabled = true;
+            this.cbHorarioCita.Location = new System.Drawing.Point(260, 134);
+            this.cbHorarioCita.Name = "cbHorarioCita";
+            this.cbHorarioCita.Size = new System.Drawing.Size(97, 23);
+            this.cbHorarioCita.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(10, 162);
+            this.label9.Location = new System.Drawing.Point(257, 114);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 15);
             this.label9.TabIndex = 18;
@@ -292,23 +309,23 @@
             this.cbProfesional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProfesional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbProfesional.FormattingEnabled = true;
-            this.cbProfesional.Location = new System.Drawing.Point(10, 135);
+            this.cbProfesional.Location = new System.Drawing.Point(170, 86);
             this.cbProfesional.Name = "cbProfesional";
-            this.cbProfesional.Size = new System.Drawing.Size(208, 23);
+            this.cbProfesional.Size = new System.Drawing.Size(187, 23);
             this.cbProfesional.TabIndex = 17;
             // 
-            // dateTimePicker1
+            // dtpFechaCita
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(230, 133);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(127, 21);
-            this.dateTimePicker1.TabIndex = 16;
+            this.dtpFechaCita.Location = new System.Drawing.Point(11, 134);
+            this.dtpFechaCita.Name = "dtpFechaCita";
+            this.dtpFechaCita.Size = new System.Drawing.Size(237, 21);
+            this.dtpFechaCita.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(227, 115);
+            this.label8.Location = new System.Drawing.Point(8, 114);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 15);
             this.label8.TabIndex = 15;
@@ -318,18 +335,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(7, 115);
+            this.label7.Location = new System.Drawing.Point(167, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "👨‍⚕️ Profesional";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(10, 86);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(347, 21);
-            this.textBox5.TabIndex = 12;
             // 
             // label6
             // 
@@ -341,12 +351,12 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Motivo - Consulta";
             // 
-            // textBox4
+            // txtDniCita
             // 
-            this.textBox4.Location = new System.Drawing.Point(230, 44);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 21);
-            this.textBox4.TabIndex = 10;
+            this.txtDniCita.Location = new System.Drawing.Point(230, 44);
+            this.txtDniCita.Name = "txtDniCita";
+            this.txtDniCita.Size = new System.Drawing.Size(127, 21);
+            this.txtDniCita.TabIndex = 10;
             // 
             // label5
             // 
@@ -357,13 +367,6 @@
             this.label5.Size = new System.Drawing.Size(26, 15);
             this.label5.TabIndex = 9;
             this.label5.Text = "DNI";
-            // 
-            // txtDatosTurno
-            // 
-            this.txtDatosTurno.Location = new System.Drawing.Point(9, 44);
-            this.txtDatosTurno.Name = "txtDatosTurno";
-            this.txtDatosTurno.Size = new System.Drawing.Size(209, 21);
-            this.txtDatosTurno.TabIndex = 8;
             // 
             // label4
             // 
@@ -407,9 +410,9 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Controls.Add(this.button5);
-            this.groupBox6.Controls.Add(this.button4);
+            this.groupBox6.Controls.Add(this.btnCancelarCita);
+            this.groupBox6.Controls.Add(this.btnModificarCita);
+            this.groupBox6.Controls.Add(this.btnConfirmarCita);
             this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox6.Location = new System.Drawing.Point(334, 533);
             this.groupBox6.Name = "groupBox6";
@@ -418,35 +421,36 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "5. Acciones del Turno";
             // 
-            // button6
+            // btnCancelarCita
             // 
-            this.button6.ForeColor = System.Drawing.Color.Red;
-            this.button6.Location = new System.Drawing.Point(248, 28);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(104, 32);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "❌ Cancelar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCancelarCita.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelarCita.Location = new System.Drawing.Point(248, 28);
+            this.btnCancelarCita.Name = "btnCancelarCita";
+            this.btnCancelarCita.Size = new System.Drawing.Size(104, 32);
+            this.btnCancelarCita.TabIndex = 2;
+            this.btnCancelarCita.Text = "❌ Cancelar";
+            this.btnCancelarCita.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnModificarCita
             // 
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(151)))), ((int)(((byte)(41)))));
-            this.button5.Location = new System.Drawing.Point(128, 28);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 32);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "🖊 Modificar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnModificarCita.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(151)))), ((int)(((byte)(41)))));
+            this.btnModificarCita.Location = new System.Drawing.Point(128, 28);
+            this.btnModificarCita.Name = "btnModificarCita";
+            this.btnModificarCita.Size = new System.Drawing.Size(104, 32);
+            this.btnModificarCita.TabIndex = 1;
+            this.btnModificarCita.Text = "🖊 Modificar";
+            this.btnModificarCita.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnConfirmarCita
             // 
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
-            this.button4.Location = new System.Drawing.Point(11, 28);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 32);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "✅ Confirmar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnConfirmarCita.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
+            this.btnConfirmarCita.Location = new System.Drawing.Point(11, 28);
+            this.btnConfirmarCita.Name = "btnConfirmarCita";
+            this.btnConfirmarCita.Size = new System.Drawing.Size(104, 32);
+            this.btnConfirmarCita.TabIndex = 0;
+            this.btnConfirmarCita.Text = "✅ Confirmar";
+            this.btnConfirmarCita.UseVisualStyleBackColor = true;
+            this.btnConfirmarCita.Click += new System.EventHandler(this.btnConfirmarCita_Click);
             // 
             // label11
             // 
@@ -650,26 +654,24 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDniCita;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDatosTurno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaCita;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbProfesional;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtTurnoCita;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbHorarioCita;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCancelarCita;
+        private System.Windows.Forms.Button btnModificarCita;
+        private System.Windows.Forms.Button btnConfirmarCita;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox7;
@@ -684,5 +686,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox txtClienteTurnoCita;
+        private System.Windows.Forms.ComboBox cbMotivoCita;
     }
 }

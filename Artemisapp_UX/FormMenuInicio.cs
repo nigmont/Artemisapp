@@ -111,5 +111,12 @@ namespace Artemisapp_UX
             _08cBitacora form = new _08cBitacora();
             form.Show();
         }
+
+        // -- GRAFICOS DE TURNOS  ---
+        private void dashBoardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _09Dashboard form = new _09Dashboard();
+            form.Show();
+        }
     }
 }

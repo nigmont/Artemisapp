@@ -40,5 +40,11 @@ namespace Artemisapp_BLL
         {
             return mapper.BuscarPorDNI(dni);
         }
+
+        // Metodo para obtener todos los turnos para el Dashboard 
+        public List<Turno> ObtenerTodos()
+        {
+            return mapper.ObtenerTodos();
+        }
     }
 }

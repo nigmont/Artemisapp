@@ -15,6 +15,7 @@ namespace Artemisapp_MPP
             return new Turno(
                 (string)elem.Element("IdTurno"),
                 (string)elem.Element("Dni"),
+                (string)elem.Element("DniVeterinario"),
                 (string)elem.Element("Estado"),
                 DateTime.Parse((string)elem.Element("Fecha"), CultureInfo.InvariantCulture),
                 (string)elem.Element("Horario"),
@@ -28,6 +29,7 @@ namespace Artemisapp_MPP
             return new XElement("Turno",
                 new XElement("IdTurno", turno.IdTurno),
                 new XElement("Dni", turno.Dni),
+                new XElement("DniVeterinario", turno.DniVeterinario),
                 new XElement("Estado", turno.Estado),
                 new XElement("Fecha", turno.Fecha.ToString("yyyy-MM-dd")),
                 new XElement("Horario", turno.Horario),

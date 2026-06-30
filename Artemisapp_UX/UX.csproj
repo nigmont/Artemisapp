@@ -145,23 +145,11 @@
     <Compile Include="FormPruebaClientes.Designer.cs">
       <DependentUpon>FormPruebaClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPruebaPersona.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPruebaPersona.Designer.cs">
-      <DependentUpon>FormPruebaPersona.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPruebaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPruebaProducto.Designer.cs">
       <DependentUpon>FormPruebaProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPruebaTurnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPruebaTurnos.Designer.cs">
-      <DependentUpon>FormPruebaTurnos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,14 +228,8 @@
     <EmbeddedResource Include="FormPruebaClientes.resx">
       <DependentUpon>FormPruebaClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPruebaPersona.resx">
-      <DependentUpon>FormPruebaPersona.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPruebaProducto.resx">
       <DependentUpon>FormPruebaProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPruebaTurnos.resx">
-      <DependentUpon>FormPruebaTurnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

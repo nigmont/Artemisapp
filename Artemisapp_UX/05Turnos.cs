@@ -58,6 +58,8 @@ namespace Artemisapp_UX
         {
             txtDniTurno.Clear();
             txtClienteTurno.Clear();
+            txtClienteTurnoCita.Clear();
+            txtDniCita.Clear();
             
         }
 
@@ -66,6 +68,7 @@ namespace Artemisapp_UX
             CargarProfesionales();
             CargarMotivos();
             CargarHorarios();
+            CargarAgendaTurnos();
         }
 
         private void CargarProfesionales()
@@ -76,6 +79,13 @@ namespace Artemisapp_UX
             cbProfesional.DataSource = veterinarios;
             cbProfesional.DisplayMember = "NombreCompletoConEspecialidad";
             cbProfesional.SelectedIndex = -1; // que arranque sin nada seleccionado
+        }
+
+        private void CargarAgendaTurnos()
+        {
+            TurnosBLL bll = new TurnosBLL();
+            dtgvAgendaTurnos.DataSource = null;
+            dtgvAgendaTurnos.DataSource = bll.ObtenerTodos();
         }
 
         // motivos del combobox de motivos de cita
@@ -156,6 +166,10 @@ namespace Artemisapp_UX
                 string horario = cbHorarioCita.SelectedItem.ToString();
                 DateTime fecha = dtpFechaCita.Value;
 
+                // Obtenemos el veterinario elegido del combo
+                Veterinario vetElegido = (Veterinario)cbProfesional.SelectedItem;
+                string dniVeterinario = vetElegido.DNI;
+
                 TurnosBLL bll = new TurnosBLL();
 
                 // 4. Generamos el Nro de turno automático (3 dígitos, arrancando en 101)
@@ -171,6 +185,7 @@ namespace Artemisapp_UX
                 Turno nuevo = new Turno(
                     nuevoNro.ToString(),
                     dni,
+                    dniVeterinario,
                     "Pendiente",
                     fecha,
                     horario,
@@ -182,6 +197,17 @@ namespace Artemisapp_UX
 
                 // 7. Mostramos el Nro generado y avisamos
                 txtTurnoCita.Text = nuevoNro.ToString();
+
+                // Mostramos el resumen del turno en el GroupBox
+                lblResumenTurno.Text =
+                    "N° de turno: " + nuevoNro + "\n" +
+                    "Cliente: " + txtClienteTurno.Text + "\n" +
+                    "Profesional: " + vetElegido.Nombre + " " + vetElegido.Apellido + "\n" +
+                    "Fecha: " + fecha.ToString("dd/MM/yyyy") + "\n" +
+                    "Horario: " + horario + "\n" +
+                    "Motivo: " + motivo + "\n" +
+                    "Estado: Pendiente";
+                CargarAgendaTurnos();
                 MessageBox.Show("Turno confirmado correctamente. Nro de turno: " + nuevoNro);
             }
             catch (Exception ex)
@@ -193,6 +219,63 @@ namespace Artemisapp_UX
         private void txtClienteTurno_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelarCita_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Verificamos que haya un turno seleccionado en la grilla
+                if (dtgvAgendaTurnos.CurrentRow == null)
+                {
+                    MessageBox.Show("Seleccioná un turno de la grilla para cancelar.");
+                    return;
+                }
+
+                // 2. Tomamos el turno seleccionado
+                Turno turnoSeleccionado = (Turno)dtgvAgendaTurnos.CurrentRow.DataBoundItem;
+
+                // 3. Si ya está cancelado, avisamos
+                if (turnoSeleccionado.Estado == "Cancelado")
+                {
+                    MessageBox.Show("Ese turno ya está cancelado.");
+                    return;
+                }
+
+                // 4. Pedimos confirmación
+                DialogResult respuesta = MessageBox.Show(
+                    "¿Seguro que querés cancelar el turno N° " + turnoSeleccionado.IdTurno + "?",
+                    "Confirmar cancelación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (respuesta != DialogResult.Yes)
+                    return;
+
+                // 5. Cancelamos (cambia el estado a "Cancelado")
+                TurnosBLL bll = new TurnosBLL();
+                bll.CancelarTurno(turnoSeleccionado.IdTurno);
+
+                // 6. Recargamos la grilla para ver el cambio
+                CargarAgendaTurnos();
+
+                MessageBox.Show("Turno cancelado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cancelar el turno: " + ex.Message);
+            }
+        }
+
+        private void btnAgregarNuevoCliente_Click(object sender, EventArgs e)
+        {
+            _04Clientes form = new _04Clientes();
+            form.Show();
         }
     }
 }

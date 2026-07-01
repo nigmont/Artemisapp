@@ -118,5 +118,11 @@ namespace Artemisapp_UX
             _09Dashboard form = new _09Dashboard();
             form.Show();
         }
+
+        private void menuProductos_Click(object sender, EventArgs e)
+        {
+            ProductoAlmacen form = new ProductoAlmacen(); // Crear una instancia del formulario
+            form.Show();
+        }
     }
 }

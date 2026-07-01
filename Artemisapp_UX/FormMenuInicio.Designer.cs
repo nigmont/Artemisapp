@@ -99,8 +99,9 @@
             // 
             this.menuProductos.Name = "menuProductos";
             this.menuProductos.Size = new System.Drawing.Size(88, 20);
-            this.menuProductos.Tag = "gestionar Productos";
+            this.menuProductos.Tag = "Gestionar Productos";
             this.menuProductos.Text = "🛒 Productos";
+            this.menuProductos.Click += new System.EventHandler(this.menuProductos_Click);
             // 
             // menuClientes
             // 
@@ -147,21 +148,21 @@
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 

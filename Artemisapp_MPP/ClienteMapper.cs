@@ -19,7 +19,9 @@ namespace Artemisapp_MPP
                 (string)elemento.Element("Direccion"),
                 (string)elemento.Element("Telefono"),
                 (string)elemento.Element("Email"),
-                new List<Animal>() // la lista de mascotas se carga aparte
+                new List<Animal>(),
+                (bool?)elemento.Element("Activo") ?? true
+
             );
         }
 
@@ -33,7 +35,9 @@ namespace Artemisapp_MPP
                 new XElement("Apellido", cliente.Apellido),
                 new XElement("Direccion", cliente.Direccion),
                 new XElement("Telefono", cliente.Telefono),
-                new XElement("Email", cliente.Email)
+                new XElement("Email", cliente.Email),
+                new XElement("Activo", cliente.Activo)
+
             );
         }
 

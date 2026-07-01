@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Artemisapp_UX
 {
-    public partial class FormPruebaProducto : Form
+    public partial class ProductoAlmacen : Form
     {
         ProductoBLL bll = new ProductoBLL();
 
-        public FormPruebaProducto()
+        public ProductoAlmacen()
         {
             InitializeComponent();
         }
@@ -107,6 +107,38 @@ namespace Artemisapp_UX
             catch (Exception ex)
             {
                 lblResultado.Text = "Error: " + ex.Message;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e) // limpiar campos
+        {
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtCategoria.Clear();
+            txtPrecio.Clear();
+            txtProveedor.Clear();
+            txtStock.Clear();
+            lblDescripcion.Text = "Descripción";
+            lblResultado.Text = "Resultado";
+
+            //para dejar el cursor en foco en el campo de nombre
+            txtNombre.Focus();
+        }
+
+        private void ProductoAlmacen_Load(object sender, EventArgs e)
+        {
+            List<Producto> productos = bll.ObtenerTodos();
+            dtgvProductoAlmacen.DataSource = null;
+            dtgvProductoAlmacen.DataSource = productos.OrderBy(p => p.Nombre).ToList();
+        }
+
+        private void dtgvProductoAlmacen_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtgvProductoAlmacen.CurrentRow != null)
+            {
+                Producto p = (Producto)dtgvProductoAlmacen.CurrentRow.DataBoundItem;
+                lblProdDescripcion.Text = p.Nombre;
+                lblDescripcion.Text = p.Descripcion;
             }
         }
     }   

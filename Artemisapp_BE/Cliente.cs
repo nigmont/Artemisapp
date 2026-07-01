@@ -17,6 +17,7 @@ namespace Artemisapp_BE
         private string _telefono;
         private string _email;
         private List<Animal> _mascotas;
+        private bool _activo;
 
         public string Dni { get { return _dni; } set { _dni = value; } }
         public string NroCte { get { return _nroCte; } set { _nroCte = value; } }
@@ -27,8 +28,10 @@ namespace Artemisapp_BE
         public string Email { get { return _email; } set { _email = value; } }
         public List<Animal> Mascotas { get { return _mascotas; } set { _mascotas = value; } }
 
+        public bool Activo { get { return _activo; } set { _activo = value; } }
+
         public Cliente(string dni, string nroCte, string nombre, string apellido, string direccion, 
-                        string telefono, string email, List<Animal> mascotas)
+                        string telefono, string email, List<Animal> mascotas, bool activo)
         {
             _dni = dni;
             _nroCte = nroCte;
@@ -38,6 +41,7 @@ namespace Artemisapp_BE
             _telefono = telefono;
             _email = email;
             _mascotas = mascotas;
+            _activo = activo;
         }
     }
 }

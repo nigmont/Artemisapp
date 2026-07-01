@@ -47,32 +47,25 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtObservacionCte = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtNroCte = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnPonerInactivo = new System.Windows.Forms.Button();
             this.btnGuardarDatosCte = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnModificarCliente = new System.Windows.Forms.Button();
+            this.lblMostrarInfoCliente = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dtgvListadoCtes = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnLimpiarCte);
             this.groupBox1.Controls.Add(this.txtDireccionCte);
             this.groupBox1.Controls.Add(this.lblDireccionCte);
             this.groupBox1.Controls.Add(this.txtTelefonoCte);
@@ -97,11 +90,11 @@
             // 
             // btnLimpiarCte
             // 
-            this.btnLimpiarCte.Location = new System.Drawing.Point(143, 284);
+            this.btnLimpiarCte.Location = new System.Drawing.Point(169, 513);
             this.btnLimpiarCte.Name = "btnLimpiarCte";
             this.btnLimpiarCte.Size = new System.Drawing.Size(115, 23);
             this.btnLimpiarCte.TabIndex = 13;
-            this.btnLimpiarCte.Text = "Limpiar";
+            this.btnLimpiarCte.Text = "Limpiar Datos";
             this.btnLimpiarCte.UseVisualStyleBackColor = true;
             this.btnLimpiarCte.Click += new System.EventHandler(this.btnLimpiarCte_Click);
             // 
@@ -231,25 +224,28 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dtgvListadoCtes);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.lblMostrarInfoCliente);
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox2.Location = new System.Drawing.Point(297, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(558, 312);
+            this.groupBox2.Size = new System.Drawing.Size(558, 525);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "2. Mascotas Asociadas";
+            this.groupBox2.Text = "Mostrar datos personales:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Artemisapp_UX.Properties.Resources.gatos4;
-            this.pictureBox1.Location = new System.Drawing.Point(440, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(445, 10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 259);
+            this.pictureBox1.Size = new System.Drawing.Size(91, 222);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -259,140 +255,54 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 236);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(423, 86);
             this.dataGridView1.TabIndex = 3;
             // 
             // button4
             // 
             this.button4.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button4.Location = new System.Drawing.Point(301, 271);
+            this.button4.Location = new System.Drawing.Point(445, 282);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 23);
+            this.button4.Size = new System.Drawing.Size(91, 40);
             this.button4.TabIndex = 2;
             this.button4.Text = "❌ Eliminar Mascota";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.button3.Location = new System.Drawing.Point(155, 271);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "✍ Modificar";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             this.button2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button2.Location = new System.Drawing.Point(6, 271);
+            this.button2.Location = new System.Drawing.Point(445, 236);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
+            this.button2.Size = new System.Drawing.Size(91, 40);
             this.button2.TabIndex = 0;
             this.button2.Text = "🐾 Añadir Mascota";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtObservacionCte);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.txtNroCte);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(11, 329);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(272, 208);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "3. Datos Especificos del Cliente";
-            // 
-            // txtObservacionCte
-            // 
-            this.txtObservacionCte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtObservacionCte.Location = new System.Drawing.Point(9, 72);
-            this.txtObservacionCte.Multiline = true;
-            this.txtObservacionCte.Name = "txtObservacionCte";
-            this.txtObservacionCte.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservacionCte.Size = new System.Drawing.Size(249, 130);
-            this.txtObservacionCte.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label8.Location = new System.Drawing.Point(6, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Observaciones/ Notas";
-            // 
-            // txtNroCte
-            // 
-            this.txtNroCte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNroCte.Location = new System.Drawing.Point(89, 19);
-            this.txtNroCte.Name = "txtNroCte";
-            this.txtNroCte.Size = new System.Drawing.Size(169, 20);
-            this.txtNroCte.TabIndex = 14;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label7.Location = new System.Drawing.Point(6, 26);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Nro. de Cliente";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(297, 329);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(356, 207);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "4. Historial de la Mascota Seleccionada";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Controls.Add(this.button5);
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox5.Location = new System.Drawing.Point(667, 329);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(188, 208);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "5. Clientes";
-            // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button8);
+            this.groupBox6.Controls.Add(this.btnPonerInactivo);
             this.groupBox6.Controls.Add(this.btnGuardarDatosCte);
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Location = new System.Drawing.Point(11, 70);
+            this.groupBox6.Controls.Add(this.btnModificarCliente);
+            this.groupBox6.Location = new System.Drawing.Point(11, 330);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(165, 122);
+            this.groupBox6.Size = new System.Drawing.Size(273, 130);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             // 
-            // button8
+            // btnPonerInactivo
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button8.Location = new System.Drawing.Point(9, 82);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(143, 29);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Dar de baja/Inactivar";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnPonerInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPonerInactivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPonerInactivo.Location = new System.Drawing.Point(9, 82);
+            this.btnPonerInactivo.Name = "btnPonerInactivo";
+            this.btnPonerInactivo.Size = new System.Drawing.Size(231, 29);
+            this.btnPonerInactivo.TabIndex = 2;
+            this.btnPonerInactivo.Text = "Dar de baja/Inactivar";
+            this.btnPonerInactivo.UseVisualStyleBackColor = true;
+            this.btnPonerInactivo.Click += new System.EventHandler(this.button8_Click);
             // 
             // btnGuardarDatosCte
             // 
@@ -400,31 +310,64 @@
             this.btnGuardarDatosCte.ForeColor = System.Drawing.Color.Green;
             this.btnGuardarDatosCte.Location = new System.Drawing.Point(9, 49);
             this.btnGuardarDatosCte.Name = "btnGuardarDatosCte";
-            this.btnGuardarDatosCte.Size = new System.Drawing.Size(143, 29);
+            this.btnGuardarDatosCte.Size = new System.Drawing.Size(231, 29);
             this.btnGuardarDatosCte.TabIndex = 1;
             this.btnGuardarDatosCte.Text = "Guardar Datos";
             this.btnGuardarDatosCte.UseVisualStyleBackColor = true;
             this.btnGuardarDatosCte.Click += new System.EventHandler(this.btnGuardarDatosCte_Click);
             // 
-            // button6
+            // btnModificarCliente
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Chocolate;
-            this.button6.Location = new System.Drawing.Point(9, 16);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(143, 29);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Modificar Datos";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnModificarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCliente.ForeColor = System.Drawing.Color.Chocolate;
+            this.btnModificarCliente.Location = new System.Drawing.Point(9, 16);
+            this.btnModificarCliente.Name = "btnModificarCliente";
+            this.btnModificarCliente.Size = new System.Drawing.Size(231, 29);
+            this.btnModificarCliente.TabIndex = 0;
+            this.btnModificarCliente.Text = "Modificar Datos";
+            this.btnModificarCliente.UseVisualStyleBackColor = true;
+            this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
-            // button5
+            // lblMostrarInfoCliente
             // 
-            this.button5.Location = new System.Drawing.Point(11, 22);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(165, 34);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "☑ Crear Nuevo Cliente";
-            this.button5.UseVisualStyleBackColor = true;
+            this.lblMostrarInfoCliente.AutoSize = true;
+            this.lblMostrarInfoCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMostrarInfoCliente.Location = new System.Drawing.Point(18, 43);
+            this.lblMostrarInfoCliente.Name = "lblMostrarInfoCliente";
+            this.lblMostrarInfoCliente.Size = new System.Drawing.Size(209, 25);
+            this.lblMostrarInfoCliente.TabIndex = 16;
+            this.lblMostrarInfoCliente.Text = "Información del Cliente";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Mascotas asociadas:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 328);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Listado de Clientes";
+            // 
+            // dtgvListadoCtes
+            // 
+            this.dtgvListadoCtes.AllowUserToAddRows = false;
+            this.dtgvListadoCtes.AllowUserToDeleteRows = false;
+            this.dtgvListadoCtes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListadoCtes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListadoCtes.Location = new System.Drawing.Point(11, 355);
+            this.dtgvListadoCtes.Name = "dtgvListadoCtes";
+            this.dtgvListadoCtes.ReadOnly = true;
+            this.dtgvListadoCtes.RowHeadersVisible = false;
+            this.dtgvListadoCtes.Size = new System.Drawing.Size(525, 154);
+            this.dtgvListadoCtes.TabIndex = 19;
             // 
             // _04Clientes
             // 
@@ -432,9 +375,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(867, 548);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btnLimpiarCte);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "_04Clientes";
@@ -443,12 +385,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -471,22 +412,17 @@
         private System.Windows.Forms.Label lblDireccionCte;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtNroCte;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtObservacionCte;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnPonerInactivo;
         private System.Windows.Forms.Button btnGuardarDatosCte;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnModificarCliente;
         private System.Windows.Forms.Button btnLimpiarCte;
+        private System.Windows.Forms.Label lblMostrarInfoCliente;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dtgvListadoCtes;
+        private System.Windows.Forms.Label label7;
     }
 }

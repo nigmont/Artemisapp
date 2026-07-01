@@ -22,7 +22,14 @@ namespace Artemisapp_UX
 
         private void _04Clientes_Load(object sender, EventArgs e)
         {
+            CargarListadoClientes();
+        }
 
+        private void CargarListadoClientes()
+        {
+            ClienteBLL bll = new ClienteBLL();
+            dtgvListadoCtes.DataSource = null;
+            dtgvListadoCtes.DataSource = bll.ObtenerTodos();
         }
 
         private void btnBuscarCte_Click(object sender, EventArgs e)
@@ -43,16 +50,25 @@ namespace Artemisapp_UX
                 if (c != null)
                 {
                     // Cargamos los datos en los campos
-                    txtNroCte.Text = c.NroCte;
                     txtNombreCte.Text = c.Nombre;
                     txtApellidoCte.Text = c.Apellido;
                     txtCorreoElectronicoCte.Text = c.Email;
                     txtTelefonoCte.Text = c.Telefono;
                     txtDireccionCte.Text = c.Direccion;
+
+                    // Mostramos el resumen en el label
+                    lblMostrarInfoCliente.Text =
+                        "N° de cliente: " + c.NroCte + "\n" +
+                        "DNI: " + c.Dni + "\n" +
+                        "Nombre: " + c.Nombre + " " + c.Apellido + "\n" +
+                        "Correo: " + c.Email + "\n" +
+                        "Teléfono: " + c.Telefono + "\n" +
+                        "Dirección: " + c.Direccion;
+
                 }
                 else
                 {
-                    MessageBox.Show("No se encontró un cliente con ese DNI.");
+                    MessageBox.Show("No hay ningún cliente registrado con ese DNI. Por favor, complete los siguientes datos para darlo de alta en el sistema.");
                 }
             }
             catch (Exception ex)
@@ -67,12 +83,13 @@ namespace Artemisapp_UX
             txtDniCte.Clear();
 
             // Se limpian los campos donde se cargaron los datos del cliente
-            txtNroCte.Clear();
+ 
             txtNombreCte.Clear();
             txtApellidoCte.Clear();
             txtCorreoElectronicoCte.Clear();
             txtTelefonoCte.Clear();
             txtDireccionCte.Clear();
+            lblMostrarInfoCliente.Text = "Información del Cliente";
 
             // Se deja el cursor listo en el campo DNI para una nueva búsqueda
             txtDniCte.Focus();
@@ -124,14 +141,112 @@ namespace Artemisapp_UX
                     direccion,
                     telefono,
                     email,
-                    new System.Collections.Generic.List<Artemisapp_BE.Animales.Animal>()
+                    new System.Collections.Generic.List<Artemisapp_BE.Animales.Animal>(),
+                    true
                 );
 
                 bll.RegistrarCliente(nuevo);
 
-                // Mostramos el Nro generado y avisamos
-                txtNroCte.Text = nuevoNro.ToString();
+                // Mostramos el resumen del cliente en el label
+                lblMostrarInfoCliente.Text =
+                    "N° de cliente: " + nuevoNro + "\n" +
+                    "DNI: " + dni + "\n" +
+                    "Nombre: " + nombre + " " + apellido + "\n" +
+                    "Correo: " + email + "\n" +
+                    "Teléfono: " + telefono + "\n" +
+                    "Dirección: " + direccion;
+
                 MessageBox.Show("Cliente guardado correctamente. Nro de cliente: " + nuevoNro);
+                CargarListadoClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnModificarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dni = txtDniCte.Text.Trim();
+
+                if (dni == "")
+                {
+                    MessageBox.Show("Buscá un cliente por DNI primero.");
+                    return;
+                }
+
+                ClienteBLL bll = new ClienteBLL();
+                Cliente existente = bll.BuscarClientePorDNI(dni);
+
+                if (existente == null)
+                {
+                    MessageBox.Show("No existe un cliente con ese DNI.");
+                    return;
+                }
+
+                // Creamos el cliente con los datos editados (mismo DNI y NroCte, conservamos las mascotas)
+                Cliente modificado = new Cliente(
+                    dni,
+                    existente.NroCte,
+                    txtNombreCte.Text.Trim(),
+                    txtApellidoCte.Text.Trim(),
+                    txtDireccionCte.Text.Trim(),
+                    txtTelefonoCte.Text.Trim(),
+                    txtCorreoElectronicoCte.Text.Trim(),
+                    existente.Mascotas,
+                    existente.Activo
+                );
+
+                bll.actualizarDatos(modificado);
+
+                MessageBox.Show("Datos del cliente modificados correctamente.");
+                CargarListadoClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dni = txtDniCte.Text.Trim();
+                if (dni == "")
+                {
+                    MessageBox.Show("Buscá un cliente por DNI primero.");
+                    return;
+                }
+
+                ClienteBLL bll = new ClienteBLL();
+                Cliente c = bll.BuscarClientePorDNI(dni);
+
+                if (c == null)
+                {
+                    MessageBox.Show("No existe un cliente con ese DNI.");
+                    return;
+                }
+
+                if (c.Activo == false)
+                {
+                    MessageBox.Show("Ese cliente ya está inactivo.");
+                    return;
+                }
+
+                DialogResult r = MessageBox.Show("¿Dar de baja al cliente " + c.Nombre + " " + c.Apellido + "?",
+                    "Confirmar baja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r != DialogResult.Yes) return;
+
+                Cliente inactivo = new Cliente(
+                    c.Dni, c.NroCte, c.Nombre, c.Apellido, c.Direccion, c.Telefono, c.Email, c.Mascotas, false
+                );
+
+                bll.actualizarDatos(inactivo);
+                MessageBox.Show("Cliente dado de baja correctamente.");
+                CargarListadoClientes();
             }
             catch (Exception ex)
             {

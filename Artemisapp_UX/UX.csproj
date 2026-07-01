@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="03Productos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="03Productos.Designer.cs">
-      <DependentUpon>03Productos.cs</DependentUpon>
-    </Compile>
     <Compile Include="04Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +119,6 @@
     <Compile Include="FormMenuInicio.Designer.cs">
       <DependentUpon>FormMenuInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPermisoUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPermisoUsuario.Designer.cs">
-      <DependentUpon>FormPermisoUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPruebaAnimal.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -139,17 +127,11 @@
       <DependentUpon>FormPruebaAnimal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="FormPruebaClientes.cs">
+    <Compile Include="ProductoAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPruebaClientes.Designer.cs">
-      <DependentUpon>FormPruebaClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPruebaProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPruebaProducto.Designer.cs">
-      <DependentUpon>FormPruebaProducto.cs</DependentUpon>
+    <Compile Include="ProductoAlmacen.Designer.cs">
+      <DependentUpon>ProductoAlmacen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,18 +200,12 @@
     <EmbeddedResource Include="FormMenuInicio.resx">
       <DependentUpon>FormMenuInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPermisoUsuario.resx">
-      <DependentUpon>FormPermisoUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPruebaAnimal.resx">
       <DependentUpon>FormPruebaAnimal.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPruebaClientes.resx">
-      <DependentUpon>FormPruebaClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPruebaProducto.resx">
-      <DependentUpon>FormPruebaProducto.cs</DependentUpon>
+    <EmbeddedResource Include="ProductoAlmacen.resx">
+      <DependentUpon>ProductoAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

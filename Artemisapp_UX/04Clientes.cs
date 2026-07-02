@@ -50,6 +50,7 @@ namespace Artemisapp_UX
                 if (c != null)
                 {
                     // Cargamos los datos en los campos
+                    txtNroCte.Text = c.NroCte;
                     txtNombreCte.Text = c.Nombre;
                     txtApellidoCte.Text = c.Apellido;
                     txtCorreoElectronicoCte.Text = c.Email;
@@ -64,6 +65,8 @@ namespace Artemisapp_UX
                         "Correo: " + c.Email + "\n" +
                         "Teléfono: " + c.Telefono + "\n" +
                         "Dirección: " + c.Direccion;
+
+                    CargarMascotasDelCliente(c.NroCte);
 
                 }
                 else
@@ -158,6 +161,7 @@ namespace Artemisapp_UX
 
                 MessageBox.Show("Cliente guardado correctamente. Nro de cliente: " + nuevoNro);
                 CargarListadoClientes();
+                txtNroCte.Text = nuevoNro.ToString();
             }
             catch (Exception ex)
             {
@@ -256,8 +260,17 @@ namespace Artemisapp_UX
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormAgregarMascota form = new FormAgregarMascota();
+            FormAgregarMascota form = new FormAgregarMascota(txtNroCte.Text);
             form.Show();
         }
+
+        private void CargarMascotasDelCliente(string nroCte)
+        {
+            AnimalBLL bll = new AnimalBLL();
+            dtgvMascotaAsociadaCliente.DataSource = null;
+            dtgvMascotaAsociadaCliente.DataSource = bll.ObtenerAnimalesPorDNI(nroCte);
+        }
+
+
     }
 }

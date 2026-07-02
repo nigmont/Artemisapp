@@ -13,12 +13,10 @@ namespace Artemisapp_BLL
     {
         ClienteDAL dal = new ClienteDAL(); // Instancia de la clase DAL para acceder a los métodos de datos
         
-        ClienteMapper mapper = new ClienteMapper(); // Instancia del mapper para convertir entre
-                                                    // entidades de negocio y datos crudos (XML)
-
-
-
-
+        ClienteMapper mapper = new ClienteMapper(); 
+        // Instancia del mapper para convertir entre
+                                                    
+        // entidades de negocio y datos crudos (XML)
 
 
         // REGISTRAR un nuevo cliente validando que el DNI no exista previamente.

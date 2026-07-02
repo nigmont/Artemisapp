@@ -34,5 +34,9 @@ namespace Artemisapp_BLL
         {
             return mapper.BuscarPorPropietario(dni);
         }
+        public List<Animal> ObtenerTodos()
+        {
+            return mapper.ObtenerTodos();
+        }
     }
 }

@@ -45,8 +45,9 @@
             this.chkMedicado = new System.Windows.Forms.CheckBox();
             this.chkVacunado = new System.Windows.Forms.CheckBox();
             this.chkCastrado = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGuardarDatos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.lblNroClienteMascota = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,7 +58,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(12, 33);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 25);
             this.label1.TabIndex = 0;
@@ -217,15 +218,15 @@
             this.chkCastrado.Text = "Castrado/a";
             this.chkCastrado.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnGuardarDatos
             // 
-            this.button3.Location = new System.Drawing.Point(219, 346);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 63);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarDatos.Location = new System.Drawing.Point(219, 346);
+            this.btnGuardarDatos.Name = "btnGuardarDatos";
+            this.btnGuardarDatos.Size = new System.Drawing.Size(167, 63);
+            this.btnGuardarDatos.TabIndex = 14;
+            this.btnGuardarDatos.Text = "Aceptar";
+            this.btnGuardarDatos.UseVisualStyleBackColor = true;
+            this.btnGuardarDatos.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -237,13 +238,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // lblNroClienteMascota
+            // 
+            this.lblNroClienteMascota.AutoSize = true;
+            this.lblNroClienteMascota.Location = new System.Drawing.Point(26, 46);
+            this.lblNroClienteMascota.Name = "lblNroClienteMascota";
+            this.lblNroClienteMascota.Size = new System.Drawing.Size(54, 13);
+            this.lblNroClienteMascota.TabIndex = 16;
+            this.lblNroClienteMascota.Text = "N° Cliente";
+            // 
             // FormAgregarMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 450);
+            this.Controls.Add(this.lblNroClienteMascota);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnGuardarDatos);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -280,7 +291,8 @@
         private System.Windows.Forms.CheckBox chkMedicado;
         private System.Windows.Forms.CheckBox chkVacunado;
         private System.Windows.Forms.CheckBox chkCastrado;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGuardarDatos;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblNroClienteMascota;
     }
 }

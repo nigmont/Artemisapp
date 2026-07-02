@@ -299,18 +299,29 @@ namespace Artemisapp_UX
         // encriptacion de password
         private void btnCifrar_Click(object sender, EventArgs e)
         {
-            string textoCifrado = SEGURIDAD.Encriptacion.EncriptarPassword(txtPruebaCifrado.Text);
-            // textoCifrado lo que hace es encriptar el texto que se encuentra en
-            // txtPruebaCifrado y lo guarda en la variable textoCifrado
             
-            txtPruebaCifrado.Text = textoCifrado;
-            // luego lo que hace es mostrar el texto encriptado en el mismo textbox
         }
 
         private void btnDescifrar_Click(object sender, EventArgs e)
         {
-            string textoDescifrado = txtPruebaCifrado.Text.DesencriptarPassword();
-            txtPruebaCifrado.Text = textoDescifrado;
+            
+        }
+
+        private void chbxEncriptar_CheckedChanged(object sender, EventArgs e)
+        {
+            // se verifica si el checkbox está marcado
+            if (chbxEncriptar.Checked)
+            {
+                // Si está marcado, encriptamos el texto actual
+                string textoCifrado = SEGURIDAD.Encriptacion.EncriptarPassword(txtNuevaPassword.Text);
+                txtNuevaPassword.Text = textoCifrado;
+            }
+            else
+            {
+                // Si se desmarcó, desencriptamos el texto actual
+                string textoDescifrado = txtNuevaPassword.Text.DesencriptarPassword();
+                txtNuevaPassword.Text = textoDescifrado;
+            }
         }
     }
 }

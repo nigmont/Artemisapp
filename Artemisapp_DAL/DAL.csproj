@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AnimalDAL.cs" />
     <Compile Include="ClienteDAL.cs" />
+    <Compile Include="FacturaDAL.cs" />
     <Compile Include="HistoriaClinicaDAL.cs" />
     <Compile Include="PermisoDAL.cs" />
     <Compile Include="PersonaDAL.cs" />

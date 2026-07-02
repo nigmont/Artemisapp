@@ -48,6 +48,7 @@
     <Compile Include="2_Animales\Perro.cs" />
     <Compile Include="2_Animales\Gato.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Factura.cs" />
     <Compile Include="HistoriaClinica.cs" />
     <Compile Include="1_Personas\PersonalRecepcion.cs" />
     <Compile Include="1_Personas\Persona.cs" />

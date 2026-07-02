@@ -253,5 +253,11 @@ namespace Artemisapp_UX
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormAgregarMascota form = new FormAgregarMascota();
+            form.Show();
+        }
     }
 }

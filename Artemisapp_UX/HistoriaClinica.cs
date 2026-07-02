@@ -1,5 +1,6 @@
 ﻿using Artemisapp_BE;
 using Artemisapp_BLL;
+using com.itextpdf.text.pdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,28 +13,33 @@ using System.Windows.Forms;
 
 namespace Artemisapp_UX
 {
-    public partial class PruebaHistoriaClinica : Form
+    public partial class HistoriaClinica : Form
     {
         HistoriaClinicaBLL bll = new HistoriaClinicaBLL();
         // historia clinica : DNI, ID historia, fecha de consulta,
         // estudios realizados, internaciones previas, observaciones médicas
 
-        public PruebaHistoriaClinica()
+        private Ventas consultaArmada;
+        private double montoConsultaCargado = 0;   // lo setea "Agregar Monto"
+
+        public HistoriaClinica()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)  //Guardar
+        private void button1_Click(object sender, EventArgs e)  // Guardar
         {
             try
             {
-                HistoriaClinica h = new HistoriaClinica(
+                Artemisapp_BE.HistoriaClinica h = new Artemisapp_BE.HistoriaClinica(
                     txtDni.Text,
                     txtIdHistoria.Text,
+                    lblNombreMascota.Text,        // la mascota atendida
                     dtpFecha.Value,
                     txtEstudios.Text,
                     txtInternaciones.Text,
-                    txtObservaciones.Text
+                    txtObservaciones.Text,
+                    montoConsultaCargado          // el monto que dejó "Agregar Monto"
                 );
 
                 bool resultado = bll.RegistrarConsulta(h);
@@ -53,7 +59,7 @@ namespace Artemisapp_UX
         {
             try
             {
-                HistoriaClinica h = bll.BuscarHistoriaPorDNI(txtDni.Text);
+                Artemisapp_BE.HistoriaClinica h = bll.BuscarHistoriaPorDNI(txtDni.Text);
 
                 if (h != null)
                 {
@@ -85,13 +91,15 @@ namespace Artemisapp_UX
         {
             try
             {
-                HistoriaClinica h = new HistoriaClinica(
+                Artemisapp_BE.HistoriaClinica h = new Artemisapp_BE.HistoriaClinica(
                     txtDni.Text,
                     txtIdHistoria.Text,
+                    lblNombreMascota.Text,        // NUEVO: la mascota atendida
                     dtpFecha.Value,
                     txtEstudios.Text,
                     txtInternaciones.Text,
-                    txtObservaciones.Text
+                    txtObservaciones.Text,
+                    montoConsultaCargado          // NUEVO: el monto cargado
                 );
 
                 bool resultado = bll.ActualizarHistoriaClinica(h);
@@ -135,6 +143,64 @@ namespace Artemisapp_UX
             dtpFecha.Value = DateTime.Now;   // el DateTimePicker no tiene Clear()
 
             lblResultado.Text = "";
+        }
+
+        private void PruebaHistoriaClinica_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            double precioBase = 10000;   // precio base de la consulta (hardcodeado)
+            double adicionales = 0;
+
+            // Sumar los adicionales seleccionados en el ListBox
+            foreach (object item in clbAdicionales.SelectedItems)
+            {
+                string texto = item.ToString();
+                if (texto.Contains("Castración")) adicionales += 90000;
+                else if (texto.Contains("Vacunación")) adicionales += 20000;
+                // agregá los demás que tengas hardcodeados
+            }
+
+            // "Otro" monto libre
+            double otro = 0;
+            double.TryParse(txtOtroMonto.Text, out otro);
+
+            double totalConsulta = precioBase + adicionales + otro;
+
+            // Mostrar el monto en el label
+            lblMontoParcialConsulta.Text = "$" + totalConsulta.ToString("F2");
+
+            // Armar la consulta como Ventas (para pasarla a facturación)
+            consultaArmada = new Ventas(
+                0,
+                "CONSULTA",
+                "Consulta veterinaria",
+                1,
+                totalConsulta,
+                txtDni.Text,
+                DateTime.Now,
+                totalConsulta,
+                "",
+                ""
+            );
+            montoConsultaCargado = totalConsulta;
+            lblMontoParcialConsulta.Text = "$" + totalConsulta.ToString("F2");
+            MessageBox.Show("Monto agregado: $" + totalConsulta.ToString("F2"), "Consulta",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lblResultado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

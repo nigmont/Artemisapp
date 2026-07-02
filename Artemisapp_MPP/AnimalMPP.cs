@@ -9,25 +9,61 @@ namespace Artemisapp_MPP
         // De dato crudo (XML) → entidad de negocio
         public Animal ToEntity(XElement elemento)
         {
-            return new Animal(
-                (string)elemento.Element("Nombre"),
-                (int)elemento.Element("Edad"),
-                (double)elemento.Element("Peso"),
-                (string)elemento.Element("Raza"),
-                (string)elemento.Element("NroCte")
-            );
+            string tipo = (string)elemento.Element("Tipo");
+
+            string nombre = (string)elemento.Element("Nombre");
+            int edad = (int)elemento.Element("Edad");
+            double peso = (double)elemento.Element("Peso");
+            string raza = (string)elemento.Element("Raza");
+            string nroCte = (string)elemento.Element("NroCte");
+
+            if (tipo == "Perro")
+                return new Perro(nombre, edad, peso, raza, nroCte,
+                    (bool?)elemento.Element("Castrado") ?? false,
+                    (bool?)elemento.Element("Vacunado") ?? false,
+                    (bool?)elemento.Element("Medicado") ?? false);
+
+            if (tipo == "Gato")
+                return new Gato(nombre, edad, peso, raza, nroCte,
+                    (bool?)elemento.Element("Castrado") ?? false,
+                    (bool?)elemento.Element("Vacunado") ?? false,
+                    (bool?)elemento.Element("Medicado") ?? false);
+
+            // Sin tipo (animales viejos) o Tipo="Animal" → Animal base
+            return new Animal(nombre, edad, peso, raza, nroCte);
         }
 
         // De entidad de negocio → dato crudo (XML)
         public XElement ToXml(Animal animal)
         {
-            return new XElement("Animal",
-                new XElement("Nombre", animal.Nombre),
-                new XElement("Edad", animal.Edad),
-                new XElement("Peso", animal.Peso),
-                new XElement("Raza", animal.Raza),
-                new XElement("NroCte", animal.NroCte)
-            );
+            XElement nodo = new XElement("Animal",
+        new XElement("Nombre", animal.Nombre),
+        new XElement("Edad", animal.Edad),
+        new XElement("Peso", animal.Peso),
+        new XElement("Raza", animal.Raza),
+        new XElement("NroCte", animal.NroCte)
+    );
+
+            if (animal is Perro perro)
+            {
+                nodo.Add(new XElement("Tipo", "Perro"));
+                nodo.Add(new XElement("Castrado", perro.Castrado));
+                nodo.Add(new XElement("Vacunado", perro.Vacunado));
+                nodo.Add(new XElement("Medicado", perro.Medicado));
+            }
+            else if (animal is Gato gato)
+            {
+                nodo.Add(new XElement("Tipo", "Gato"));
+                nodo.Add(new XElement("Castrado", gato.Castrado));
+                nodo.Add(new XElement("Vacunado", gato.Vacunado));
+                nodo.Add(new XElement("Medicado", gato.Medicado));
+            }
+            else
+            {
+                nodo.Add(new XElement("Tipo", "Animal"));
+            }
+
+            return nodo;
         }
 
         public List<Animal> ObtenerTodos()

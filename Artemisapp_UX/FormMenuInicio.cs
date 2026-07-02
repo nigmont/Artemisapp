@@ -124,5 +124,11 @@ namespace Artemisapp_UX
             ProductoAlmacen form = new ProductoAlmacen(); // Crear una instancia del formulario
             form.Show();
         }
+
+        private void menuHistoriaClinica_Click(object sender, EventArgs e)
+        {
+            HistoriaClinica form = new HistoriaClinica(); // Crear una instancia del formulario
+            form.Show(); // Mostrar el formulario
+        }
     }
 }

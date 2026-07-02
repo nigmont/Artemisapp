@@ -14,15 +14,15 @@ namespace Artemisapp_UX
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // 1. Sembrar permisos
+            // 1. Crear permisos
             PermisoBLL permisoBLL = new PermisoBLL();
             permisoBLL.CrearPermisos();
 
-            // 2. Sembrar rol Administrador
+            // 2. Crear rol Administrador
             RolBLL rolBLL = new RolBLL();
             rolBLL.CrearRolAdministrador();
 
-            // 3. Crear el usuario admin con el rol Administrador (solo si no existe ninguno)
+            // 3. Crear el usuario admin con el rol Administrador
             UsuarioClaveBLL usuarioBLL = new UsuarioClaveBLL();
             if (usuarioBLL.ObtenerTodos().Count == 0)
             {

@@ -15,10 +15,12 @@ namespace Artemisapp_MPP
             return new HistoriaClinica(
                 (string)elem.Element("Dni"),
                 (string)elem.Element("IdHistoria"),
+                (string)elem.Element("NombreMascota"),
                 DateTime.Parse((string)elem.Element("FechaDeConsulta"), CultureInfo.InvariantCulture),
                 (string)elem.Element("Estudios"),
                 (string)elem.Element("Internaciones"),
-                (string)elem.Element("Observaciones")
+                (string)elem.Element("Observaciones"),
+                (double?)elem.Element("MontoConsulta") ?? 0    // si no existe (historias viejas), 0
             );
         }
 
@@ -28,10 +30,12 @@ namespace Artemisapp_MPP
             return new XElement("HistoriaClinica",
                 new XElement("Dni", historia.Dni),
                 new XElement("IdHistoria", historia.IdHistoria),
+                new XElement("NombreMascota", historia.NombreMascota),
                 new XElement("FechaDeConsulta", historia.FechaDeConsulta.ToString("yyyy-MM-dd")),
                 new XElement("Estudios", historia.Estudios),
                 new XElement("Internaciones", historia.Internaciones),
-                new XElement("Observaciones", historia.Observaciones)
+                new XElement("Observaciones", historia.Observaciones),
+                new XElement("MontoConsulta", historia.MontoConsulta)
             );
         }
 

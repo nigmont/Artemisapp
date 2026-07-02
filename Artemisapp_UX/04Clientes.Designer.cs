@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnLimpiarCte = new System.Windows.Forms.Button();
             this.txtDireccionCte = new System.Windows.Forms.TextBox();
             this.lblDireccionCte = new System.Windows.Forms.Label();
             this.txtTelefonoCte = new System.Windows.Forms.TextBox();
@@ -43,25 +42,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDniCte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLimpiarCte = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvListadoCtes = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblMostrarInfoCliente = new System.Windows.Forms.Label();
+            this.dtgvMascotaAsociadaCliente = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnPonerInactivo = new System.Windows.Forms.Button();
             this.btnGuardarDatosCte = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
-            this.lblMostrarInfoCliente = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtgvListadoCtes = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMascotaAsociadaCliente)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,16 +85,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1. Registro de Datos Personales (Persona)";
-            // 
-            // btnLimpiarCte
-            // 
-            this.btnLimpiarCte.Location = new System.Drawing.Point(169, 513);
-            this.btnLimpiarCte.Name = "btnLimpiarCte";
-            this.btnLimpiarCte.Size = new System.Drawing.Size(115, 23);
-            this.btnLimpiarCte.TabIndex = 13;
-            this.btnLimpiarCte.Text = "Limpiar Datos";
-            this.btnLimpiarCte.UseVisualStyleBackColor = true;
-            this.btnLimpiarCte.Click += new System.EventHandler(this.btnLimpiarCte_Click);
             // 
             // txtDireccionCte
             // 
@@ -222,14 +210,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "🎴 DNI";
             // 
+            // btnLimpiarCte
+            // 
+            this.btnLimpiarCte.Location = new System.Drawing.Point(169, 513);
+            this.btnLimpiarCte.Name = "btnLimpiarCte";
+            this.btnLimpiarCte.Size = new System.Drawing.Size(115, 23);
+            this.btnLimpiarCte.TabIndex = 13;
+            this.btnLimpiarCte.Text = "Limpiar Datos";
+            this.btnLimpiarCte.UseVisualStyleBackColor = true;
+            this.btnLimpiarCte.Click += new System.EventHandler(this.btnLimpiarCte_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dtgvListadoCtes);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblMostrarInfoCliente);
-            this.groupBox2.Controls.Add(this.pictureBox1);
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dtgvMascotaAsociadaCliente);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
@@ -240,26 +237,57 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mostrar datos personales:";
             // 
-            // pictureBox1
+            // dtgvListadoCtes
             // 
-            this.pictureBox1.Image = global::Artemisapp_UX.Properties.Resources.gatos4;
-            this.pictureBox1.Location = new System.Drawing.Point(445, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 222);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.dtgvListadoCtes.AllowUserToAddRows = false;
+            this.dtgvListadoCtes.AllowUserToDeleteRows = false;
+            this.dtgvListadoCtes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvListadoCtes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvListadoCtes.Location = new System.Drawing.Point(11, 355);
+            this.dtgvListadoCtes.Name = "dtgvListadoCtes";
+            this.dtgvListadoCtes.ReadOnly = true;
+            this.dtgvListadoCtes.RowHeadersVisible = false;
+            this.dtgvListadoCtes.Size = new System.Drawing.Size(525, 154);
+            this.dtgvListadoCtes.TabIndex = 19;
             // 
-            // dataGridView1
+            // label7
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 236);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(423, 86);
-            this.dataGridView1.TabIndex = 3;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 328);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Listado de Clientes";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Mascotas asociadas:";
+            // 
+            // lblMostrarInfoCliente
+            // 
+            this.lblMostrarInfoCliente.AutoSize = true;
+            this.lblMostrarInfoCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMostrarInfoCliente.Location = new System.Drawing.Point(18, 43);
+            this.lblMostrarInfoCliente.Name = "lblMostrarInfoCliente";
+            this.lblMostrarInfoCliente.Size = new System.Drawing.Size(209, 25);
+            this.lblMostrarInfoCliente.TabIndex = 16;
+            this.lblMostrarInfoCliente.Text = "Información del Cliente";
+            // 
+            // dtgvMascotaAsociadaCliente
+            // 
+            this.dtgvMascotaAsociadaCliente.AllowUserToAddRows = false;
+            this.dtgvMascotaAsociadaCliente.AllowUserToDeleteRows = false;
+            this.dtgvMascotaAsociadaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMascotaAsociadaCliente.Location = new System.Drawing.Point(11, 236);
+            this.dtgvMascotaAsociadaCliente.Name = "dtgvMascotaAsociadaCliente";
+            this.dtgvMascotaAsociadaCliente.ReadOnly = true;
+            this.dtgvMascotaAsociadaCliente.Size = new System.Drawing.Size(423, 86);
+            this.dtgvMascotaAsociadaCliente.TabIndex = 3;
             // 
             // button4
             // 
@@ -280,6 +308,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "🐾 Añadir Mascota";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox6
             // 
@@ -328,47 +357,6 @@
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
             // 
-            // lblMostrarInfoCliente
-            // 
-            this.lblMostrarInfoCliente.AutoSize = true;
-            this.lblMostrarInfoCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMostrarInfoCliente.Location = new System.Drawing.Point(18, 43);
-            this.lblMostrarInfoCliente.Name = "lblMostrarInfoCliente";
-            this.lblMostrarInfoCliente.Size = new System.Drawing.Size(209, 25);
-            this.lblMostrarInfoCliente.TabIndex = 16;
-            this.lblMostrarInfoCliente.Text = "Información del Cliente";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 212);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Mascotas asociadas:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 328);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Listado de Clientes";
-            // 
-            // dtgvListadoCtes
-            // 
-            this.dtgvListadoCtes.AllowUserToAddRows = false;
-            this.dtgvListadoCtes.AllowUserToDeleteRows = false;
-            this.dtgvListadoCtes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgvListadoCtes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvListadoCtes.Location = new System.Drawing.Point(11, 355);
-            this.dtgvListadoCtes.Name = "dtgvListadoCtes";
-            this.dtgvListadoCtes.ReadOnly = true;
-            this.dtgvListadoCtes.RowHeadersVisible = false;
-            this.dtgvListadoCtes.Size = new System.Drawing.Size(525, 154);
-            this.dtgvListadoCtes.TabIndex = 19;
-            // 
             // _04Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,10 +374,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvMascotaAsociadaCliente)).EndInit();
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -413,8 +400,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dtgvMascotaAsociadaCliente;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnPonerInactivo;
         private System.Windows.Forms.Button btnGuardarDatosCte;

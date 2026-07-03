@@ -29,11 +29,11 @@ namespace Artemisapp_BLL
             if (ObtenerTodos().Count > 0)
                 return;
 
-            // El Administrador tiene TODOS los permisos (1 al 7)
+            // El Administrador tiene TODOS los permisos (1 al 8)
             PermisoBLL permisoBLL = new PermisoBLL();
             BERol admin = new BERol(1, "Administrador");
 
-            for (long id = 1; id <= 7; id++) // IDs de los permisos van del 1 al 7
+            for (long id = 1; id <= 7; id++) // IDs de los permisos van del 1 al 8
             {
                 BEPermiso permiso = permisoBLL.BuscarPorId(id); // Busca el permiso por su ID
                 if (permiso != null) // Si el permiso existe, lo agrega al rol

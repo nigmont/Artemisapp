@@ -30,7 +30,7 @@ namespace Artemisapp_BLL
 
             RegistrarPermiso(new BEPermiso(1, "Gestionar Clientes"));
             RegistrarPermiso(new BEPermiso(2, "Gestionar Turnos"));
-            RegistrarPermiso(new BEPermiso(3, "Gestionar Historia Clínica"));
+            RegistrarPermiso(new BEPermiso(3, "Gestionar Historia Clínica")); // recordar tilde
             RegistrarPermiso(new BEPermiso(4, "Gestionar Productos"));
             RegistrarPermiso(new BEPermiso(5, "Cobrar Consulta"));
             RegistrarPermiso(new BEPermiso(6, "Gestionar Usuarios"));

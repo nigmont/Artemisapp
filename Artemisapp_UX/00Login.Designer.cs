@@ -34,6 +34,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblResultado = new System.Windows.Forms.Label();
+            this.chbMostrarContraseña = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -67,10 +68,11 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(262, 291);
+            this.txtPassword.Location = new System.Drawing.Point(262, 278);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(194, 20);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnIngresar
             // 
@@ -97,6 +99,18 @@
             this.lblResultado.TabIndex = 6;
             this.lblResultado.Text = ".";
             // 
+            // chbMostrarContraseña
+            // 
+            this.chbMostrarContraseña.AutoSize = true;
+            this.chbMostrarContraseña.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbMostrarContraseña.Location = new System.Drawing.Point(344, 304);
+            this.chbMostrarContraseña.Name = "chbMostrarContraseña";
+            this.chbMostrarContraseña.Size = new System.Drawing.Size(115, 17);
+            this.chbMostrarContraseña.TabIndex = 7;
+            this.chbMostrarContraseña.Text = "Mostrar Contraseña";
+            this.chbMostrarContraseña.UseVisualStyleBackColor = true;
+            this.chbMostrarContraseña.CheckedChanged += new System.EventHandler(this.chbMostrarContraseña_CheckedChanged);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +120,7 @@
             this.BackgroundImage = global::Artemisapp_UX.Properties.Resources.Login_Image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(714, 419);
+            this.Controls.Add(this.chbMostrarContraseña);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label3);
@@ -128,5 +143,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblResultado;
+        private System.Windows.Forms.CheckBox chbMostrarContraseña;
     }
 }

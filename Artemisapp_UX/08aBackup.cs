@@ -27,16 +27,13 @@ namespace Artemisapp_UX
         {
             try
             {
-                // 1. Hacemos el backup (copia todos los XML a una carpeta con timestamp)
                 GestorDeBackups gestor = new GestorDeBackups();
                 string timestamp = gestor.RealizarBackup();
 
-                // 2. Registramos el evento en la bitácora con el usuario logueado real
                 Bitacora bitacora = new Bitacora();
                 EventoBitacora evento = new EventoBitacora(DateTime.Now, _usuario.Usuario, "Backup");
                 bitacora.RegistrarEvento(evento);
 
-                // 3. Avisamos al usuario
                 lblResultadoBackup.Text = "Backup realizado: " + timestamp;
                 MessageBox.Show("Backup realizado correctamente.\nCarpeta: " + timestamp);
                 CargarHistorialBackups();

@@ -44,6 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLimpiarCte = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNroCte = new System.Windows.Forms.TextBox();
             this.dtgvListadoCtes = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.btnPonerInactivo = new System.Windows.Forms.Button();
             this.btnGuardarDatosCte = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
-            this.txtNroCte = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).BeginInit();
@@ -214,7 +214,7 @@
             // 
             // btnLimpiarCte
             // 
-            this.btnLimpiarCte.Location = new System.Drawing.Point(169, 513);
+            this.btnLimpiarCte.Location = new System.Drawing.Point(143, 177);
             this.btnLimpiarCte.Name = "btnLimpiarCte";
             this.btnLimpiarCte.Size = new System.Drawing.Size(115, 23);
             this.btnLimpiarCte.TabIndex = 13;
@@ -240,6 +240,23 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mostrar datos personales:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(443, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Nro Cte.";
+            // 
+            // txtNroCte
+            // 
+            this.txtNroCte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNroCte.Location = new System.Drawing.Point(445, 210);
+            this.txtNroCte.Name = "txtNroCte";
+            this.txtNroCte.Size = new System.Drawing.Size(91, 20);
+            this.txtNroCte.TabIndex = 13;
             // 
             // dtgvListadoCtes
             // 
@@ -318,12 +335,13 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnLimpiarCte);
             this.groupBox6.Controls.Add(this.btnPonerInactivo);
             this.groupBox6.Controls.Add(this.btnGuardarDatosCte);
             this.groupBox6.Controls.Add(this.btnModificarCliente);
-            this.groupBox6.Location = new System.Drawing.Point(11, 330);
+            this.groupBox6.Location = new System.Drawing.Point(11, 324);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(273, 130);
+            this.groupBox6.Size = new System.Drawing.Size(273, 206);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             // 
@@ -331,9 +349,9 @@
             // 
             this.btnPonerInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPonerInactivo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnPonerInactivo.Location = new System.Drawing.Point(9, 82);
+            this.btnPonerInactivo.Location = new System.Drawing.Point(9, 127);
             this.btnPonerInactivo.Name = "btnPonerInactivo";
-            this.btnPonerInactivo.Size = new System.Drawing.Size(231, 29);
+            this.btnPonerInactivo.Size = new System.Drawing.Size(249, 48);
             this.btnPonerInactivo.TabIndex = 2;
             this.btnPonerInactivo.Text = "Dar de baja/Inactivar";
             this.btnPonerInactivo.UseVisualStyleBackColor = true;
@@ -343,9 +361,9 @@
             // 
             this.btnGuardarDatosCte.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarDatosCte.ForeColor = System.Drawing.Color.Green;
-            this.btnGuardarDatosCte.Location = new System.Drawing.Point(9, 49);
+            this.btnGuardarDatosCte.Location = new System.Drawing.Point(9, 19);
             this.btnGuardarDatosCte.Name = "btnGuardarDatosCte";
-            this.btnGuardarDatosCte.Size = new System.Drawing.Size(231, 29);
+            this.btnGuardarDatosCte.Size = new System.Drawing.Size(249, 48);
             this.btnGuardarDatosCte.TabIndex = 1;
             this.btnGuardarDatosCte.Text = "Guardar Datos";
             this.btnGuardarDatosCte.UseVisualStyleBackColor = true;
@@ -355,30 +373,13 @@
             // 
             this.btnModificarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarCliente.ForeColor = System.Drawing.Color.Chocolate;
-            this.btnModificarCliente.Location = new System.Drawing.Point(9, 16);
+            this.btnModificarCliente.Location = new System.Drawing.Point(9, 73);
             this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(231, 29);
+            this.btnModificarCliente.Size = new System.Drawing.Size(249, 48);
             this.btnModificarCliente.TabIndex = 0;
             this.btnModificarCliente.Text = "Modificar Datos";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
-            // 
-            // txtNroCte
-            // 
-            this.txtNroCte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNroCte.Location = new System.Drawing.Point(445, 210);
-            this.txtNroCte.Name = "txtNroCte";
-            this.txtNroCte.Size = new System.Drawing.Size(91, 20);
-            this.txtNroCte.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(443, 190);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Nro Cte.";
             // 
             // _04Clientes
             // 
@@ -386,7 +387,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(867, 548);
-            this.Controls.Add(this.btnLimpiarCte);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

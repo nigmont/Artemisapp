@@ -34,10 +34,12 @@ namespace Artemisapp_UX
                 {
                     // Traemos el usuario completo (con sus roles cargados)
                     UsuarioClaves usuarioLogueado = bll.ObtenerPorNombreUsuario(usuario);
-
+                    
+                    // Mensaje de bienvenida
+                    MessageBox.Show("¡Bienvenido/a, " + usuarioLogueado.Usuario + "!", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Abrimos el menú principal pasándole el usuario logueado
-                    FormMenuInicio menu = new FormMenuInicio(usuarioLogueado);
+                    FormMenuInicio menu = new FormMenuInicio(usuarioLogueado); //composite
                     menu.Show();
 
                     // Ocultamos el login (no lo cerramos, para no cerrar toda la app)
@@ -45,7 +47,7 @@ namespace Artemisapp_UX
                 }
                 else
                 {
-                    lblResultado.Text = "Usuario o contraseña incorrectos.";
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de acceso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -57,6 +59,11 @@ namespace Artemisapp_UX
         private void FormLogin_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void chbMostrarContraseña_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !chbMostrarContraseña.Checked;
         }
     }
 }

@@ -43,6 +43,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnCrearUsuario = new System.Windows.Forms.Button();
+            this.chbxEncriptar = new System.Windows.Forms.CheckBox();
             this.txtNuevoDni = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNuevaPassword = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.btnAsignarRolUsuario = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.chbxEncriptar = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -222,6 +222,18 @@
             this.btnCrearUsuario.UseVisualStyleBackColor = true;
             this.btnCrearUsuario.Click += new System.EventHandler(this.btnCrearUsuario_Click);
             // 
+            // chbxEncriptar
+            // 
+            this.chbxEncriptar.AutoSize = true;
+            this.chbxEncriptar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxEncriptar.Location = new System.Drawing.Point(137, 93);
+            this.chbxEncriptar.Name = "chbxEncriptar";
+            this.chbxEncriptar.Size = new System.Drawing.Size(158, 21);
+            this.chbxEncriptar.TabIndex = 6;
+            this.chbxEncriptar.Text = "Encriptar/Desencriptar";
+            this.chbxEncriptar.UseVisualStyleBackColor = true;
+            this.chbxEncriptar.CheckedChanged += new System.EventHandler(this.chbxEncriptar_CheckedChanged);
+            // 
             // txtNuevoDni
             // 
             this.txtNuevoDni.Location = new System.Drawing.Point(137, 136);
@@ -243,7 +255,6 @@
             // 
             this.txtNuevaPassword.Location = new System.Drawing.Point(137, 59);
             this.txtNuevaPassword.Name = "txtNuevaPassword";
-            this.txtNuevaPassword.PasswordChar = '*';
             this.txtNuevaPassword.Size = new System.Drawing.Size(171, 25);
             this.txtNuevaPassword.TabIndex = 3;
             // 
@@ -314,18 +325,6 @@
             this.label10.Size = new System.Drawing.Size(201, 30);
             this.label10.TabIndex = 0;
             this.label10.Text = "Gestión de Accesos";
-            // 
-            // chbxEncriptar
-            // 
-            this.chbxEncriptar.AutoSize = true;
-            this.chbxEncriptar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxEncriptar.Location = new System.Drawing.Point(137, 93);
-            this.chbxEncriptar.Name = "chbxEncriptar";
-            this.chbxEncriptar.Size = new System.Drawing.Size(158, 21);
-            this.chbxEncriptar.TabIndex = 6;
-            this.chbxEncriptar.Text = "Encriptar/Desencriptar";
-            this.chbxEncriptar.UseVisualStyleBackColor = true;
-            this.chbxEncriptar.CheckedChanged += new System.EventHandler(this.chbxEncriptar_CheckedChanged);
             // 
             // groupBox3
             // 

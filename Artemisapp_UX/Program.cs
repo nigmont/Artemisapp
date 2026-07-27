@@ -12,7 +12,7 @@ namespace Artemisapp_UX
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(false); //
 
             // 1. Crear permisos
             PermisoBLL permisoBLL = new PermisoBLL();

@@ -49,13 +49,16 @@
             this.txtNuevaPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNuevoUsuario = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnAsignarPermisoRol = new System.Windows.Forms.Button();
             this.btnAsignarRolUsuario = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.treeRolesPermisos = new System.Windows.Forms.TreeView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.treeUsuariosRolesPermisos = new System.Windows.Forms.TreeView();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -65,36 +68,36 @@
             // 
             // lstUsuarios
             // 
+            this.lstUsuarios.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstUsuarios.FormattingEnabled = true;
-            this.lstUsuarios.ItemHeight = 17;
-            this.lstUsuarios.Location = new System.Drawing.Point(11, 57);
+            this.lstUsuarios.Location = new System.Drawing.Point(11, 65);
             this.lstUsuarios.Name = "lstUsuarios";
-            this.lstUsuarios.Size = new System.Drawing.Size(147, 378);
+            this.lstUsuarios.Size = new System.Drawing.Size(147, 368);
             this.lstUsuarios.TabIndex = 0;
             // 
             // lstRoles
             // 
+            this.lstRoles.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstRoles.FormattingEnabled = true;
-            this.lstRoles.ItemHeight = 17;
-            this.lstRoles.Location = new System.Drawing.Point(264, 57);
+            this.lstRoles.Location = new System.Drawing.Point(183, 65);
             this.lstRoles.Name = "lstRoles";
-            this.lstRoles.Size = new System.Drawing.Size(147, 378);
+            this.lstRoles.Size = new System.Drawing.Size(147, 368);
             this.lstRoles.TabIndex = 1;
             // 
             // lstPermisos
             // 
+            this.lstPermisos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPermisos.FormattingEnabled = true;
-            this.lstPermisos.ItemHeight = 17;
-            this.lstPermisos.Location = new System.Drawing.Point(518, 55);
+            this.lstPermisos.Location = new System.Drawing.Point(348, 67);
             this.lstPermisos.Name = "lstPermisos";
-            this.lstPermisos.Size = new System.Drawing.Size(147, 378);
+            this.lstPermisos.Size = new System.Drawing.Size(147, 368);
             this.lstPermisos.TabIndex = 2;
             this.lstPermisos.SelectedIndexChanged += new System.EventHandler(this.lstPermisos_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Location = new System.Drawing.Point(43, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 3;
@@ -103,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(261, 29);
+            this.label2.Location = new System.Drawing.Point(233, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 4;
@@ -112,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(515, 28);
+            this.label3.Location = new System.Drawing.Point(403, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 5;
@@ -123,7 +126,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label4.Location = new System.Drawing.Point(9, 53);
+            this.label4.Location = new System.Drawing.Point(8, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 17);
             this.label4.TabIndex = 6;
@@ -132,7 +135,7 @@
             // txtNombreRol
             // 
             this.txtNombreRol.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreRol.Location = new System.Drawing.Point(137, 50);
+            this.txtNombreRol.Location = new System.Drawing.Point(6, 50);
             this.txtNombreRol.Name = "txtNombreRol";
             this.txtNombreRol.Size = new System.Drawing.Size(171, 25);
             this.txtNombreRol.TabIndex = 7;
@@ -142,7 +145,7 @@
             this.btnCrearRol.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRol.Location = new System.Drawing.Point(6, 81);
             this.btnCrearRol.Name = "btnCrearRol";
-            this.btnCrearRol.Size = new System.Drawing.Size(302, 30);
+            this.btnCrearRol.Size = new System.Drawing.Size(172, 30);
             this.btnCrearRol.TabIndex = 8;
             this.btnCrearRol.Text = "Crear Rol";
             this.btnCrearRol.UseVisualStyleBackColor = true;
@@ -150,8 +153,9 @@
             // 
             // txtNombrePermiso
             // 
-            this.txtNombrePermiso.Location = new System.Drawing.Point(137, 134);
+            this.txtNombrePermiso.Location = new System.Drawing.Point(7, 138);
             this.txtNombrePermiso.Name = "txtNombrePermiso";
+            this.txtNombrePermiso.ReadOnly = true;
             this.txtNombrePermiso.Size = new System.Drawing.Size(171, 25);
             this.txtNombrePermiso.TabIndex = 9;
             // 
@@ -160,7 +164,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label5.Location = new System.Drawing.Point(4, 138);
+            this.label5.Location = new System.Drawing.Point(7, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 17);
             this.label5.TabIndex = 10;
@@ -171,7 +175,7 @@
             this.btnCrearPermiso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearPermiso.Location = new System.Drawing.Point(7, 169);
             this.btnCrearPermiso.Name = "btnCrearPermiso";
-            this.btnCrearPermiso.Size = new System.Drawing.Size(302, 30);
+            this.btnCrearPermiso.Size = new System.Drawing.Size(171, 30);
             this.btnCrearPermiso.TabIndex = 11;
             this.btnCrearPermiso.Text = "Crear Permiso";
             this.btnCrearPermiso.UseVisualStyleBackColor = true;
@@ -189,7 +193,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Location = new System.Drawing.Point(20, 318);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 217);
+            this.groupBox1.Size = new System.Drawing.Size(189, 217);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "2. Roles y Permisos";
@@ -203,20 +207,19 @@
             this.groupBox2.Controls.Add(this.txtNuevaPassword);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtNuevoUsuario);
-            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(20, 91);
+            this.groupBox2.Location = new System.Drawing.Point(20, 68);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(314, 221);
+            this.groupBox2.Size = new System.Drawing.Size(189, 244);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "1. Alta de Usuarios al Sistema:";
+            this.groupBox2.Text = "Nombre de usuario";
             // 
             // btnCrearUsuario
             // 
             this.btnCrearUsuario.Location = new System.Drawing.Point(6, 180);
             this.btnCrearUsuario.Name = "btnCrearUsuario";
-            this.btnCrearUsuario.Size = new System.Drawing.Size(302, 30);
+            this.btnCrearUsuario.Size = new System.Drawing.Size(172, 30);
             this.btnCrearUsuario.TabIndex = 6;
             this.btnCrearUsuario.Text = "Crear Usuario";
             this.btnCrearUsuario.UseVisualStyleBackColor = true;
@@ -226,7 +229,7 @@
             // 
             this.chbxEncriptar.AutoSize = true;
             this.chbxEncriptar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbxEncriptar.Location = new System.Drawing.Point(137, 93);
+            this.chbxEncriptar.Location = new System.Drawing.Point(19, 105);
             this.chbxEncriptar.Name = "chbxEncriptar";
             this.chbxEncriptar.Size = new System.Drawing.Size(158, 21);
             this.chbxEncriptar.TabIndex = 6;
@@ -236,7 +239,7 @@
             // 
             // txtNuevoDni
             // 
-            this.txtNuevoDni.Location = new System.Drawing.Point(137, 136);
+            this.txtNuevoDni.Location = new System.Drawing.Point(7, 149);
             this.txtNuevoDni.Name = "txtNuevoDni";
             this.txtNuevoDni.Size = new System.Drawing.Size(171, 25);
             this.txtNuevoDni.TabIndex = 5;
@@ -245,7 +248,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 144);
+            this.label8.Location = new System.Drawing.Point(6, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 17);
             this.label8.TabIndex = 4;
@@ -253,7 +256,7 @@
             // 
             // txtNuevaPassword
             // 
-            this.txtNuevaPassword.Location = new System.Drawing.Point(137, 59);
+            this.txtNuevaPassword.Location = new System.Drawing.Point(6, 74);
             this.txtNuevaPassword.Name = "txtNuevaPassword";
             this.txtNuevaPassword.Size = new System.Drawing.Size(171, 25);
             this.txtNuevaPassword.TabIndex = 3;
@@ -261,36 +264,26 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 67);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(4, 53);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 17);
+            this.label7.Size = new System.Drawing.Size(81, 17);
             this.label7.TabIndex = 2;
             this.label7.Text = "Contraseña:";
             // 
             // txtNuevoUsuario
             // 
-            this.txtNuevoUsuario.Location = new System.Drawing.Point(137, 28);
+            this.txtNuevoUsuario.Location = new System.Drawing.Point(6, 25);
             this.txtNuevoUsuario.Name = "txtNuevoUsuario";
             this.txtNuevoUsuario.Size = new System.Drawing.Size(171, 25);
             this.txtNuevoUsuario.TabIndex = 1;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 17);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Nombre de Usuario:";
-            // 
             // btnAsignarPermisoRol
             // 
             this.btnAsignarPermisoRol.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarPermisoRol.Location = new System.Drawing.Point(417, 57);
+            this.btnAsignarPermisoRol.Location = new System.Drawing.Point(280, 25);
             this.btnAsignarPermisoRol.Name = "btnAsignarPermisoRol";
-            this.btnAsignarPermisoRol.Size = new System.Drawing.Size(95, 48);
+            this.btnAsignarPermisoRol.Size = new System.Drawing.Size(117, 36);
             this.btnAsignarPermisoRol.TabIndex = 14;
             this.btnAsignarPermisoRol.Text = "Asignar Permiso al Rol";
             this.btnAsignarPermisoRol.UseVisualStyleBackColor = true;
@@ -299,9 +292,9 @@
             // btnAsignarRolUsuario
             // 
             this.btnAsignarRolUsuario.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarRolUsuario.Location = new System.Drawing.Point(164, 57);
+            this.btnAsignarRolUsuario.Location = new System.Drawing.Point(110, 24);
             this.btnAsignarRolUsuario.Name = "btnAsignarRolUsuario";
-            this.btnAsignarRolUsuario.Size = new System.Drawing.Size(95, 48);
+            this.btnAsignarRolUsuario.Size = new System.Drawing.Size(117, 38);
             this.btnAsignarRolUsuario.TabIndex = 16;
             this.btnAsignarRolUsuario.Text = "Asignar Rol a Usuario";
             this.btnAsignarRolUsuario.UseVisualStyleBackColor = true;
@@ -310,7 +303,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Location = new System.Drawing.Point(20, 16);
+            this.groupBox4.Location = new System.Drawing.Point(12, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(314, 58);
             this.groupBox4.TabIndex = 21;
@@ -320,7 +313,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 13);
+            this.label10.Location = new System.Drawing.Point(3, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(201, 30);
             this.label10.TabIndex = 0;
@@ -328,6 +321,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.treeUsuariosRolesPermisos);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.treeRolesPermisos);
             this.groupBox3.Controls.Add(this.btnAsignarPermisoRol);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
@@ -337,9 +334,9 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.lstUsuarios);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(340, 91);
+            this.groupBox3.Location = new System.Drawing.Point(215, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(685, 444);
+            this.groupBox3.Size = new System.Drawing.Size(903, 464);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Control y Distribución de Accesos";
@@ -347,18 +344,54 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Artemisapp_UX.Properties.Resources.Fondo_MenuStrip;
-            this.pictureBox1.Location = new System.Drawing.Point(858, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(900, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(161, 93);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
+            // treeRolesPermisos
+            // 
+            this.treeRolesPermisos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeRolesPermisos.Location = new System.Drawing.Point(539, 67);
+            this.treeRolesPermisos.Name = "treeRolesPermisos";
+            this.treeRolesPermisos.Size = new System.Drawing.Size(181, 368);
+            this.treeRolesPermisos.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(536, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(161, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Jerarquia de Roles y Permisos";
+            // 
+            // treeUsuariosRolesPermisos
+            // 
+            this.treeUsuariosRolesPermisos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeUsuariosRolesPermisos.Location = new System.Drawing.Point(726, 67);
+            this.treeUsuariosRolesPermisos.Name = "treeUsuariosRolesPermisos";
+            this.treeUsuariosRolesPermisos.Size = new System.Drawing.Size(168, 369);
+            this.treeUsuariosRolesPermisos.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(726, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(120, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Roles y Permisos User";
+            // 
             // FormGestionAccesos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 547);
+            this.ClientSize = new System.Drawing.Size(1121, 547);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
@@ -402,7 +435,6 @@
         private System.Windows.Forms.TextBox txtNuevaPassword;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNuevoUsuario;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAsignarPermisoRol;
         private System.Windows.Forms.Button btnAsignarRolUsuario;
         private System.Windows.Forms.CheckBox chbxEncriptar;
@@ -410,5 +442,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TreeView treeRolesPermisos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TreeView treeUsuariosRolesPermisos;
     }
 }

@@ -58,11 +58,11 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnCancelarCita = new System.Windows.Forms.Button();
             this.btnConfirmarCita = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.lblResumenTurno = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblResumenTurno = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -104,7 +104,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(167, 18);
+            this.label3.Location = new System.Drawing.Point(6, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 4;
@@ -112,25 +112,24 @@
             // 
             // txtClienteTurno
             // 
-            this.txtClienteTurno.Location = new System.Drawing.Point(173, 42);
+            this.txtClienteTurno.Location = new System.Drawing.Point(9, 86);
             this.txtClienteTurno.Name = "txtClienteTurno";
             this.txtClienteTurno.ReadOnly = true;
-            this.txtClienteTurno.Size = new System.Drawing.Size(184, 21);
+            this.txtClienteTurno.Size = new System.Drawing.Size(238, 21);
             this.txtClienteTurno.TabIndex = 5;
             this.txtClienteTurno.TextChanged += new System.EventHandler(this.txtClienteTurno_TextChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnLimpiarBusquedaTurno);
             this.groupBox1.Controls.Add(this.txtClienteTurno);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnBuscarClienteTurno);
             this.groupBox1.Controls.Add(this.txtDniTurno);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox1.Location = new System.Drawing.Point(9, 38);
+            this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(372, 100);
+            this.groupBox1.Size = new System.Drawing.Size(253, 133);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "1. Buscar Cliente";
@@ -138,7 +137,7 @@
             // btnLimpiarBusquedaTurno
             // 
             this.btnLimpiarBusquedaTurno.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiarBusquedaTurno.Location = new System.Drawing.Point(248, 69);
+            this.btnLimpiarBusquedaTurno.Location = new System.Drawing.Point(9, 188);
             this.btnLimpiarBusquedaTurno.Name = "btnLimpiarBusquedaTurno";
             this.btnLimpiarBusquedaTurno.Size = new System.Drawing.Size(109, 23);
             this.btnLimpiarBusquedaTurno.TabIndex = 6;
@@ -151,9 +150,9 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Controls.Add(this.btnAgregarNuevoCliente);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(387, 47);
+            this.groupBox2.Location = new System.Drawing.Point(292, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 91);
+            this.groupBox2.Size = new System.Drawing.Size(257, 133);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "👨 Nuevo Cliente";
@@ -163,7 +162,7 @@
             this.btnAgregarNuevoCliente.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAgregarNuevoCliente.Location = new System.Drawing.Point(17, 60);
             this.btnAgregarNuevoCliente.Name = "btnAgregarNuevoCliente";
-            this.btnAgregarNuevoCliente.Size = new System.Drawing.Size(223, 24);
+            this.btnAgregarNuevoCliente.Size = new System.Drawing.Size(223, 56);
             this.btnAgregarNuevoCliente.TabIndex = 1;
             this.btnAgregarNuevoCliente.Text = "👤➕ Agregar Nuevo Cliente";
             this.btnAgregarNuevoCliente.UseVisualStyleBackColor = false;
@@ -180,7 +179,11 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.cbMotivoCita);
+            this.groupBox4.Controls.Add(this.btnLimpiarBusquedaTurno);
             this.groupBox4.Controls.Add(this.txtClienteTurnoCita);
             this.groupBox4.Controls.Add(this.txtTurnoCita);
             this.groupBox4.Controls.Add(this.label10);
@@ -195,9 +198,9 @@
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(9, 144);
+            this.groupBox4.Location = new System.Drawing.Point(12, 182);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(372, 317);
+            this.groupBox4.Size = new System.Drawing.Size(442, 217);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "2. Datos del Turno";
@@ -205,32 +208,32 @@
             // cbMotivoCita
             // 
             this.cbMotivoCita.FormattingEnabled = true;
-            this.cbMotivoCita.Location = new System.Drawing.Point(10, 98);
+            this.cbMotivoCita.Location = new System.Drawing.Point(159, 71);
             this.cbMotivoCita.Name = "cbMotivoCita";
-            this.cbMotivoCita.Size = new System.Drawing.Size(347, 23);
+            this.cbMotivoCita.Size = new System.Drawing.Size(277, 23);
             this.cbMotivoCita.TabIndex = 21;
             // 
             // txtClienteTurnoCita
             // 
-            this.txtClienteTurnoCita.Location = new System.Drawing.Point(10, 43);
+            this.txtClienteTurnoCita.Location = new System.Drawing.Point(76, 43);
             this.txtClienteTurnoCita.Name = "txtClienteTurnoCita";
             this.txtClienteTurnoCita.ReadOnly = true;
-            this.txtClienteTurnoCita.Size = new System.Drawing.Size(208, 21);
+            this.txtClienteTurnoCita.Size = new System.Drawing.Size(195, 21);
             this.txtClienteTurnoCita.TabIndex = 7;
             // 
             // txtTurnoCita
             // 
-            this.txtTurnoCita.Location = new System.Drawing.Point(118, 277);
+            this.txtTurnoCita.Location = new System.Drawing.Point(303, 173);
             this.txtTurnoCita.Name = "txtTurnoCita";
             this.txtTurnoCita.ReadOnly = true;
-            this.txtTurnoCita.Size = new System.Drawing.Size(239, 21);
+            this.txtTurnoCita.Size = new System.Drawing.Size(135, 21);
             this.txtTurnoCita.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(13, 277);
+            this.label10.Location = new System.Drawing.Point(238, 179);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 15);
             this.label10.TabIndex = 20;
@@ -241,16 +244,16 @@
             this.cbHorarioCita.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHorarioCita.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbHorarioCita.FormattingEnabled = true;
-            this.cbHorarioCita.Location = new System.Drawing.Point(260, 224);
+            this.cbHorarioCita.Location = new System.Drawing.Point(357, 144);
             this.cbHorarioCita.Name = "cbHorarioCita";
-            this.cbHorarioCita.Size = new System.Drawing.Size(97, 23);
+            this.cbHorarioCita.Size = new System.Drawing.Size(79, 23);
             this.cbHorarioCita.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(257, 204);
+            this.label9.Location = new System.Drawing.Point(300, 148);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 15);
             this.label9.TabIndex = 18;
@@ -261,14 +264,14 @@
             this.cbProfesional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProfesional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbProfesional.FormattingEnabled = true;
-            this.cbProfesional.Location = new System.Drawing.Point(11, 163);
+            this.cbProfesional.Location = new System.Drawing.Point(159, 107);
             this.cbProfesional.Name = "cbProfesional";
-            this.cbProfesional.Size = new System.Drawing.Size(346, 23);
+            this.cbProfesional.Size = new System.Drawing.Size(277, 23);
             this.cbProfesional.TabIndex = 17;
             // 
             // dtpFechaCita
             // 
-            this.dtpFechaCita.Location = new System.Drawing.Point(11, 224);
+            this.dtpFechaCita.Location = new System.Drawing.Point(57, 144);
             this.dtpFechaCita.Name = "dtpFechaCita";
             this.dtpFechaCita.Size = new System.Drawing.Size(237, 21);
             this.dtpFechaCita.TabIndex = 16;
@@ -277,7 +280,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(8, 204);
+            this.label8.Location = new System.Drawing.Point(10, 148);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 15);
             this.label8.TabIndex = 15;
@@ -287,7 +290,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(8, 134);
+            this.label7.Location = new System.Drawing.Point(8, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 15);
             this.label7.TabIndex = 13;
@@ -297,7 +300,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(7, 68);
+            this.label6.Location = new System.Drawing.Point(8, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 15);
             this.label6.TabIndex = 11;
@@ -305,7 +308,7 @@
             // 
             // txtDniCita
             // 
-            this.txtDniCita.Location = new System.Drawing.Point(230, 44);
+            this.txtDniCita.Location = new System.Drawing.Point(309, 43);
             this.txtDniCita.Name = "txtDniCita";
             this.txtDniCita.Size = new System.Drawing.Size(127, 21);
             this.txtDniCita.TabIndex = 10;
@@ -314,7 +317,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(227, 23);
+            this.label5.Location = new System.Drawing.Point(277, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(26, 15);
             this.label5.TabIndex = 9;
@@ -324,7 +327,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(6, 23);
+            this.label4.Location = new System.Drawing.Point(6, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 15);
             this.label4.TabIndex = 7;
@@ -332,11 +335,14 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.dtgvAgendaTurnos);
             this.groupBox5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox5.Location = new System.Drawing.Point(387, 187);
+            this.groupBox5.Location = new System.Drawing.Point(460, 182);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(678, 346);
+            this.groupBox5.Size = new System.Drawing.Size(605, 356);
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "4. Agenda de Turnos";
@@ -345,23 +351,29 @@
             // 
             this.dtgvAgendaTurnos.AllowUserToAddRows = false;
             this.dtgvAgendaTurnos.AllowUserToDeleteRows = false;
+            this.dtgvAgendaTurnos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgvAgendaTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvAgendaTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAgendaTurnos.Location = new System.Drawing.Point(6, 22);
+            this.dtgvAgendaTurnos.Location = new System.Drawing.Point(6, 23);
             this.dtgvAgendaTurnos.Name = "dtgvAgendaTurnos";
             this.dtgvAgendaTurnos.ReadOnly = true;
             this.dtgvAgendaTurnos.RowHeadersVisible = false;
-            this.dtgvAgendaTurnos.Size = new System.Drawing.Size(666, 318);
+            this.dtgvAgendaTurnos.Size = new System.Drawing.Size(593, 327);
             this.dtgvAgendaTurnos.TabIndex = 22;
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.btnCancelarCita);
             this.groupBox6.Controls.Add(this.btnConfirmarCita);
             this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox6.Location = new System.Drawing.Point(9, 467);
+            this.groupBox6.Location = new System.Drawing.Point(12, 405);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(365, 66);
+            this.groupBox6.Size = new System.Drawing.Size(442, 66);
             this.groupBox6.TabIndex = 11;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "3. Acciones del Turno";
@@ -369,7 +381,7 @@
             // btnCancelarCita
             // 
             this.btnCancelarCita.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelarCita.Location = new System.Drawing.Point(173, 28);
+            this.btnCancelarCita.Location = new System.Drawing.Point(252, 28);
             this.btnCancelarCita.Name = "btnCancelarCita";
             this.btnCancelarCita.Size = new System.Drawing.Size(184, 32);
             this.btnCancelarCita.TabIndex = 2;
@@ -388,38 +400,28 @@
             this.btnConfirmarCita.UseVisualStyleBackColor = true;
             this.btnConfirmarCita.Click += new System.EventHandler(this.btnConfirmarCita_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(15, 9);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 16);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Usuario";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(163, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(23, 16);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Rol";
-            // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.Controls.Add(this.pictureBox1);
             this.groupBox8.Controls.Add(this.lblResumenTurno);
-            this.groupBox8.Location = new System.Drawing.Point(650, 38);
+            this.groupBox8.Location = new System.Drawing.Point(569, 34);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(415, 154);
+            this.groupBox8.Size = new System.Drawing.Size(496, 142);
             this.groupBox8.TabIndex = 24;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Resumen de la Operación";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Artemisapp_UX.Properties.Resources.esquina;
+            this.pictureBox1.Location = new System.Drawing.Point(391, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(99, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // lblResumenTurno
             // 
@@ -431,25 +433,38 @@
             this.lblResumenTurno.TabIndex = 0;
             this.lblResumenTurno.Text = "Sin turno asignado";
             // 
-            // pictureBox1
+            // label11
             // 
-            this.pictureBox1.Image = global::Artemisapp_UX.Properties.Resources.esquina;
-            this.pictureBox1.Location = new System.Drawing.Point(310, 47);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 101);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(16, 9);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(192, 25);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Gestión de Turnos";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Location = new System.Drawing.Point(12, 496);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(442, 42);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "VER TURNERO DIGITAL";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // _05Turnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 553);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -458,7 +473,8 @@
             this.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "_05Turnos";
-            this.Text = "_05Turnos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Artemisapp - Gestión de Turnos";
             this.Load += new System.EventHandler(this._05Turnos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -506,12 +522,12 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnCancelarCita;
         private System.Windows.Forms.Button btnConfirmarCita;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.TextBox txtClienteTurnoCita;
         private System.Windows.Forms.ComboBox cbMotivoCita;
         private System.Windows.Forms.Label lblResumenTurno;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
     }
 }

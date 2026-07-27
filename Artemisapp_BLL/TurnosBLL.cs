@@ -3,12 +3,13 @@ using Artemisapp_DAL;
 using Artemisapp_MPP;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Artemisapp_BLL
 {
     public class TurnosBLL
     {
-        TurnoDAL dal = new TurnoDAL();
+        // TurnoDAL dal = new TurnoDAL();
         TurnoMapper mapper = new TurnoMapper();
 
         public bool RegistrarTurnoInmediato(Turno turno)
@@ -26,6 +27,7 @@ namespace Artemisapp_BLL
             return mapper.Actualizar(turno);
         }
 
+
         public bool CancelarTurno(string idTurno)
         {
             return mapper.Cancelar(idTurno);
@@ -36,6 +38,7 @@ namespace Artemisapp_BLL
             return mapper.VerificarDisponibilidad(dni, fecha, horario);
         }
 
+
         public List<Turno> ObtenerTurnosPorDNI(string dni)
         {
             return mapper.BuscarPorDNI(dni);
@@ -45,6 +48,51 @@ namespace Artemisapp_BLL
         public List<Turno> ObtenerTodos()
         {
             return mapper.ObtenerTodos();
+        }
+
+        // Verifica si el horario está libre para ese profesional en esa fecha.
+        // Devuelve true si está disponible, false si ya hay un turno ocupándolo.
+        public bool HorarioDisponible(string dniVeterinario, DateTime fecha, string horario)
+        {
+            foreach (Turno t in mapper.ObtenerTodos())
+            {
+                if (t.DniVeterinario == dniVeterinario &&
+                    t.Fecha.Date == fecha.Date &&
+                    t.Horario == horario &&
+                    t.Estado != "Cancelado")
+                {
+                    return false; // ya hay un turno en ese horario con ese profesional
+                }
+            }
+
+            return true;
+        }
+
+        // Devuelve los turnos pendientes de HOY que aún no pasaron,
+        // ordenados por horario (el primero es el próximo a atender)
+        public List<Turno> ObtenerColaDeHoy()
+        {
+            DateTime ahora = DateTime.Now;
+            List<Turno> cola = new List<Turno>();
+
+            foreach (Turno t in mapper.ObtenerTodos())
+            {
+                if (t.Fecha.Date != ahora.Date || t.Estado != "Pendiente")
+                    continue;
+
+                // Combinamos fecha + horario ("HH:mm") para poder comparar con la hora actual
+                TimeSpan hora;
+                if (!TimeSpan.TryParse(t.Horario, out hora))
+                    continue; // horario con formato raro: lo salteamos
+
+                DateTime momentoTurno = t.Fecha.Date.Add(hora);
+
+                if (momentoTurno > ahora)
+                    cola.Add(t);
+            }
+
+            // Ordenamos por horario: el más cercano primero
+            return cola.OrderBy(t => TimeSpan.Parse(t.Horario)).ToList();
         }
     }
 }

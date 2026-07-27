@@ -26,6 +26,8 @@ namespace Artemisapp_UX
             CargarUsuarios();
             CargarRoles();
             CargarPermisos();
+            CargarArbolRolesPermisos();
+            CargarArbolUsuariosRolesPermisos();
         }
 
         private void CargarUsuarios()
@@ -58,6 +60,59 @@ namespace Artemisapp_UX
                 lstPermisos.Items.Add(p.Nombre);
             }
         }
+
+        private void CargarArbolRolesPermisos()
+        {
+            treeRolesPermisos.Nodes.Clear();
+
+            RolBLL rolBLL = new RolBLL();
+            foreach (BERol rol in rolBLL.ObtenerTodos())
+            {
+                // Nodo padre: el rol
+                TreeNode nodoRol = new TreeNode(rol.Nombre);
+
+                // Nodos hijos: los permisos de ese rol
+                foreach (BEComposite permiso in rol.ObtenerHijos())
+                {
+                    nodoRol.Nodes.Add(new TreeNode(permiso.Nombre));
+                }
+
+                treeRolesPermisos.Nodes.Add(nodoRol);
+            }
+
+            treeRolesPermisos.ExpandAll();   // arranca con todo desplegado
+        }
+
+        private void CargarArbolUsuariosRolesPermisos()
+        {
+            treeUsuariosRolesPermisos.Nodes.Clear();
+
+            UsuarioClaveBLL usuarioBLL = new UsuarioClaveBLL();
+            foreach (UsuarioClaves usuario in usuarioBLL.ObtenerTodos())
+            {
+                // Nivel 1: el usuario
+                TreeNode nodoUsuario = new TreeNode(usuario.Usuario);
+
+                // Nivel 2: los roles del usuario
+                foreach (BERol rol in usuario.Roles)
+                {
+                    TreeNode nodoRol = new TreeNode(rol.Nombre);
+
+                    // Nivel 3: los permisos de ese rol
+                    foreach (BEComposite permiso in rol.ObtenerHijos())
+                    {
+                        nodoRol.Nodes.Add(new TreeNode(permiso.Nombre));
+                    }
+
+                    nodoUsuario.Nodes.Add(nodoRol);
+                }
+
+                treeUsuariosRolesPermisos.Nodes.Add(nodoUsuario);
+            }
+
+            treeUsuariosRolesPermisos.ExpandAll();
+        }
+
 
         // ---CREAR ROLES----
         private void btnCrearRol_Click(object sender, EventArgs e)
@@ -310,7 +365,6 @@ namespace Artemisapp_UX
 
         private void chbxEncriptar_CheckedChanged(object sender, EventArgs e)
         {
-            // se verifica si el checkbox está marcado
             if (chbxEncriptar.Checked)
             {
                 // Si está marcado, encriptamos el texto actual

@@ -306,8 +306,12 @@ namespace Artemisapp_UX
 
             doc.Close();
 
-            // Abrimos el PDF automáticamente
             System.Diagnostics.Process.Start(rutaPdf);
+        }
+
+        private void btnEmitirFactura_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

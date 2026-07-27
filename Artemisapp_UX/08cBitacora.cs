@@ -27,8 +27,6 @@ namespace Artemisapp_UX
             private void CargarBitacora()
         {
             BACKUP.Bitacora bitacora = new BACKUP.Bitacora();
-            //bitacora es una instancia de la clase Bitacora que se encarga de
-            //manejar los eventos de la bitácora.
 
             System.Collections.Generic.List<BACKUP.EventoBitacora> eventos = bitacora.ObtenerTodos();
 
@@ -38,7 +36,6 @@ namespace Artemisapp_UX
             else if (rbSoloRestores.Checked)
                 eventos = eventos.Where(ev => ev.Evento == "Restore").ToList();
 
-            // Se muestra en la grilla con nombres de columna lindos
             dgvBitacora.DataSource = null;
             dgvBitacora.DataSource = eventos.Select(ev => new
             {

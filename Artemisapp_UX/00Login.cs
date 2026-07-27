@@ -38,7 +38,6 @@ namespace Artemisapp_UX
                     // Mensaje de bienvenida
                     MessageBox.Show("¡Bienvenido/a, " + usuarioLogueado.Usuario + "!", "Acceso correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Abrimos el menú principal pasándole el usuario logueado
                     FormMenuInicio menu = new FormMenuInicio(usuarioLogueado); //composite
                     menu.Show();
 

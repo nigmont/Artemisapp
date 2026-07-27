@@ -17,7 +17,7 @@ namespace Artemisapp_BLL
 
         public bool ActualizarAnimal(Animal animal)
         {
-            return false; // se implementará despues
+            return mapper.Actualizar(animal);
         }
 
         public bool EliminarAnimal(string nombre, string nroCte)

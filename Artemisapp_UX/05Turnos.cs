@@ -172,6 +172,19 @@ namespace Artemisapp_UX
 
                 TurnosBLL bll = new TurnosBLL();
 
+                // 3.5 Verificamos que el horario no esté ocupado
+                if (!bll.HorarioDisponible(dniVeterinario, fecha, horario))
+                {
+                    MessageBox.Show(
+                        "El profesional " + vetElegido.Nombre + " " + vetElegido.Apellido +
+                        " ya tiene un turno asignado el " + fecha.ToString("dd/MM/yyyy") +
+                        " a las " + horario + " hs.\n\nElegí otro horario o profesional.",
+                        "Horario no disponible",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return; // no se genera el turno
+                }
+
                 // 4. Generamos el Nro de turno automático (3 dígitos, arrancando en 101)
                 int nuevoNro = 101;
                 foreach (Turno t in bll.ObtenerTodos())
@@ -276,6 +289,12 @@ namespace Artemisapp_UX
         {
             _04Clientes form = new _04Clientes();
             form.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormTurnero turnero = new FormTurnero();
+            turnero.Show(); // Show, NO ShowDialog
         }
     }
 }

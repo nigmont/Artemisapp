@@ -57,6 +57,7 @@
             this.btnPonerInactivo = new System.Windows.Forms.Button();
             this.btnGuardarDatosCte = new System.Windows.Forms.Button();
             this.btnModificarCliente = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListadoCtes)).BeginInit();
@@ -224,6 +225,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtNroCte);
             this.groupBox2.Controls.Add(this.dtgvListadoCtes);
@@ -236,7 +238,7 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox2.Location = new System.Drawing.Point(297, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(558, 525);
+            this.groupBox2.Size = new System.Drawing.Size(662, 525);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mostrar datos personales:";
@@ -244,7 +246,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(443, 190);
+            this.label8.Location = new System.Drawing.Point(442, 214);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 20;
@@ -253,9 +255,9 @@
             // txtNroCte
             // 
             this.txtNroCte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNroCte.Location = new System.Drawing.Point(445, 210);
+            this.txtNroCte.Location = new System.Drawing.Point(494, 205);
             this.txtNroCte.Name = "txtNroCte";
-            this.txtNroCte.Size = new System.Drawing.Size(91, 20);
+            this.txtNroCte.Size = new System.Drawing.Size(162, 20);
             this.txtNroCte.TabIndex = 13;
             // 
             // dtgvListadoCtes
@@ -268,7 +270,7 @@
             this.dtgvListadoCtes.Name = "dtgvListadoCtes";
             this.dtgvListadoCtes.ReadOnly = true;
             this.dtgvListadoCtes.RowHeadersVisible = false;
-            this.dtgvListadoCtes.Size = new System.Drawing.Size(525, 154);
+            this.dtgvListadoCtes.Size = new System.Drawing.Size(645, 154);
             this.dtgvListadoCtes.TabIndex = 19;
             // 
             // label7
@@ -293,7 +295,7 @@
             // 
             this.lblMostrarInfoCliente.AutoSize = true;
             this.lblMostrarInfoCliente.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMostrarInfoCliente.Location = new System.Drawing.Point(17, 37);
+            this.lblMostrarInfoCliente.Location = new System.Drawing.Point(55, 27);
             this.lblMostrarInfoCliente.Name = "lblMostrarInfoCliente";
             this.lblMostrarInfoCliente.Size = new System.Drawing.Size(209, 25);
             this.lblMostrarInfoCliente.TabIndex = 16;
@@ -309,25 +311,26 @@
             this.dtgvMascotaAsociadaCliente.Name = "dtgvMascotaAsociadaCliente";
             this.dtgvMascotaAsociadaCliente.ReadOnly = true;
             this.dtgvMascotaAsociadaCliente.RowHeadersVisible = false;
-            this.dtgvMascotaAsociadaCliente.Size = new System.Drawing.Size(423, 86);
+            this.dtgvMascotaAsociadaCliente.Size = new System.Drawing.Size(504, 86);
             this.dtgvMascotaAsociadaCliente.TabIndex = 3;
             // 
             // button4
             // 
             this.button4.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button4.Location = new System.Drawing.Point(445, 282);
+            this.button4.Location = new System.Drawing.Point(521, 297);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 40);
+            this.button4.Size = new System.Drawing.Size(135, 25);
             this.button4.TabIndex = 2;
-            this.button4.Text = "❌ Eliminar Mascota";
+            this.button4.Text = "❌ Baja Mascota";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
             this.button2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button2.Location = new System.Drawing.Point(445, 236);
+            this.button2.Location = new System.Drawing.Point(521, 236);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 40);
+            this.button2.Size = new System.Drawing.Size(135, 25);
             this.button2.TabIndex = 0;
             this.button2.Text = "🐾 Añadir Mascota";
             this.button2.UseVisualStyleBackColor = true;
@@ -353,7 +356,7 @@
             this.btnPonerInactivo.Name = "btnPonerInactivo";
             this.btnPonerInactivo.Size = new System.Drawing.Size(249, 48);
             this.btnPonerInactivo.TabIndex = 2;
-            this.btnPonerInactivo.Text = "Dar de baja/Inactivar";
+            this.btnPonerInactivo.Text = "Dar de baja/Inactivar Cliente";
             this.btnPonerInactivo.UseVisualStyleBackColor = true;
             this.btnPonerInactivo.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -365,7 +368,7 @@
             this.btnGuardarDatosCte.Name = "btnGuardarDatosCte";
             this.btnGuardarDatosCte.Size = new System.Drawing.Size(249, 48);
             this.btnGuardarDatosCte.TabIndex = 1;
-            this.btnGuardarDatosCte.Text = "Guardar Datos";
+            this.btnGuardarDatosCte.Text = "Guardar Datos Cliente";
             this.btnGuardarDatosCte.UseVisualStyleBackColor = true;
             this.btnGuardarDatosCte.Click += new System.EventHandler(this.btnGuardarDatosCte_Click);
             // 
@@ -377,16 +380,27 @@
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(249, 48);
             this.btnModificarCliente.TabIndex = 0;
-            this.btnModificarCliente.Text = "Modificar Datos";
+            this.btnModificarCliente.Text = "Modificar Datos Cliente";
             this.btnModificarCliente.UseVisualStyleBackColor = true;
             this.btnModificarCliente.Click += new System.EventHandler(this.btnModificarCliente_Click);
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.button1.Location = new System.Drawing.Point(521, 267);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 25);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "❕ Modif Mascota";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // _04Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(867, 548);
+            this.ClientSize = new System.Drawing.Size(971, 548);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -435,5 +449,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNroCte;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -39,23 +39,19 @@ namespace Artemisapp_UX
         {
             try
             {
-                // Verificamos que haya un backup seleccionado
                 if (lstBackups.SelectedItem == null)
                 {
                     MessageBox.Show("Seleccioná un backup de la lista.");
                     return;
                 }       
-
                 string nombreBackup = lstBackups.SelectedItem.ToString();
-
-                // Confirmamos, porque el restore reemplaza los datos actuales
                 DialogResult respuesta = MessageBox.Show(
                     "¿Seguro que querés restaurar este backup?\nLos datos actuales se reemplazarán por los del backup:\n" + nombreBackup,
                     "Confirmar Restore",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning);
 
-                if (respuesta != DialogResult.Yes)
+                if (respuesta != DialogResult.Yes) 
                     return;
 
                 // 1. Restauramos el backup elegido

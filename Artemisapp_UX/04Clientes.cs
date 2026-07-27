@@ -1,4 +1,5 @@
 ﻿using Artemisapp_BE;
+using Artemisapp_BE.Animales;
 using Artemisapp_BLL;
 using System;
 using System.Collections.Generic;
@@ -271,6 +272,58 @@ namespace Artemisapp_UX
             dtgvMascotaAsociadaCliente.DataSource = bll.ObtenerAnimalesPorDNI(nroCte);
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Verificar que haya un cliente cargado
+                if (txtNroCte.Text.Trim() == "")
+                {
+                    MessageBox.Show("Primero buscá un cliente.");
+                    return;
+                }
 
+                // 2. Verificar que haya una mascota seleccionada en la grilla
+                if (dtgvMascotaAsociadaCliente.CurrentRow == null ||
+                    !(dtgvMascotaAsociadaCliente.CurrentRow.DataBoundItem is Animal mascota))
+                {
+                    MessageBox.Show("Seleccioná una mascota de la lista para eliminar.");
+                    return;
+                }
+
+                // 3. Confirmación antes de borrar
+                DialogResult r = MessageBox.Show(
+                    "¿Eliminar a " + mascota.Nombre + " de la lista de mascotas?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (r != DialogResult.Yes)
+                    return;
+
+                // 4. Eliminar y refrescar
+                AnimalBLL bll = new AnimalBLL();
+                bool ok = bll.EliminarAnimal(mascota.Nombre, txtNroCte.Text.Trim());
+
+                if (ok)
+                {
+                    MessageBox.Show("Mascota eliminada correctamente.");
+                    CargarMascotasDelCliente(txtNroCte.Text.Trim());
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar la mascota.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

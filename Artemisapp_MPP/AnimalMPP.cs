@@ -115,6 +115,13 @@ namespace Artemisapp_MPP
             AnimalDAL dal = new AnimalDAL();
             return dal.EliminarCrudo(nombre, nroCte);
         }
-   
+
+        public bool Actualizar(Animal animal)
+        {
+            AnimalDAL dal = new AnimalDAL();
+            XElement animalActualizado = ToXml(animal);
+            return dal.ActualizarCrudo(animalActualizado);
+        }
+
     }
 }

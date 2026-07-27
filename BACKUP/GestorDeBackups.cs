@@ -56,16 +56,14 @@ namespace BACKUP
 
 
 
-        // Restaura un backup: copia los XML de la carpeta elegida de vuelta a DATOS
+        // -----RESTORE------
         public void RestaurarBackup(string nombreBackup)
         {
             string carpetaOrigen = Path.Combine(carpetaBackups, nombreBackup);
 
-            // Copiamos cada XML del backup de vuelta a la carpeta DATOS
             foreach (string archivo in Directory.GetFiles(carpetaOrigen, "*.xml"))
             {
                 string nombreArchivo = Path.GetFileName(archivo);
-                // nombreArchivo es el nombre del archivo XML (sin la ruta completa)
 
                 string destino = Path.Combine(carpetaDatos, nombreArchivo);
                 File.Copy(archivo, destino, true);

@@ -32,10 +32,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblClienteNumero = new System.Windows.Forms.Label();
             this.btnBuscarNroCte = new System.Windows.Forms.Button();
-            this.lstbProductos = new System.Windows.Forms.ListBox();
             this.txtClienteFacturacion = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lstbProductos = new System.Windows.Forms.ListBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.lblIva = new System.Windows.Forms.Label();
             this.lblDescuentos = new System.Windows.Forms.Label();
             this.lblTotalParcial = new System.Windows.Forms.Label();
@@ -124,34 +124,12 @@
             this.btnBuscarNroCte.UseVisualStyleBackColor = true;
             this.btnBuscarNroCte.Click += new System.EventHandler(this.btnBuscarNroCte_Click);
             // 
-            // lstbProductos
-            // 
-            this.lstbProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstbProductos.FormattingEnabled = true;
-            this.lstbProductos.ItemHeight = 17;
-            this.lstbProductos.Location = new System.Drawing.Point(16, 42);
-            this.lstbProductos.Name = "lstbProductos";
-            this.lstbProductos.Size = new System.Drawing.Size(533, 157);
-            this.lstbProductos.TabIndex = 7;
-            this.lstbProductos.SelectedIndexChanged += new System.EventHandler(this.lstbProductos_SelectedIndexChanged_1);
-            // 
             // txtClienteFacturacion
             // 
             this.txtClienteFacturacion.Location = new System.Drawing.Point(6, 49);
             this.txtClienteFacturacion.Name = "txtClienteFacturacion";
             this.txtClienteFacturacion.Size = new System.Drawing.Size(282, 29);
             this.txtClienteFacturacion.TabIndex = 1;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(16, 28);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(170, 13);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Elegir las opciones con un click:";
             // 
             // label1
             // 
@@ -163,6 +141,28 @@
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
+            // 
+            // lstbProductos
+            // 
+            this.lstbProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstbProductos.FormattingEnabled = true;
+            this.lstbProductos.ItemHeight = 17;
+            this.lstbProductos.Location = new System.Drawing.Point(16, 42);
+            this.lstbProductos.Name = "lstbProductos";
+            this.lstbProductos.Size = new System.Drawing.Size(533, 157);
+            this.lstbProductos.TabIndex = 7;
+            this.lstbProductos.SelectedIndexChanged += new System.EventHandler(this.lstbProductos_SelectedIndexChanged_1);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(16, 28);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(170, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Elegir las opciones con un click:";
             // 
             // lblIva
             // 
@@ -297,6 +297,7 @@
             this.btnEmitirFactura.TabIndex = 1;
             this.btnEmitirFactura.Text = "Emitir Factura (A/B/C/x)";
             this.btnEmitirFactura.UseVisualStyleBackColor = true;
+            this.btnEmitirFactura.Click += new System.EventHandler(this.btnEmitirFactura_Click);
             // 
             // btnCobrarYFinalizar
             // 

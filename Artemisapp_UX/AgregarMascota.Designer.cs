@@ -224,9 +224,9 @@
             this.btnGuardarDatos.Name = "btnGuardarDatos";
             this.btnGuardarDatos.Size = new System.Drawing.Size(167, 63);
             this.btnGuardarDatos.TabIndex = 14;
-            this.btnGuardarDatos.Text = "Aceptar";
+            this.btnGuardarDatos.Text = "Guardar Mascota";
             this.btnGuardarDatos.UseVisualStyleBackColor = true;
-            this.btnGuardarDatos.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarDatos.Click += new System.EventHandler(this.btnGuardarDatos_Click);
             // 
             // button2
             // 

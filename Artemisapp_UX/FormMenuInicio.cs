@@ -56,7 +56,9 @@ namespace Artemisapp_UX
 
         private void manuCambiarUsuario_Click(object sender, EventArgs e)
         {
-            Application.Restart(); // Reinicia la aplicación para volver a la pantalla de login
+            FormLogin login = new FormLogin();
+            login.Show();
+            this.Close();
         }
 
         // --- GESTIÓN DE USUARIOS ---
@@ -124,6 +126,11 @@ namespace Artemisapp_UX
         {
             HistoriaClinica form = new HistoriaClinica(); // Crear una instancia del formulario
             form.Show(); // Mostrar el formulario
+        }
+
+        private void menuInicio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

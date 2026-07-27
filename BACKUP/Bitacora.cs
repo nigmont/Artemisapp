@@ -25,7 +25,6 @@ namespace BACKUP
             }
         }
 
-        // Registra un nuevo evento en la bitácora
         public void RegistrarEvento(EventoBitacora evento)
         {
             InicializarXML();
@@ -45,8 +44,7 @@ namespace BACKUP
         public List<EventoBitacora> ObtenerTodos()
         {
             InicializarXML();
-            XDocument doc = XDocument.Load(ruta); // doc es un objeto que representa el documento XML
-                                                  // cargado desde la ruta especificada
+            XDocument doc = XDocument.Load(ruta);
 
             // lista es una lista de objetos EventoBitacora que se llenará con los eventos leídos del archivo XML
             List<EventoBitacora> lista = new List<EventoBitacora>();

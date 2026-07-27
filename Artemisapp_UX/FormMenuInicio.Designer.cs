@@ -74,6 +74,7 @@
             this.menuInicio.Size = new System.Drawing.Size(62, 20);
             this.menuInicio.Tag = "";
             this.menuInicio.Text = "🏠 Inicio";
+            this.menuInicio.Click += new System.EventHandler(this.menuInicio_Click);
             // 
             // manuCambiarUsuario
             // 
@@ -151,21 +152,21 @@
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // restoreToolStripMenuItem
             // 
             this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restoreToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.restoreToolStripMenuItem.Text = "Restore";
             this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 
             this.bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
-            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bitacoraToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.bitacoraToolStripMenuItem.Text = "Bitacora";
             this.bitacoraToolStripMenuItem.Click += new System.EventHandler(this.bitacoraToolStripMenuItem_Click);
             // 
@@ -173,7 +174,7 @@
             // 
             this.dashBoardToolStripMenuItem.Name = "dashBoardToolStripMenuItem";
             this.dashBoardToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.dashBoardToolStripMenuItem.Tag = "Dashboard";
+            this.dashBoardToolStripMenuItem.Tag = "";
             this.dashBoardToolStripMenuItem.Text = "DashBoard";
             this.dashBoardToolStripMenuItem.Click += new System.EventHandler(this.dashBoardToolStripMenuItem_Click);
             // 
@@ -188,7 +189,8 @@
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMenuInicio";
-            this.Text = "FormMenuInicio";
+            this.Text = "Artemisapp - Menú Inicio";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMenuInicio_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

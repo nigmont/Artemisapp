@@ -129,7 +129,8 @@
             this.Controls.Add(this.txtUsuario);
             this.DoubleBuffered = true;
             this.Name = "FormLogin";
-            this.Text = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Artemisapp - Iniciar Sesión";
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

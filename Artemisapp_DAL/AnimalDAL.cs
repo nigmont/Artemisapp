@@ -107,5 +107,31 @@ public class AnimalDAL
         }
     }
 
+    // CRUDO: reemplaza el nodo existente (busca por Nombre + NroCte) por el nuevo
+    public bool ActualizarCrudo(XElement animalActualizado)
+    {
+        try
+        {
+            InicializarXML();
+            XDocument doc = XDocument.Load(ruta);
+            string nombre = (string)animalActualizado.Element("Nombre");
+            string nroCte = (string)animalActualizado.Element("NroCte");
+
+            XElement elem = doc.Root.Elements("Animal")
+                              .FirstOrDefault(x => (string)x.Element("Nombre") == nombre &&
+                                                    (string)x.Element("NroCte") == nroCte);
+            if (elem != null)
+            {
+                elem.ReplaceWith(animalActualizado);
+                doc.Save(ruta);
+                return true;
+            }
+            return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
 }

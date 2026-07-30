@@ -1,4 +1,5 @@
-﻿using Artemisapp_BE.Composite;
+﻿using Artemisapp_BE;
+using Artemisapp_BE.Composite;
 using Artemisapp_MPP;
 using System.Collections.Generic;
 
@@ -46,6 +47,41 @@ namespace Artemisapp_BLL
         public bool ActualizarRol(BERol rol)
         {
             return mapper.Actualizar(rol);
+        }
+
+        // Modifica el nombre de un rol (conserva sus permisos)
+        public bool ModificarNombreRol(long id, string nuevoNombre)
+        {
+            BERol rol = mapper.BuscarPorId(id);
+            if (rol == null)
+                return false;
+
+            rol.Nombre = nuevoNombre;
+            return mapper.Actualizar(rol);
+        }
+
+        // Devuelve true si algún usuario tiene asignado este rol
+        public bool RolEstaEnUso(long idRol, out string nombreUsuarioQueLoUsa)
+        {
+            UsuarioClaveBLL usuarioBLL = new UsuarioClaveBLL();
+            foreach (UsuarioClaves u in usuarioBLL.ObtenerTodos())
+            {
+                foreach (BERol r in u.Roles)
+                {
+                    if (r.Id == idRol)
+                    {
+                        nombreUsuarioQueLoUsa = u.Usuario;
+                        return true;
+                    }
+                }
+            }
+            nombreUsuarioQueLoUsa = null;
+            return false;
+        }
+
+        public bool EliminarRol(long id)
+        {
+            return mapper.Eliminar(id);
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Artemisapp_UX
         {
             InitializeComponent();
         }
+        private string _usuarioSeleccionado = null;
+        private BERol _rolSeleccionado = null;
 
         private void FormGestionAccesos_Load(object sender, EventArgs e)
         {
@@ -378,5 +380,233 @@ namespace Artemisapp_UX
                 txtNuevaPassword.Text = textoDescifrado;
             }
         }
+
+        private void lstUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstUsuarios.SelectedItem == null) return;
+
+            _usuarioSeleccionado = lstUsuarios.SelectedItem.ToString();
+
+            UsuarioClaveBLL bll = new UsuarioClaveBLL();
+            UsuarioClaves u = bll.ObtenerPorNombreUsuario(_usuarioSeleccionado);
+            if (u != null)
+            {
+                txtNuevoUsuario.Text = u.Usuario;
+                txtNuevoUsuario.Enabled = false; // el nombre de usuario es la clave, no se edita
+                txtNuevaPassword.Clear();        // por seguridad, no mostramos la contraseña real
+                txtNuevoDni.Text = u.Dni;
+                chbxEncriptar.Checked = false;
+            }
+        }
+
+        private void btnModificarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_usuarioSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un usuario de la lista para modificar.");
+                    return;
+                }
+
+                UsuarioClaveBLL bll = new UsuarioClaveBLL();
+                bool ok = bll.ModificarDatosUsuario(_usuarioSeleccionado, txtNuevaPassword.Text, txtNuevoDni.Text.Trim());
+
+                if (ok)
+                {
+                    MessageBox.Show("Usuario modificado correctamente.");
+                    LimpiarCamposUsuario();
+                    CargarUsuarios();
+                    CargarArbolUsuariosRolesPermisos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_usuarioSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un usuario de la lista para eliminar.");
+                    return;
+                }
+
+                DialogResult r = MessageBox.Show(
+                    "¿Eliminar al usuario \"" + _usuarioSeleccionado + "\"?",
+                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r != DialogResult.Yes) return;
+
+                UsuarioClaveBLL bll = new UsuarioClaveBLL();
+                bool ok = bll.EliminarUsuario(_usuarioSeleccionado);
+
+                if (ok)
+                {
+                    MessageBox.Show("Usuario eliminado correctamente.");
+                    LimpiarCamposUsuario();
+                    CargarUsuarios();
+                    CargarArbolUsuariosRolesPermisos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void LimpiarCamposUsuario()
+        {
+            txtNuevoUsuario.Clear();
+            txtNuevoUsuario.Enabled = true;
+            txtNuevaPassword.Clear();
+            txtNuevoDni.Clear();
+            _usuarioSeleccionado = null;
+        }
+
+        private void lstRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstRoles.SelectedItem == null) return;
+
+            string nombreRol = lstRoles.SelectedItem.ToString();
+
+            RolBLL bll = new RolBLL();
+            _rolSeleccionado = bll.ObtenerTodos().FirstOrDefault(r => r.Nombre == nombreRol);
+
+            if (_rolSeleccionado != null)
+            {
+                txtNombreRol.Text = _rolSeleccionado.Nombre;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_rolSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un rol de la lista para modificar.");
+                    return;
+                }
+
+                string nuevoNombre = txtNombreRol.Text.Trim();
+                if (nuevoNombre == "")
+                {
+                    MessageBox.Show("El nombre del rol no puede estar vacío.");
+                    return;
+                }
+
+                RolBLL bll = new RolBLL();
+                bool ok = bll.ModificarNombreRol(_rolSeleccionado.Id, nuevoNombre);
+
+                if (ok)
+                {
+                    MessageBox.Show("Rol modificado correctamente.");
+                    LimpiarCamposRol();
+                    CargarRoles();
+                    CargarArbolRolesPermisos();
+                    CargarArbolUsuariosRolesPermisos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar el rol.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_rolSeleccionado == null)
+                {
+                    MessageBox.Show("Seleccioná un rol de la lista para eliminar.");
+                    return;
+                }
+
+                RolBLL bll = new RolBLL();
+
+                string usuarioQueLoUsa;
+                if (bll.RolEstaEnUso(_rolSeleccionado.Id, out usuarioQueLoUsa))
+                {
+                    MessageBox.Show(
+                        "No se puede eliminar el rol \"" + _rolSeleccionado.Nombre +
+                        "\" porque está asignado al usuario \"" + usuarioQueLoUsa + "\".\n" +
+                        "Quitale ese rol primero.",
+                        "Rol en uso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DialogResult r = MessageBox.Show(
+                    "¿Eliminar el rol \"" + _rolSeleccionado.Nombre + "\"?",
+                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (r != DialogResult.Yes) return;
+
+                bool ok = bll.EliminarRol(_rolSeleccionado.Id);
+
+                if (ok)
+                {
+                    MessageBox.Show("Rol eliminado correctamente.");
+                    LimpiarCamposRol();
+                    CargarRoles();
+                    CargarArbolRolesPermisos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el rol.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void LimpiarCamposRol()
+        {
+            txtNombreRol.Clear();
+            _rolSeleccionado = null;
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            txtNuevoUsuario.Clear();
+            txtNuevoUsuario.Enabled = true; // por si quedó bloqueado tras seleccionar un usuario para editar
+            txtNuevaPassword.Clear();
+            txtNuevoDni.Clear();
+            txtNombreRol.Clear();
+
+            chbxEncriptar.Checked = false;
+
+            // Limpiamos también las selecciones activas, para que no queden
+            // "colgadas" apuntando a un usuario/rol que ya no se está editando
+            _usuarioSeleccionado = null;
+            _rolSeleccionado = null;
+
+            lstUsuarios.ClearSelected();
+            lstRoles.ClearSelected();
+        }
+
+        private void btnActualizarArboles_Click(object sender, EventArgs e)
+        {
+            CargarArbolRolesPermisos();
+            CargarArbolUsuariosRolesPermisos();
+        }
     }
 }
+    

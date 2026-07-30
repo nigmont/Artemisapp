@@ -88,5 +88,28 @@ namespace Artemisapp_DAL
                 return false;
             }
         }
+
+        public bool EliminarCrudo(string nombreUsuario)
+        {
+            try
+            {
+                InicializarXML();
+                XDocument doc = XDocument.Load(ruta);
+
+                XElement elem = doc.Root.Elements("UsuarioClaves")
+                                  .FirstOrDefault(x => (string)x.Element("Usuario") == nombreUsuario);
+                if (elem != null)
+                {
+                    elem.Remove();
+                    doc.Save(ruta);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

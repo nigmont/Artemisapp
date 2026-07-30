@@ -83,6 +83,12 @@ namespace Artemisapp_MPP
             XElement rolActualizado = ToXml(rol);
             return dal.ActualizarCrudo(rolActualizado);
         }
+
+        public bool Eliminar(long id)
+        {
+            RolDAL dal = new RolDAL();
+            return dal.EliminarCrudo(id);
+        }
     }
 }
 

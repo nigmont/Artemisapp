@@ -57,5 +57,25 @@ namespace Artemisapp_BLL
         {
             return mapper.Actualizar(usuario);
         }
+
+        public bool EliminarUsuario(string nombreUsuario)
+        {
+            return mapper.Eliminar(nombreUsuario);
+        }
+
+        // Modifica DNI y, opcionalmente, la contraseña de un usuario existente.
+        // Si nuevaPassword viene vacía, se conserva la contraseña actual (no se toca).
+        public bool ModificarDatosUsuario(string nombreUsuario, string nuevaPassword, string dni)
+        {
+            UsuarioClaves existente = mapper.BuscarPorNombreUsuario(nombreUsuario);
+            if (existente == null)
+                return false;
+
+            if (!string.IsNullOrEmpty(nuevaPassword))
+                existente.Password = Encriptacion.EncriptarPassword(nuevaPassword);
+
+            existente.Dni = dni;
+            return mapper.Actualizar(existente);
+        }
     }
 }

@@ -121,6 +121,9 @@
   <data name="Login Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RectanguloAnimales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RectanguloAnimales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="gato2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gato2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,7 +148,7 @@
   <data name="gato1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gato1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RectanguloAnimales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RectanguloAnimales.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Historia clinica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Historia clinica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

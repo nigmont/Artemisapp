@@ -94,5 +94,16 @@ namespace Artemisapp_BLL
             // Ordenamos por horario: el más cercano primero
             return cola.OrderBy(t => TimeSpan.Parse(t.Horario)).ToList();
         }
+
+        // Busca el turno de HOY, en estado Pendiente, para ese DNI de cliente
+        public Turno BuscarTurnoPendienteDeHoy(string dni)
+        {
+            foreach (Turno t in mapper.ObtenerTodos())
+            {
+                if (t.Dni == dni && t.Fecha.Date == DateTime.Today && t.Estado == "Pendiente")
+                    return t;
+            }
+            return null;
+        }
     }
 }

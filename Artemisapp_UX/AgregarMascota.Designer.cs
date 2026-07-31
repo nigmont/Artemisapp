@@ -222,7 +222,7 @@
             // 
             this.btnGuardarDatos.Location = new System.Drawing.Point(219, 346);
             this.btnGuardarDatos.Name = "btnGuardarDatos";
-            this.btnGuardarDatos.Size = new System.Drawing.Size(167, 63);
+            this.btnGuardarDatos.Size = new System.Drawing.Size(167, 38);
             this.btnGuardarDatos.TabIndex = 14;
             this.btnGuardarDatos.Text = "Guardar Mascota";
             this.btnGuardarDatos.UseVisualStyleBackColor = true;

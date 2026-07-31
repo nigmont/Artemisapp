@@ -66,6 +66,7 @@
             this.txtDescuentos = new System.Windows.Forms.TextBox();
             this.txtTotalParcial = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblMascotaCobrada = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbMediosDePago.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblMascotaCobrada);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblClienteNumero);
             this.groupBox1.Controls.Add(this.btnBuscarNroCte);
@@ -483,6 +485,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Agregar adicionales";
             // 
+            // lblMascotaCobrada
+            // 
+            this.lblMascotaCobrada.AutoSize = true;
+            this.lblMascotaCobrada.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMascotaCobrada.Location = new System.Drawing.Point(7, 83);
+            this.lblMascotaCobrada.Name = "lblMascotaCobrada";
+            this.lblMascotaCobrada.Size = new System.Drawing.Size(97, 13);
+            this.lblMascotaCobrada.TabIndex = 11;
+            this.lblMascotaCobrada.Text = "Mascota Cobrada";
+            // 
             // _07CobrarConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,7 +509,7 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "_07CobrarConsulta";
-            this.Text = "_07CobrarConsulta";
+            this.Text = "ARTEMISAPP - COBRAR CONSULTA";
             this.Load += new System.EventHandler(this._07CobrarConsulta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -558,5 +570,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblMascotaCobrada;
     }
 }

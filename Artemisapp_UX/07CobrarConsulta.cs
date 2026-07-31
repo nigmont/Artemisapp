@@ -80,9 +80,9 @@ namespace Artemisapp_UX
                 // Traemos el monto de la consulta desde la historia clínica
                 HistoriaClinicaBLL hcBLL = new HistoriaClinicaBLL();
 
-                Artemisapp_BE.HistoriaClinica h = hcBLL.BuscarHistoriaPorDNI(dni);
+                Artemisapp_BE.HistoriaClinica h = hcBLL.BuscarUltimaHistoriaPorDNI(dni);
                 montoConsulta = (h != null) ? h.MontoConsulta : 0;
-                MessageBox.Show("DNI buscado: '" + dni + "' | Historia encontrada: " + (h != null) + " | Monto: " + (h != null ? h.MontoConsulta.ToString() : "sin historia"));
+                lblMascotaCobrada.Text = (h != null) ? "Consulta de: " + h.NombreMascota : "Sin consulta registrada";
                 itemsFactura.Clear();
                 txtTotalParcial.Text = montoConsulta.ToString();
                 RecalcularTotales();

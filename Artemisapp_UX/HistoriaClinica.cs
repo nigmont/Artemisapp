@@ -77,13 +77,44 @@ namespace Artemisapp_UX
                 {
                     txtNumeroCliente.Text = cli.NroCte;
 
-                    // Mostramos la primera mascota del cliente (la que va a ser atendida)
+                    // Se carga el combo con TODAS las mascotas del cliente
                     AnimalBLL animalBLLmascota = new AnimalBLL();
                     List<Animal> mascotasCli = animalBLLmascota.ObtenerAnimalesPorDNI(cli.NroCte);
-                    if (mascotasCli.Count > 0)
-                        lblNombreMascota1.Text = mascotasCli[0].Nombre;
+
+                    cmbMascotas.Items.Clear();
+                    foreach (Animal m in mascotasCli)
+                    {
+                        cmbMascotas.Items.Add(m.Nombre);
+                    }
+
+                    if (cmbMascotas.Items.Count > 0)
+                    {
+                        cmbMascotas.SelectedIndex = 0; // por defecto selecciona la primera, pero el veterinario puede cambiarla
+                        lblNombreMascota1.Text = cmbMascotas.SelectedItem.ToString();
+                    }
                     else
+                    {
                         lblNombreMascota1.Text = "Sin mascotas";
+                    }
+
+                    // Buscamos si el cliente tiene un turno pendiente para hoy
+                    TurnosBLL turnosBLL = new TurnosBLL();
+                    Turno turnoPendiente = turnosBLL.BuscarTurnoPendienteDeHoy(dni);
+
+                    if (turnoPendiente != null)
+                    {
+                        lblNumeroTurno.Text = "N° " + turnoPendiente.IdTurno;
+                        lblEstadoTurno.Text = "Estado: " + turnoPendiente.Estado + " — " + turnoPendiente.Horario + " hs";
+                        lblNumeroTurno.Tag = turnoPendiente; // guardamos el turno completo para usarlo después
+                        btnFinalizarTurno.Enabled = true;
+                    }
+                    else
+                    {
+                        lblNumeroTurno.Text = "N° —";
+                        lblEstadoTurno.Text = "Sin turno pendiente para hoy";
+                        lblNumeroTurno.Tag = null;
+                        btnFinalizarTurno.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -150,20 +181,17 @@ namespace Artemisapp_UX
                     return;
                 }
 
-                // Obtenemos la primera mascota del cliente
-                AnimalBLL animalBLL = new AnimalBLL();
-                List<Animal> mascotas = animalBLL.ObtenerAnimalesPorDNI(nroCte);
+                // Validamos que se haya elegido una mascota en el combo
+                if (cmbMascotas.SelectedItem == null)
+                {
+                    lblResultado.Text = "Seleccioná una mascota del desplegable.";
+                    return;
+                }
 
-                string nombreMascota;
-                if (mascotas.Count > 0)
-                    nombreMascota = mascotas[0].Nombre;
-                else
-                    nombreMascota = "Sin mascota";
+                string nombreMascota = cmbMascotas.SelectedItem.ToString();
 
-                // Monto fijo por ahora
                 double montoConsulta = _montoConsulta;
 
-                // Creamos la historia clínica
                 Artemisapp_BE.HistoriaClinica h = new Artemisapp_BE.HistoriaClinica(
                     dni,
                     txtIdHistoria.Text,
@@ -175,14 +203,10 @@ namespace Artemisapp_UX
                     montoConsulta
                 );
 
-                // Guardamos
                 bool resultado = bll.RegistrarConsulta(h);
 
                 if (resultado)
                 {
-                    // Mostramos los datos de la mascota en el label
-                    lblDatosMascota.Text = "Mascota atendida: " + nombreMascota;
-
                     lblResultado.Text = "Historia clínica guardada:" +
                                         "\nDNI: " + dni +
                                         "\nID Historia: " + txtIdHistoria.Text +
@@ -255,15 +279,21 @@ namespace Artemisapp_UX
                 foreach (var item in clbAdicionales.SelectedItems)
                 {
                     string texto = item.ToString();
-                    if (texto.Contains("Castración"))
-                        _montoConsulta += 90000;
+                    if (texto.Contains("Limpieza Dental"))
+                        _montoConsulta += 45000;
                     else if (texto.Contains("Vacunación"))
                         _montoConsulta += 20000;
                     else if (texto.Contains("Medicación"))
                         _montoConsulta += 5000;
+                    else if (texto.Contains("Desparacitación"))
+                        _montoConsulta += 10000;
+                    else if (texto.Contains("Ecografía"))
+                        _montoConsulta += 25000;
+                    else if (texto.Contains("Castración"))
+                        _montoConsulta += 90000;
                 }
 
-                // Sumamos el otro monto si el veterinario cargó algo
+                // Se suma el otro monto si el veterinario cargó algo
                 if (txtOtroMonto.Text.Trim() != "")
                 {
                     double otro;
@@ -271,7 +301,7 @@ namespace Artemisapp_UX
                         _montoConsulta += otro;
                 }
 
-                // Mostramos el total en el label
+                // Se muestra el total en el label
                 lblMontoParcialConsulta.Text = "Monto consulta: $" + _montoConsulta;
                 MessageBox.Show("Total consulta: $" + _montoConsulta);
             }
@@ -293,6 +323,108 @@ namespace Artemisapp_UX
         private void clbAdicionales_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbMascotas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMascotas.SelectedItem == null) return;
+
+            string dni = txtDni.Text.Trim();
+            string mascotaElegida = cmbMascotas.SelectedItem.ToString();
+
+            lblNombreMascota1.Text = mascotaElegida;
+
+            // Buscamos si YA existe una historia clínica de esta mascota puntual
+            Artemisapp_BE.HistoriaClinica h = bll.BuscarHistoriaPorDNIyMascota(dni, mascotaElegida);
+
+            if (h != null)
+            {
+                // Ya tiene historia esta mascota: cargamos sus datos
+                txtIdHistoria.Text = h.IdHistoria;
+                dtpFecha.Value = h.FechaDeConsulta;
+                txtEstudios.Text = h.Estudios;
+                txtInternaciones.Text = h.Internaciones;
+                txtObservaciones.Text = h.Observaciones;
+                lblResultado.Text = "✅ Historia encontrada:" +
+                                    "\nDNI: " + h.Dni +
+                                    "\nID Historia: " + h.IdHistoria +
+                                    "\nMascota: " + h.NombreMascota +
+                                    "\nFecha: " + h.FechaDeConsulta.ToString("dd/MM/yyyy") +
+                                    "\nEstudios: " + h.Estudios +
+                                    "\nInternaciones: " + h.Internaciones +
+                                    "\nObservaciones: " + h.Observaciones +
+                                    "\nMonto: $" + h.MontoConsulta;
+            }
+            else
+            {
+                // Esta mascota no tiene historia previa: limpiamos y generamos un ID nuevo
+                txtEstudios.Clear();
+                txtInternaciones.Clear();
+                txtObservaciones.Clear();
+                dtpFecha.Value = DateTime.Now;
+
+                int nuevoId = 100100;
+                foreach (Artemisapp_BE.HistoriaClinica hist in bll.ObtenerTodas())
+                {
+                    int idExistente;
+                    if (int.TryParse(hist.IdHistoria, out idExistente) && idExistente >= nuevoId)
+                        nuevoId = idExistente + 1;
+                }
+                txtIdHistoria.Text = nuevoId.ToString();
+                lblResultado.Text = mascotaElegida + " no tiene historia previa. Se generó el ID: " + nuevoId;
+            }
+
+            // Reordenamos la grilla para que esta mascota quede primera (lo que armamos antes)
+            AnimalBLL animalBLL = new AnimalBLL();
+            List<Animal> todasLasMascotas = animalBLL.ObtenerTodos();
+            List<Animal> ordenadas = todasLasMascotas
+                .OrderBy(a => (a.Nombre == mascotaElegida && a.NroCte == txtNumeroCliente.Text.Trim()) ? 0 : 1)
+                .ToList();
+
+            dtgvListadoMascotas.DataSource = null;
+            dtgvListadoMascotas.DataSource = ordenadas;
+        }
+
+        private void btnModificarConsulta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizarTurnoo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(lblNumeroTurno.Tag is Turno turno))
+                {
+                    MessageBox.Show("No hay un turno pendiente para marcar como atendido.");
+                    return;
+                }
+
+                DialogResult r = MessageBox.Show(
+                    "¿Marcar el turno N° " + turno.IdTurno + " como Atendido?",
+                    "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r != DialogResult.Yes) return;
+
+                turno.Estado = "Atendido";
+                TurnosBLL turnosBLL = new TurnosBLL();
+                bool ok = turnosBLL.ModificarTurno(turno);
+
+                if (ok)
+                {
+                    lblEstadoTurno.Text = "Estado: Atendido ✔";
+                    lblNumeroTurno.Tag = null; // ya se procesó, evita marcarlo dos veces
+                    btnFinalizarTurno.Enabled = false;
+                    MessageBox.Show("Turno marcado como Atendido.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo actualizar el turno.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

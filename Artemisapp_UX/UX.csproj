@@ -263,5 +263,8 @@
   <ItemGroup>
     <None Include="Resources\RectanguloAnimales.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Historia clinica.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

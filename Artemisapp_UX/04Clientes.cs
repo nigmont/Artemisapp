@@ -321,9 +321,70 @@ namespace Artemisapp_UX
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // modif mascota
         {
+            if (txtNroCte.Text.Trim() == "")
+            {
+                MessageBox.Show("Primero buscá un cliente.");
+                return;
+            }
 
+            if (dtgvMascotaAsociadaCliente.CurrentRow == null ||
+                !(dtgvMascotaAsociadaCliente.CurrentRow.DataBoundItem is Animal mascota))
+            {
+                MessageBox.Show("Seleccioná una mascota de la lista para modificar.");
+                return;
+            }
+
+            FormAgregarMascota form = new FormAgregarMascota(txtNroCte.Text.Trim(), mascota);
+            form.ShowDialog(this);
+
+            CargarMascotasDelCliente(txtNroCte.Text.Trim());
+        }
+
+        private void btnReactivarCliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dni = txtDniCte.Text.Trim();
+                if (dni == "")
+                {
+                    MessageBox.Show("Buscá un cliente por DNI primero.");
+                    return;
+                }
+
+                ClienteBLL bll = new ClienteBLL();
+                Cliente c = bll.BuscarClientePorDNI(dni);
+
+                if (c == null)
+                {
+                    MessageBox.Show("No existe un cliente con ese DNI.");
+                    return;
+                }
+
+                if (c.Activo == true)
+                {
+                    MessageBox.Show("Ese cliente ya está activo.");
+                    return;
+                }
+
+                DialogResult r = MessageBox.Show(
+                    "¿Reactivar al cliente " + c.Nombre + " " + c.Apellido + "?",
+                    "Confirmar reactivación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r != DialogResult.Yes) return;
+
+                Cliente activo = new Cliente(
+                    c.Dni, c.NroCte, c.Nombre, c.Apellido, c.Direccion, c.Telefono, c.Email, c.Mascotas, true
+                );
+
+                bll.actualizarDatos(activo);
+                MessageBox.Show("Cliente reactivado correctamente.");
+                CargarListadoClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
